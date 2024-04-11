@@ -1,3 +1,8 @@
+# How to run the latest Ontology
+
+Make sure you have the definitions submodule initialized using: git submodule update --init
+Run 'generate_ontolgy.sh'
+
 # NeXusOntology
 NeXusOntology: Machine-readable ontology of the NeXus definitions.
 
