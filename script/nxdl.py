@@ -9,7 +9,8 @@ import definitions.dev_tools.utils.nxdl_utils as nexus
 local_dir = os.path.abspath(os.path.dirname(__file__))
 nexus_def_path = os.path.join(local_dir, f"..{os.sep}definitions")
 os.environ['NEXUS_DEF_PATH']=nexus_def_path
-nxdl_folders = ["contributed_definitions", "base_classes", "applications"]
+nxdl_folders = ["base_classes", "applications"]
+nxdl_folders_full = ["contributed_definitions", "base_classes", "applications"]
 
 namespace = {"nxdl": "http://definition.nexusformat.org/nxdl/3.1"}
 
@@ -102,12 +103,14 @@ def get_max_occurs_from_xml_node(element):
         return int(element.get("maxOccurs"))
     return None
 
-def load_all_nxdls() -> dict:
+def load_all_nxdls(full = True) -> dict:
     nxdl_info = {"base_classes":{}, "applications":{}, "field":{}, "attribute":{}, "group":{}}
     just_fnames = []
     files = []
 
-    for folder in nxdl_folders:
+    act_folders = nxdl_folders_full if full else nxdl_folders
+
+    for folder in act_folders:
         files_in_folder = next(walk(nexus_def_path + "/" + folder), (None, None, []))[2]
         files_in_folder = list(filter(lambda filename: filename.endswith(".nxdl.xml"), files_in_folder))
         intersection = [value for value in just_fnames if value in files_in_folder]

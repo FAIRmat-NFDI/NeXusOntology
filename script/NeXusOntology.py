@@ -16,9 +16,9 @@ def get_script_hash():
             return h.hexdigest()
 class NeXusOntology:
 
-    def __init__(self, onto, base_iri, web_page_base_prefix, versionInfo):
+    def __init__(self, onto, base_iri, web_page_base_prefix, versionInfo, full = True):
         self.__onto__ = onto
-        self.nxdl_info = nxdl.load_all_nxdls()
+        self.nxdl_info = nxdl.load_all_nxdls(full)
         self.base_iri = base_iri
         self.web_page_base_prefix = web_page_base_prefix
         self.web_page_prefix = self.web_page_base_prefix + "classes/"
