@@ -70,7 +70,7 @@ def load_unit_categories():
         if name == "anyUnitsAttr":
             union_el = nxtype.getElementsByTagName('xs:union')
             types = union_el[0].getAttribute('memberTypes')
-            types = types.replace(" ", "").split("nxdl:")[1:]
+            types = types.replace(" ", "").split("xs:")[0].split("nxdl:")[1:]
     
     for type in types:
         typesDict[type] = {}
@@ -136,8 +136,9 @@ def load_all_nxdls(full = True) -> dict:
             for path, element in get_all_tags(iterator, xml_tag):
                 nxdl_info[xml_tag][path] = {"comment": safe_get_xml_doc(element), "category": file.split("/")[-2], "type": element.get("type") or "NX_CHAR", "unit_category": element.get("units") or "NX_ANY",
                                             "minOccurs": get_min_occurs_from_xml_node(element, root.get("category") == "base"), "maxOccurs": get_max_occurs_from_xml_node(element)}
-                enums = nexus.get_enums(element)[1].strip("[").strip("]")
-                if enums != "":
+                enums = nexus.get_enums(element)
+                if enums is not None:
+                    enums = enums[0].strip("[").strip("]")
                     nxdl_info[xml_tag][path]["enums"] = enums.split(",")
                 elist = nexus.get_inherited_nodes(nxdl_path=path[path.find("/"):], nx_name=path[:path.find("/")])[2]
                 if len(elist)>1:

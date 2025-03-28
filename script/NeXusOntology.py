@@ -33,29 +33,37 @@ class NeXusOntology:
                 comment = 'NeXus concept'
                 versionInfo = self.versionInfo
             self.NeXus = NeXus
-            class NXobject(NeXus):
-                comment = self.nxdl_info["base_classes"]['NXobject']['doc'].replace('\t','') # NeXus documentation string
+ 
+            class NeXusObject(NeXus):
+                # comment = self.nxdl_info["base_classes"]['NXobject']['doc'].replace('\t','') # NeXus documentation string 
+                comment = 'NeXus Object (All the concepts defined by the NeXus definitions)'
                 # seeAlso = base_class_web_page_prefix + 'NXobject' + '.html'
-                iri = self.base_iri + 'NXobject'   #set iri using agree pattern for Nexus
+                # iri = self.base_iri + 'NXobject'   #set iri using agree pattern for Nexus
+            self.NeXusObject = NeXusObject
 
-            class NeXusBaseClass(NXobject):
+            class NeXusBaseClass(NeXusObject):
                 comment = 'NeXus Base Class (Newer entries are found in Contributed Definitions)'
                 seeAlso = self.web_page_prefix + 'base_classes/index.html'
             self.NeXusBaseClass = NeXusBaseClass
 
-            class NeXusApplicationClass(NXobject):
+            class NeXusApplicationClass(NeXusObject):
                 comment = 'NeXus Application Class (Newer entries are found in Contributed Definitions)'
                 seeAlso = self.web_page_prefix + 'applications/index.html'
             self.NeXusApplicationClass = NeXusApplicationClass
 
-            class NeXusAttribute(NXobject):
+            class NeXusQuantity(NeXusObject):
+                comment = 'NeXus Quantity (Attributes and Fields which can contain actual data values)'
+            self.NeXusQuantity = NeXusQuantity
+
+            class NeXusAttribute(NeXusQuantity):
                 comment = 'NeXus Attribute'
             self.NeXusAttribute = NeXusAttribute
 
-            class NeXusField(NXobject):
+            class NeXusField(NeXusQuantity):
                 comment = 'NeXus Field'
             self.NeXusField = NeXusField
-            class NeXusGroup(NXobject):
+
+            class NeXusGroup(NeXusObject):
                 comment = 'NeXus Group'
             self.NeXusGroup = NeXusGroup
 
@@ -73,21 +81,21 @@ class NeXusOntology:
                 label = "NeXusDataType"
             self.NeXusDataType = NeXusDataType
 
-            owlready2.AllDisjoint([NeXusDataType,NeXusUnitCategory,NXobject])
-            owlready2.AllDisjoint([NeXusGroup,NeXusField,NeXusAttribute])
-            owlready2.AllDisjoint([NeXusBaseClass,NeXusField,NeXusAttribute])
-            owlready2.AllDisjoint([NeXusApplicationClass,NeXusField,NeXusAttribute])
+            owlready2.AllDisjoint([NeXusDataType,NeXusUnitCategory,NeXusObject])
+            owlready2.AllDisjoint([NeXusQuantity,NeXusBaseClass,NeXusApplicationClass])
+            owlready2.AllDisjoint([NeXusGroup,NeXusQuantity,NeXusApplicationClass])
+            owlready2.AllDisjoint([NeXusField,NeXusAttribute])
 
             class extends(owlready2.AnnotationProperty):
                 pass
 
-            class has(NXobject >> NXobject):
+            class has(NeXusObject >> NeXusObject):
                 comment = 'A representation of a "has a" relationship.'
             self.has = has
             class actualValue(owlready2.DataProperty):
                 domain = [NeXus]
             self.actualValue = actualValue
-            class hasValueContainer(owlready2.FunctionalProperty, NXobject >> NeXusDataType):
+            class hasValueContainer(owlready2.FunctionalProperty, NeXusObject >> NeXusDataType):
                 comment = 'Representation fo having a Value assigned.'
             self.hasValueContainer = hasValueContainer
             class hasUnitContainer(owlready2.FunctionalProperty, NeXusField >> NeXusUnitCategory):
@@ -168,18 +176,27 @@ class NeXusOntology:
         with self.__onto__:
             for base_or_app in ("base_classes", "applications"):
                 for class_name in self.nxdl_info[base_or_app].keys():
-                    if not class_name == 'NXobject':    # NXobject can't be subclass of NXobject
-                        nx_class = types.new_class(class_name, (self.NeXusBaseClass if base_or_app == "base_classes" else self.NeXusApplicationClass,))
-                        nx_class.set_iri(nx_class, self.base_iri + ("BaseClass/" if base_or_app == "base_classes" else "Application/") + class_name) # use agreed term iri
-                        self.nxdl_info[base_or_app][class_name]['onto_class'] =  nx_class    # add class to dict 
-                        nx_class.comment.append(self.nxdl_info[base_or_app][class_name]['doc'])
-                        # TODO: replace this extends with __set_is_a_or_equivalent() 
-                        nx_class.extends.append(self.nxdl_info[base_or_app][class_name]['extends'])
-                        nx_class.label.append(class_name)
-                        web_page = self.web_page_prefix + self.nxdl_info[base_or_app][class_name]["category"] + "/" + class_name + '.html'                        
-                        nx_class.seeAlso.append(web_page)
-                        if "deprecated" in self.nxdl_info[base_or_app][class_name].keys():
-                            nx_class.deprecated.append(True)
+                    nx_class = types.new_class(class_name, (self.NeXusBaseClass if base_or_app == "base_classes" else self.NeXusApplicationClass,))
+                    nx_class.set_iri(nx_class, self.base_iri + ("BaseClass/" if base_or_app == "base_classes" else "Application/") + class_name) # use agreed term iri
+                    self.nxdl_info[base_or_app][class_name]['onto_class'] =  nx_class    # add class to dict 
+                    nx_class.comment.append(self.nxdl_info[base_or_app][class_name]['doc'])
+                    nx_class.label.append(class_name)
+                    web_page = self.web_page_prefix + self.nxdl_info[base_or_app][class_name]["category"] + "/" + class_name + '.html'                        
+                    nx_class.seeAlso.append(web_page)
+                    if "deprecated" in self.nxdl_info[base_or_app][class_name].keys():
+                        nx_class.deprecated.append(True)
+                        
+            for base_or_app in ("base_classes", "applications"):
+                for class_name in self.nxdl_info[base_or_app].keys():
+                    # TODO: replace this extends with __set_is_a_or_equivalent()
+                    if "extends" in self.nxdl_info[base_or_app][class_name].keys() and self.nxdl_info[base_or_app][class_name]['extends'] is not None:
+                        nx_class = self.nxdl_info[base_or_app][class_name]['onto_class']
+                        base = self.nxdl_info[base_or_app][class_name]['extends']
+                        nx_class.extends.append(base)
+                        if base_or_app == "applications" and base != "NXobject":
+                            nx_class.is_a.append(self.nxdl_info["applications"][base]["onto_class"])
+                        elif base_or_app == "base_classes":
+                            nx_class.is_a.append(self.nxdl_info["base_classes"][base]["onto_class"])
 
 
     def get_parent(self,child_type,child):
@@ -219,9 +236,15 @@ class NeXusOntology:
                     else:
                         nx_child.is_a.append(self.hasValueContainer.some(self.data_types[self.nxdl_info[child_type][child]["type"]]["onto_class"]))
                         nx_child.is_a.append(self.hasValueContainer.max(0,owlready2.Not(self.data_types[self.nxdl_info[child_type][child]["type"]]["onto_class"])))
+                        # TODO: Add unit category concept also for those given by an example unit
+                        # for now we skip them
                         if child_type == "field":
-                            nx_child.is_a.append(self.hasUnitContainer.max(1, self.unit_categories[self.nxdl_info[child_type][child]["unit_category"]]["onto_class"]))
-    
+                            unit = self.nxdl_info[child_type][child]["unit_category"]
+                            if unit in self.unit_categories:
+                                nx_child.is_a.append(self.hasUnitContainer.some(self.unit_categories[unit]["onto_class"]))
+                            else:
+                                nx_child.is_a.append(self.hasUnitContainer.some(self.unit_categories["NX_ANY"]["onto_class"]))
+
             # cleaning enum restrictions in superclass
             for child in self.nxdl_info[child_type].keys():
                 nx_child = self.nxdl_info[child_type][child]["onto_class"]

@@ -1,15 +1,16 @@
 import owlready2
+from pynxtools.definitions.dev_tools.utils.nxdl_utils import get_nexus_definitions_path
 from .NeXusOntology import NeXusOntology
 import pygit2
 import os
 import sys
 
 local_dir = os.path.abspath(os.path.dirname(__file__))
-nexus_def_path = os.path.join(local_dir, f"..{os.sep}definitions")
+nexus_def_path = str(get_nexus_definitions_path())
 os.environ['NEXUS_DEF_PATH']=nexus_def_path
 
 repo = pygit2.Repository(nexus_def_path)
-def_commit = repo.head.target.hex[:7]
+def_commit = str(repo.head.target)[:7]
 
 # Official NeXus definitions: https://manual.nexusformat.org/classes/
 web_page_base_prefix = 'https://manual.nexusformat.org/'
