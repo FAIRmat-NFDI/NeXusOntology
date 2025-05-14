@@ -1,16 +1,30 @@
 import owlready2
-from pynxtools.definitions.dev_tools.utils.nxdl_utils import get_nexus_definitions_path
 from .NeXusOntology import NeXusOntology
 import pygit2
 import os
 import sys
 
 local_dir = os.path.abspath(os.path.dirname(__file__))
-nexus_def_path = str(get_nexus_definitions_path())
+nexus_def_path = os.path.join(local_dir, f"..{os.sep}definitions")
 os.environ['NEXUS_DEF_PATH']=nexus_def_path
 
 repo = pygit2.Repository(nexus_def_path)
-def_commit = str(repo.head.target)[:7]
+# Check for provided commit hash argument
+if len(sys.argv) > 2:
+    commit_hash = sys.argv[2]
+    try:
+        # Use the provided commit hash directly
+        commit = repo.revparse_single(commit_hash)
+        repo.checkout_tree(commit)
+        repo.set_head(commit.id)  # Update HEAD to point to the commit
+        def_commit = commit_hash[:7]  # Use the provided commit hash
+        print(f"Checked out commit hash: {commit_hash} (commit: {def_commit})")
+    except KeyError:
+        print(f"Error: Commit hash '{commit_hash}' not found in the repository.")
+        sys.exit(1)
+else:
+    # Use the current HEAD commit if no version is specified
+    def_commit = repo.head.target.hex[:7]
 
 # Official NeXus definitions: https://manual.nexusformat.org/classes/
 web_page_base_prefix = 'https://manual.nexusformat.org/'
