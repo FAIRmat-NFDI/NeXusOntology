@@ -2,12 +2,12 @@ from os import walk
 import xml.dom.minidom
 import xml.etree.ElementTree as ET
 import os
-import definitions.dev_tools.utils.nxdl_utils as nexus
+from pynxtools.definitions.dev_tools.utils import nxdl_utils as nexus
 
 
 
 local_dir = os.path.abspath(os.path.dirname(__file__))
-nexus_def_path = os.path.join(local_dir, f"..{os.sep}definitions")
+nexus_def_path = os.path.join(local_dir, f"..{os.sep}..{os.sep}definitions")
 os.environ['NEXUS_DEF_PATH']=nexus_def_path
 nxdl_folders = ["base_classes", "applications"]
 nxdl_folders_full = ["contributed_definitions", "base_classes", "applications"]
