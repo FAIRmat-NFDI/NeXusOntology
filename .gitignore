@@ -195,4 +195,3 @@ cython_debug/
 # Custom settings
 
 .ontology/
-*.owl
