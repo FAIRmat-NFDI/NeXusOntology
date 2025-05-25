@@ -33,7 +33,14 @@ def main(full=False, nexus_def_path=None, def_commit=None):
 if __name__ == "__main__":
     import sys
     local_dir = os.path.abspath(os.path.dirname(__file__))
-    nexus_def_path = os.path.join(local_dir, f"..{os.sep}definitions")
+    one_up = os.path.join(local_dir, "..", "definitions")
+    two_up = os.path.join(local_dir, "..", "..", "definitions")
+    if os.path.isdir(one_up):
+        nexus_def_path = one_up
+    elif os.path.isdir(two_up):
+        nexus_def_path = two_up
+    else:
+        raise FileNotFoundError("definitions folder not found one or two directories up from script location.")
     full = len(sys.argv) > 1 and sys.argv[1] == 'full'
     repo = pygit2.Repository(nexus_def_path)
     # Check for provided commit hash argument
