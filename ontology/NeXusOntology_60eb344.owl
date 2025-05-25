@@ -37,7 +37,7 @@
 <owl:Class rdf:about="#NeXus">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NeXus concept</rdfs:comment>
-  <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">71be6c2</owl:versionInfo>
+  <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">60eb344</owl:versionInfo>
 </owl:Class>
 
 <owl:Class rdf:about="#NeXusObject">
@@ -3120,19 +3120,11 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/BaseClass/NXroot">
   <rdfs:subClassOf rdf:resource="#NeXusBaseClass"/>
-  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXobject"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
       <owl:onClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXroot/ENTRY"/>
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
-    </owl:Restriction>
-  </rdfs:subClassOf>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#has"/>
-      <owl:onClass rdf:resource="http://purl.org/nexusformat/definitions/Attribute/NXroot/NX_class"/>
-      <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
   <rdfs:subClassOf>
@@ -3233,10 +3225,22 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Definition of the root NeXus group.</rdfs:comment>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+        The root of a NeXus file.
+
+        In the NeXus standard, only NXentry groups are allowed at the
+        root level of a file, although it is permitted to include
+        additional groups and fields that are not part of the NeXus
+        standard and will not be validated by NeXus tools. NeXus defines
+        a number of root-level attributes that can be used to annotate
+        the NeXus tree.
+
+        Note that NXroot is the only base class that does not inherit
+        from the NXobject class, since the latter permits the inclusion
+        of NeXus objects that are not allowed at the root level.
+    </rdfs:comment>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXroot</rdfs:label>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXroot.html</rdfs:seeAlso>
-  <extends rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXobject</extends>
 </owl:Class>
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/BaseClass/NXpolarizer">
@@ -4594,7 +4598,7 @@
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
-      <owl:onClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXcalibration/coefficients"/>
+      <owl:onClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXcalibration/calibration_parameters"/>
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
@@ -4658,20 +4662,6 @@
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
       <owl:onClass rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcalibration/fit_formula_description"/>
-      <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-    </owl:Restriction>
-  </rdfs:subClassOf>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#has"/>
-      <owl:onClass rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcalibration/scaling_factor"/>
-      <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-    </owl:Restriction>
-  </rdfs:subClassOf>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#has"/>
-      <owl:onClass rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcalibration/offset"/>
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
@@ -7008,7 +6998,7 @@
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
-      <owl:onClass rdf:resource="http://purl.org/nexusformat/definitions/Field/NXparameters/TERM"/>
+      <owl:onClass rdf:resource="http://purl.org/nexusformat/definitions/Field/NXparameters/PARAMETER"/>
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
@@ -9368,11 +9358,11 @@
     This is an application definition for angular resolved photo electron spectroscopy.
     
     It has been drawn up with hemispherical electron analysers in mind.
-
+    
     This definition is a legacy support for older NXarpes experiments.
     There is, however, a newer definition to collect data &amp; metadata
-    for general photoemission experiments, called :ref:NXmpes,
-    as well as a specialization for ARPES experiments, called :ref:NXmpes_arpes."
+    for general photoemission experiments, called :ref:`NXmpes`,
+    as well as a specialization for ARPES experiments, called :ref:`NXmpes_arpes`."
   </rdfs:comment>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXarpes</rdfs:label>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXarpes.html</rdfs:seeAlso>
@@ -11144,7 +11134,7 @@
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
-      <owl:onClass rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcalibration/fit_formula_inputs/TERM"/>
+      <owl:onClass rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcalibration/fit_formula_inputs/PARAMETER"/>
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
@@ -11155,23 +11145,39 @@
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXcalibration.html#nxcalibration-fit-formula-inputs-group</rdfs:seeAlso>
 </owl:Class>
 
-<owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXcalibration/coefficients">
+<owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXcalibration/calibration_parameters">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
   <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/PARAMETERS"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
-      <owl:onClass rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcalibration/coefficients/aN"/>
+      <owl:onClass rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcalibration/calibration_parameters/aN"/>
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXcalibration/coefficients</rdfs:label>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#has"/>
+      <owl:onClass rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcalibration/calibration_parameters/scaling_factor"/>
+      <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#has"/>
+      <owl:onClass rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcalibration/calibration_parameters/offset"/>
+      <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXcalibration/calibration_parameters</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
-            For non-linear energy calibrations, e.g. in a time-of-flight (TOF) detector, a polynomial function is fitted
-            to a set of features (peaks) at well defined energy positions to determine
-            E(TOF). Here we can store the fit coefficients.
+            Fit coefficients to be used in ``fit_formula_description``.
+            
+            As an example, for non-linear energy calibrations, e.g. in a time-of-flight (TOF) detector, a polynomial 
+            function is fitted to a set of features (peaks) at well defined energy positions to determine
+            E(TOF). Here we can store the fit coefficients for that procedure.
         </rdfs:comment>
-  <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXcalibration.html#nxcalibration-coefficients-group</rdfs:seeAlso>
+  <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXcalibration.html#nxcalibration-calibration-parameters-group</rdfs:seeAlso>
 </owl:Class>
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXcalibration/DATA">
@@ -31955,7 +31961,7 @@
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXcalibration.html#nxcalibration-original-axis-field</rdfs:seeAlso>
 </owl:Class>
 
-<owl:Class rdf:about="http://purl.org/nexusformat/definitions/Field/NXcalibration/fit_formula_inputs/TERM">
+<owl:Class rdf:about="http://purl.org/nexusformat/definitions/Field/NXcalibration/fit_formula_inputs/PARAMETER">
   <rdfs:subClassOf rdf:resource="#NeXusField"/>
   <rdfs:subClassOf>
     <owl:Restriction>
@@ -31983,24 +31989,24 @@
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
-      <owl:onClass rdf:resource="http://purl.org/nexusformat/definitions/Attribute/NXcalibration/fit_formula_inputs/TERM/input_path"/>
+      <owl:onClass rdf:resource="http://purl.org/nexusformat/definitions/Attribute/NXcalibration/fit_formula_inputs/PARAMETER/input_path"/>
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXcalibration/fit_formula_inputs/TERM</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXcalibration/fit_formula_inputs/PARAMETER</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
-                The name of each ``TERM`` is used as the symbol to be used in the ``fit_formula_description``, i.e.,
+                The name of each ``PARAMETER`` is used as the symbol to be used in the ``fit_formula_description``, i.e.,
                 if the field name is `my_field` you should refer to this axis by `my_field` in the ``fit_formula_description``.
             </rdfs:comment>
-  <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXcalibration.html#nxcalibration-fit-formula-inputs-term-field</rdfs:seeAlso>
+  <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXcalibration.html#nxcalibration-fit-formula-inputs-parameter-field</rdfs:seeAlso>
 </owl:Class>
 
-<owl:Class rdf:about="http://purl.org/nexusformat/definitions/Field/NXcalibration/coefficients/aN">
+<owl:Class rdf:about="http://purl.org/nexusformat/definitions/Field/NXcalibration/calibration_parameters/aN">
   <rdfs:subClassOf rdf:resource="#NeXusField"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#hasValueContainer"/>
-      <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/DataTypes/NX_CHAR"/>
+      <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/DataTypes/NX_NUMBER"/>
     </owl:Restriction>
   </rdfs:subClassOf>
   <rdfs:subClassOf>
@@ -32008,7 +32014,7 @@
       <owl:onProperty rdf:resource="#hasValueContainer"/>
       <owl:onClass>
         <owl:Class>
-          <owl:complementOf rdf:resource="http://purl.org/nexusformat/definitions/DataTypes/NX_CHAR"/>
+          <owl:complementOf rdf:resource="http://purl.org/nexusformat/definitions/DataTypes/NX_NUMBER"/>
         </owl:Class>
       </owl:onClass>
       <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxQualifiedCardinality>
@@ -32020,12 +32026,84 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXcalibration/coefficients/aN</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXcalibration/calibration_parameters/aN</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
-                Use a0, a1, ..., an for the coefficients, corresponding to the values in the
+                Use a0, a1, ..., an for the coefficients of a polynomial fit, corresponding to the values in the
                 ``fit_formula_description``.
             </rdfs:comment>
-  <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXcalibration.html#nxcalibration-coefficients-an-field</rdfs:seeAlso>
+  <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXcalibration.html#nxcalibration-calibration-parameters-an-field</rdfs:seeAlso>
+</owl:Class>
+
+<owl:Class rdf:about="http://purl.org/nexusformat/definitions/Field/NXcalibration/calibration_parameters/scaling_factor">
+  <rdfs:subClassOf rdf:resource="#NeXusField"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasValueContainer"/>
+      <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/DataTypes/NX_FLOAT"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasValueContainer"/>
+      <owl:onClass>
+        <owl:Class>
+          <owl:complementOf rdf:resource="http://purl.org/nexusformat/definitions/DataTypes/NX_FLOAT"/>
+        </owl:Class>
+      </owl:onClass>
+      <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxQualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasUnitContainer"/>
+      <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXcalibration/calibration_parameters/scaling_factor</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+                For linear calibration. Scaling parameter.
+                This should yield the relation `calibrated_axis` = (`original_axis` + `offset`) * `scaling_factor`.
+
+                For a more detailed description of scaling factors, see 
+                :ref:`/NXdata/FIELDNAME_scaling_factor &lt;/NXdata/FIELDNAME_scaling_factor-field&gt;`.
+            </rdfs:comment>
+  <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXcalibration.html#nxcalibration-calibration-parameters-scaling-factor-field</rdfs:seeAlso>
+</owl:Class>
+
+<owl:Class rdf:about="http://purl.org/nexusformat/definitions/Field/NXcalibration/calibration_parameters/offset">
+  <rdfs:subClassOf rdf:resource="#NeXusField"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasValueContainer"/>
+      <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/DataTypes/NX_FLOAT"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasValueContainer"/>
+      <owl:onClass>
+        <owl:Class>
+          <owl:complementOf rdf:resource="http://purl.org/nexusformat/definitions/DataTypes/NX_FLOAT"/>
+        </owl:Class>
+      </owl:onClass>
+      <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxQualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasUnitContainer"/>
+      <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXcalibration/calibration_parameters/offset</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+                For linear calibration. Offset parameter.
+                This should yield the relation `calibrated_axis` = (`original_axis` + `offset`) * `scaling_factor`.
+
+                For a more detailed description of offset, see 
+                :ref:`/NXdata/FIELDNAME_offset &lt;/NXdata/FIELDNAME_offset-field&gt;`.
+            </rdfs:comment>
+  <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXcalibration.html#nxcalibration-calibration-parameters-offset-field</rdfs:seeAlso>
 </owl:Class>
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Field/NXcalibration/fit_formula_description">
@@ -32055,92 +32133,20 @@
   </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXcalibration/fit_formula_description</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
-            For non-linear energy calibrations. Here we can store a description of the formula
-            used for the fit function.
+            Here we can store a description of the formula used for the fit function.
             
-            Use a0, a1, ..., an for the coefficients, corresponding to the values in the coefficients group.
-            
-            Use x0, x1, ..., xm for the nth position in the `original_axis` field.
+            For polynomial fits, use a0, a1, ..., an for the coefficients, corresponding to the values in the 
+            coefficients group. Use x0, x1, ..., xm for the mth position in the `original_axis` field.
+
             If there is the symbol attribute specified for the `original_axis` this may be used instead of x.
             If you want to use the whole axis use `x`.
-            Alternate axis can also be available as specified by the `input_SYMBOL` group.
+
+            Alternate axis can also be available as specified by the `fit_formula_inputs` group.
             The data should then be referred here by the `SYMBOL` name, e.g., for a field
-            name `input_my_field` it should be referred here by `my_field` or `my_field0` if
-            you want to read the zeroth element of the array.
+            name ``my_field`` in ``fit_formula_inputs``, it should be referred here by ``my_field`` or ``my_field0``
+            if you want to read the zeroth element of the array.
         </rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXcalibration.html#nxcalibration-fit-formula-description-field</rdfs:seeAlso>
-</owl:Class>
-
-<owl:Class rdf:about="http://purl.org/nexusformat/definitions/Field/NXcalibration/scaling_factor">
-  <rdfs:subClassOf rdf:resource="#NeXusField"/>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasValueContainer"/>
-      <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/DataTypes/NX_FLOAT"/>
-    </owl:Restriction>
-  </rdfs:subClassOf>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasValueContainer"/>
-      <owl:onClass>
-        <owl:Class>
-          <owl:complementOf rdf:resource="http://purl.org/nexusformat/definitions/DataTypes/NX_FLOAT"/>
-        </owl:Class>
-      </owl:onClass>
-      <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxQualifiedCardinality>
-    </owl:Restriction>
-  </rdfs:subClassOf>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasUnitContainer"/>
-      <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
-    </owl:Restriction>
-  </rdfs:subClassOf>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXcalibration/scaling_factor</rdfs:label>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
-            For linear calibration. Scaling parameter.
-            This should yield the relation `calibrated_axis` = (`original_axis` + `offset`) * `scaling_factor`.
-            
-            For a more detailed description of scaling factors, see
-            :ref:`/NXdata/FIELDNAME_scaling_factor &lt;/NXdata/FIELDNAME_scaling_factor-field&gt;`.
-        </rdfs:comment>
-  <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXcalibration.html#nxcalibration-scaling-factor-field</rdfs:seeAlso>
-</owl:Class>
-
-<owl:Class rdf:about="http://purl.org/nexusformat/definitions/Field/NXcalibration/offset">
-  <rdfs:subClassOf rdf:resource="#NeXusField"/>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasValueContainer"/>
-      <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/DataTypes/NX_FLOAT"/>
-    </owl:Restriction>
-  </rdfs:subClassOf>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasValueContainer"/>
-      <owl:onClass>
-        <owl:Class>
-          <owl:complementOf rdf:resource="http://purl.org/nexusformat/definitions/DataTypes/NX_FLOAT"/>
-        </owl:Class>
-      </owl:onClass>
-      <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxQualifiedCardinality>
-    </owl:Restriction>
-  </rdfs:subClassOf>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasUnitContainer"/>
-      <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
-    </owl:Restriction>
-  </rdfs:subClassOf>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXcalibration/offset</rdfs:label>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
-            For linear calibration. Offset parameter.
-            This should yield the relation `calibrated_axis` = (`original_axis` + `offset`) * `scaling_factor`.
-            
-            For a more detailed description of offset, see
-            :ref:`/NXdata/FIELDNAME_offset &lt;/NXdata/FIELDNAME_offset-field&gt;`.
-        </rdfs:comment>
-  <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXcalibration.html#nxcalibration-offset-field</rdfs:seeAlso>
 </owl:Class>
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Field/NXcalibration/mapping_MAPPING">
@@ -39030,7 +39036,7 @@
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXsensor.html#nxsensor-depends-on-field</rdfs:seeAlso>
 </owl:Class>
 
-<owl:Class rdf:about="http://purl.org/nexusformat/definitions/Field/NXparameters/TERM">
+<owl:Class rdf:about="http://purl.org/nexusformat/definitions/Field/NXparameters/PARAMETER">
   <rdfs:subClassOf rdf:resource="#NeXusField"/>
   <rdfs:subClassOf>
     <owl:Restriction>
@@ -39058,13 +39064,13 @@
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
-      <owl:onClass rdf:resource="http://purl.org/nexusformat/definitions/Attribute/NXparameters/TERM/units"/>
+      <owl:onClass rdf:resource="http://purl.org/nexusformat/definitions/Attribute/NXparameters/PARAMETER/units"/>
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXparameters/TERM</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXparameters/PARAMETER</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A parameter (also known as a term) that is used in or results from processing.</rdfs:comment>
-  <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXparameters.html#nxparameters-term-field</rdfs:seeAlso>
+  <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXparameters.html#nxparameters-parameter-field</rdfs:seeAlso>
 </owl:Class>
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Field/NXdetector/time_of_flight">
@@ -40742,7 +40748,7 @@
       recording the different measurements preserves the chronological order with is important for
       correct processing.
 
-      This is used for example in tomography (`:ref:`NXtomo`) sample projections,
+      This is used for example in tomography (:ref:`NXtomo`) sample projections,
       dark and flat images, a magic number is recorded per frame.
 
       The key is as follows:
@@ -66697,32 +66703,6 @@
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXsubentry.html#nxsubentry-thumbnail-mime-type-attribute</rdfs:seeAlso>
 </owl:Class>
 
-<owl:Class rdf:about="http://purl.org/nexusformat/definitions/Attribute/NXroot/NX_class">
-  <rdfs:subClassOf rdf:resource="#NeXusAttribute"/>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#actualValue"/>
-      <owl:allValuesFrom>
-        <rdfs:Datatype>
-          <owl:oneOf>
-            <rdf:Description>
-          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXroot</rdf:first>
-            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-            </rdf:Description>
-          </owl:oneOf>
-        </rdfs:Datatype>
-      </owl:allValuesFrom>
-    </owl:Restriction>
-  </rdfs:subClassOf>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXroot/NX_class</rdfs:label>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
-            The root of any NeXus data file is an ``NXroot`` class
-            (no other choice is allowed for a valid NeXus data file).
-            This attribute cements that definition.
-        </rdfs:comment>
-  <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXroot.html#nxroot-nx-class-attribute</rdfs:seeAlso>
-</owl:Class>
-
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Attribute/NXroot/file_time">
   <rdfs:subClassOf rdf:resource="#NeXusAttribute"/>
   <rdfs:subClassOf>
@@ -67087,7 +67067,6 @@
       <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
-  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Attribute/NXobject/default"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXroot/default</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
             .. index:: find the default plottable data
@@ -67728,10 +67707,10 @@
                 The symbol of the axis to be used in the fit_function, e.g., `energy`, `E`.
                 This should comply to the following naming rules (similar to python's naming rules):
                 
-                  * A variable name must start with a letter or the underscore character
-                  * A variable name cannot start with a number
-                  * A variable name can only contain alpha-numeric characters and underscores (A-z, 0-9, and _ )
-                  * Variable names are case-sensitive (age, Age and AGE are three different variables)
+                * A variable name must start with a letter or the underscore character
+                * A variable name cannot start with a number
+                * A variable name can only contain alpha-numeric characters and underscores (A-z, 0-9, and _ )
+                * Variable names are case-sensitive (age, Age and AGE are three different variables)
             </rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXcalibration.html#nxcalibration-original-axis-symbol-attribute</rdfs:seeAlso>
 </owl:Class>
@@ -67763,7 +67742,7 @@
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXcalibration.html#nxcalibration-original-axis-input-path-attribute</rdfs:seeAlso>
 </owl:Class>
 
-<owl:Class rdf:about="http://purl.org/nexusformat/definitions/Attribute/NXcalibration/fit_formula_inputs/TERM/input_path">
+<owl:Class rdf:about="http://purl.org/nexusformat/definitions/Attribute/NXcalibration/fit_formula_inputs/PARAMETER/input_path">
   <rdfs:subClassOf rdf:resource="#NeXusAttribute"/>
   <rdfs:subClassOf>
     <owl:Restriction>
@@ -67782,12 +67761,12 @@
       <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXcalibration/fit_formula_inputs/TERM/input_path</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXcalibration/fit_formula_inputs/PARAMETER/input_path</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
                     The path from which this data is derived, e.g., raw detector axis.
                     Should be a valid NeXus path name, e.g., /entry/instrument/detector/raw.
                 </rdfs:comment>
-  <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXcalibration.html#nxcalibration-fit-formula-inputs-term-input-path-attribute</rdfs:seeAlso>
+  <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXcalibration.html#nxcalibration-fit-formula-inputs-parameter-input-path-attribute</rdfs:seeAlso>
 </owl:Class>
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Attribute/NXcalibration/default">
@@ -69645,7 +69624,7 @@
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXtransformations.html#nxtransformations-axisname-equipment-component-attribute</rdfs:seeAlso>
 </owl:Class>
 
-<owl:Class rdf:about="http://purl.org/nexusformat/definitions/Attribute/NXparameters/TERM/units">
+<owl:Class rdf:about="http://purl.org/nexusformat/definitions/Attribute/NXparameters/PARAMETER/units">
   <rdfs:subClassOf rdf:resource="#NeXusAttribute"/>
   <rdfs:subClassOf>
     <owl:Restriction>
@@ -69664,9 +69643,9 @@
       <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXparameters/TERM/units</rdfs:label>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXparameters/PARAMETER/units</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
-  <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXparameters.html#nxparameters-term-units-attribute</rdfs:seeAlso>
+  <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXparameters.html#nxparameters-parameter-units-attribute</rdfs:seeAlso>
 </owl:Class>
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Attribute/NXdetector/time_of_flight/axis">
