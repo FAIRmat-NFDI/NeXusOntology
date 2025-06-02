@@ -9974,6 +9974,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXcrystal/temperature_log">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/GROUPNAME_log"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXcrystal/temperature_log</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">log file of crystal temperature</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXcrystal.html#nxcrystal-temperature-log-group</rdfs:seeAlso>
@@ -9981,6 +9982,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXcrystal/reflectivity">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/DATA"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXcrystal/reflectivity</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">crystal reflectivity versus wavelength</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXcrystal.html#nxcrystal-reflectivity-group</rdfs:seeAlso>
@@ -9988,6 +9990,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXcrystal/transmission">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/DATA"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXcrystal/transmission</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">crystal transmission versus wavelength</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXcrystal.html#nxcrystal-transmission-group</rdfs:seeAlso>
@@ -10044,6 +10047,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXxraylens/cylinder_orientation">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/NOTE"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXxraylens/cylinder_orientation</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
         Orientation of the cylinder axis.
@@ -10087,7 +10091,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXdisk_chopper/GEOMETRY">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXgeometry"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXgeometry"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXdisk_chopper/GEOMETRY</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXdisk_chopper.html#nxdisk-chopper-geometry-group</rdfs:seeAlso>
@@ -10128,6 +10132,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXhistory/NOTE">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/NOTE"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXhistory/NOTE</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
             A descriptor to keep track of the treatment of the physical entity before or during the
@@ -10182,6 +10187,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXsample/transmission">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/DATA"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsample/transmission</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">As a function of Wavelength</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-transmission-group</rdfs:seeAlso>
@@ -10189,6 +10195,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXsample/temperature_log">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/GROUPNAME_log"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsample/temperature_log</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">temperature_log.value is a link to e.g. temperature_env.sensor1.value_log.value</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-temperature-log-group</rdfs:seeAlso>
@@ -10219,6 +10226,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXsample/magnetic_field_log">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/GROUPNAME_log"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsample/magnetic_field_log</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">magnetic_field_log.value is a link to e.g. magnetic_field_env.sensor1.value_log.value</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-magnetic-field-log-group</rdfs:seeAlso>
@@ -10235,6 +10243,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXsample/external_ADC">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/LOG"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsample/external_ADC</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">logged value (or logic state) read from user's setup</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-external-adc-group</rdfs:seeAlso>
@@ -10283,6 +10292,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXentry/DATA">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/DATA"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXentry/DATA</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
 			The data group
@@ -10318,6 +10328,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXentry/experiment_documentation">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/NOTE"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXentry/experiment_documentation</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Description of the full experiment (document in pdf, latex, ...)</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXentry.html#nxentry-experiment-documentation-group</rdfs:seeAlso>
@@ -10325,6 +10336,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXentry/notes">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/NOTE"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXentry/notes</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Notes describing entry</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXentry.html#nxentry-notes-group</rdfs:seeAlso>
@@ -10332,6 +10344,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXentry/thumbnail">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/NOTE"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -10349,7 +10362,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXentry/USER">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXuser"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXuser"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXentry/USER</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXentry.html#nxentry-user-group</rdfs:seeAlso>
@@ -10357,7 +10370,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXentry/SAMPLE">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXsample"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXsample"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXentry/SAMPLE</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXentry.html#nxentry-sample-group</rdfs:seeAlso>
@@ -10365,7 +10378,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXinstrument"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXinstrument"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXentry/INSTRUMENT</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXentry.html#nxentry-instrument-group</rdfs:seeAlso>
@@ -10373,6 +10386,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXentry/COLLECTION">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/COLLECTION"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXentry/COLLECTION</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXentry.html#nxentry-collection-group</rdfs:seeAlso>
@@ -10380,7 +10394,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXentry/MONITOR">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXmonitor"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXmonitor"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXentry/MONITOR</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXentry.html#nxentry-monitor-group</rdfs:seeAlso>
@@ -10388,6 +10402,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXentry/PARAMETERS">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/PARAMETERS"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXentry/PARAMETERS</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXentry.html#nxentry-parameters-group</rdfs:seeAlso>
@@ -10395,7 +10410,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXentry/PROCESS">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXprocess"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXprocess"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXentry/PROCESS</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXentry.html#nxentry-process-group</rdfs:seeAlso>
@@ -10403,7 +10418,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXentry/SUBENTRY">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXsubentry"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXsubentry"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXentry/SUBENTRY</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXentry.html#nxentry-subentry-group</rdfs:seeAlso>
@@ -10411,6 +10426,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXresolution/note">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/NOTE"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXresolution/note</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
              Additional details of the estimate or description of the calibration procedure
@@ -10420,6 +10436,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXresolution/response_function">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/DATA"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXresolution/response_function</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
              The response of the instrument or part of the instrument to a infinitesimally sharp input signal
@@ -10438,6 +10455,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXresolution/formula_symbols">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/PARAMETERS"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXresolution/formula_symbols</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
             Symbols linking to another path in the NeXus tree to be referred to from the
@@ -10459,6 +10477,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXsource/notes">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/NOTE"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsource/notes</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
 			any source/facility related messages/events that 
@@ -10469,6 +10488,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXsource/bunch_pattern">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/DATA"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -10486,6 +10506,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXsource/pulse_shape">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/DATA"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsource/pulse_shape</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">source pulse shape</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXsource.html#nxsource-pulse-shape-group</rdfs:seeAlso>
@@ -10533,6 +10554,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXsource/FABRICATION">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXcomponent/FABRICATION"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsource/FABRICATION</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXsource.html#nxsource-fabrication-group</rdfs:seeAlso>
@@ -10550,6 +10572,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXsource/distribution">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/DATA"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsource/distribution</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The wavelength or energy distribution of the source</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXsource.html#nxsource-distribution-group</rdfs:seeAlso>
@@ -10557,6 +10580,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXsubentry/experiment_documentation">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/NOTE"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsubentry/experiment_documentation</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Description of the full experiment (document in pdf, latex, ...)</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXsubentry.html#nxsubentry-experiment-documentation-group</rdfs:seeAlso>
@@ -10564,6 +10588,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXsubentry/notes">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/NOTE"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsubentry/notes</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Notes describing entry</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXsubentry.html#nxsubentry-notes-group</rdfs:seeAlso>
@@ -10571,6 +10596,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXsubentry/thumbnail">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/NOTE"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -10588,7 +10614,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXsubentry/USER">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXuser"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXuser"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsubentry/USER</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXsubentry.html#nxsubentry-user-group</rdfs:seeAlso>
@@ -10596,7 +10622,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXsubentry/SAMPLE">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXsample"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXsample"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsubentry/SAMPLE</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXsubentry.html#nxsubentry-sample-group</rdfs:seeAlso>
@@ -10604,7 +10630,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXsubentry/INSTRUMENT">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXinstrument"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXinstrument"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsubentry/INSTRUMENT</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXsubentry.html#nxsubentry-instrument-group</rdfs:seeAlso>
@@ -10612,6 +10638,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXsubentry/COLLECTION">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/COLLECTION"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsubentry/COLLECTION</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXsubentry.html#nxsubentry-collection-group</rdfs:seeAlso>
@@ -10619,7 +10646,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXsubentry/MONITOR">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXmonitor"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXmonitor"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsubentry/MONITOR</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXsubentry.html#nxsubentry-monitor-group</rdfs:seeAlso>
@@ -10627,6 +10654,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXsubentry/DATA">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/DATA"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsubentry/DATA</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXsubentry.html#nxsubentry-data-group</rdfs:seeAlso>
@@ -10634,6 +10662,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXsubentry/PARAMETERS">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/PARAMETERS"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsubentry/PARAMETERS</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXsubentry.html#nxsubentry-parameters-group</rdfs:seeAlso>
@@ -10641,7 +10670,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXsubentry/PROCESS">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXprocess"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXprocess"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsubentry/PROCESS</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXsubentry.html#nxsubentry-process-group</rdfs:seeAlso>
@@ -10649,6 +10678,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXprocess/NOTE">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/NOTE"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXprocess/NOTE</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
             The note will contain information about how the data was processed
@@ -10680,6 +10710,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXgrating/figure_data">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/DATA"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXgrating/figure_data</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Numerical description of the surface figure of the mirror.</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXgrating.html#nxgrating-figure-data-group</rdfs:seeAlso>
@@ -10697,6 +10728,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXgrating/TRANSFORMATIONS">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXcomponent/TRANSFORMATIONS"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXgrating/TRANSFORMATIONS</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
             "Engineering" position of the grating
@@ -10707,6 +10739,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXcapillary/gain">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/DATA"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXcapillary/gain</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
            The gain of the capillary as a function of energy
@@ -10716,6 +10749,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXcapillary/transmission">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/DATA"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXcapillary/transmission</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
            The transmission of the capillary as a function of energy
@@ -10725,7 +10759,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXpositioner/actuator">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXactuator"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -10733,6 +10766,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXactuator"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXpositioner/actuator</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
             The actuator of the positioner which is responsible for the movement of the
@@ -10743,7 +10777,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXpositioner/actuator/feedback">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXactuator/PID_CONTROLLER"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -10751,6 +10784,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXactuator/PID_CONTROLLER"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXpositioner/actuator/feedback</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
                 The feedback of the actual position of the positioner.
@@ -10760,6 +10794,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXpositioner/actuator/feedback/pv_sensor">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXpid_controller/pv_sensor"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXpositioner/actuator/feedback/pv_sensor</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
                     If present, the value and the value_log of this pv_sensor is the same as
@@ -10770,7 +10805,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXinstrument/ACTUATOR">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXactuator"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXactuator"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXinstrument/ACTUATOR</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXinstrument.html#nxinstrument-actuator-group</rdfs:seeAlso>
@@ -10778,7 +10813,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXinstrument/APERTURE">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXaperture"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXaperture"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXinstrument/APERTURE</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXinstrument.html#nxinstrument-aperture-group</rdfs:seeAlso>
@@ -10786,7 +10821,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXinstrument/ATTENUATOR">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXattenuator"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXattenuator"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXinstrument/ATTENUATOR</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXinstrument.html#nxinstrument-attenuator-group</rdfs:seeAlso>
@@ -10794,7 +10829,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXinstrument/BEAM">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXbeam"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXbeam"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXinstrument/BEAM</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXinstrument.html#nxinstrument-beam-group</rdfs:seeAlso>
@@ -10802,7 +10837,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXinstrument/BEAM_STOP">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXbeam_stop"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXbeam_stop"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXinstrument/BEAM_STOP</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXinstrument.html#nxinstrument-beam-stop-group</rdfs:seeAlso>
@@ -10810,7 +10845,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXinstrument/BENDING_MAGNET">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXbending_magnet"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXbending_magnet"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXinstrument/BENDING_MAGNET</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXinstrument.html#nxinstrument-bending-magnet-group</rdfs:seeAlso>
@@ -10818,7 +10853,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXinstrument/COLLIMATOR">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXcollimator"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXcollimator"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXinstrument/COLLIMATOR</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXinstrument.html#nxinstrument-collimator-group</rdfs:seeAlso>
@@ -10826,6 +10861,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXinstrument/COLLECTION">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/COLLECTION"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXinstrument/COLLECTION</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXinstrument.html#nxinstrument-collection-group</rdfs:seeAlso>
@@ -10833,7 +10869,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXinstrument/CAPILLARY">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXcapillary"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXcapillary"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXinstrument/CAPILLARY</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXinstrument.html#nxinstrument-capillary-group</rdfs:seeAlso>
@@ -10841,7 +10877,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXinstrument/CRYSTAL">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXcrystal"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXcrystal"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXinstrument/CRYSTAL</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXinstrument.html#nxinstrument-crystal-group</rdfs:seeAlso>
@@ -10849,7 +10885,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXinstrument/DETECTOR">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXdetector"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXdetector"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXinstrument/DETECTOR</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXinstrument.html#nxinstrument-detector-group</rdfs:seeAlso>
@@ -10857,7 +10893,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXinstrument/DETECTOR_GROUP">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXdetector_group"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXdetector_group"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXinstrument/DETECTOR_GROUP</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXinstrument.html#nxinstrument-detector-group-group</rdfs:seeAlso>
@@ -10865,7 +10901,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXinstrument/DISK_CHOPPER">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXdisk_chopper"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXdisk_chopper"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXinstrument/DISK_CHOPPER</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXinstrument.html#nxinstrument-disk-chopper-group</rdfs:seeAlso>
@@ -10873,7 +10909,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXinstrument/EVENT_DATA">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXevent_data"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXevent_data"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXinstrument/EVENT_DATA</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXinstrument.html#nxinstrument-event-data-group</rdfs:seeAlso>
@@ -10881,7 +10917,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXinstrument/FABRICATION">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXfabrication"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXfabrication"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXinstrument/FABRICATION</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXinstrument.html#nxinstrument-fabrication-group</rdfs:seeAlso>
@@ -10889,7 +10925,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXinstrument/FERMI_CHOPPER">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXfermi_chopper"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXfermi_chopper"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXinstrument/FERMI_CHOPPER</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXinstrument.html#nxinstrument-fermi-chopper-group</rdfs:seeAlso>
@@ -10897,7 +10933,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXinstrument/FILTER">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXfilter"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXfilter"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXinstrument/FILTER</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXinstrument.html#nxinstrument-filter-group</rdfs:seeAlso>
@@ -10905,7 +10941,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXinstrument/FLIPPER">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXflipper"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXflipper"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXinstrument/FLIPPER</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXinstrument.html#nxinstrument-flipper-group</rdfs:seeAlso>
@@ -10913,7 +10949,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXinstrument/GUIDE">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXguide"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXguide"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXinstrument/GUIDE</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXinstrument.html#nxinstrument-guide-group</rdfs:seeAlso>
@@ -10921,7 +10957,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXinstrument/HISTORY">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXhistory"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXhistory"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXinstrument/HISTORY</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXinstrument.html#nxinstrument-history-group</rdfs:seeAlso>
@@ -10929,7 +10965,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXinstrument/INSERTION_DEVICE">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXinsertion_device"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXinsertion_device"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXinstrument/INSERTION_DEVICE</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXinstrument.html#nxinstrument-insertion-device-group</rdfs:seeAlso>
@@ -10937,7 +10973,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXinstrument/MIRROR">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXmirror"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXmirror"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXinstrument/MIRROR</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXinstrument.html#nxinstrument-mirror-group</rdfs:seeAlso>
@@ -10945,7 +10981,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXinstrument/MODERATOR">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXmoderator"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXmoderator"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXinstrument/MODERATOR</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXinstrument.html#nxinstrument-moderator-group</rdfs:seeAlso>
@@ -10953,7 +10989,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXinstrument/MONOCHROMATOR">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXmonochromator"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXmonochromator"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXinstrument/MONOCHROMATOR</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXinstrument.html#nxinstrument-monochromator-group</rdfs:seeAlso>
@@ -10961,7 +10997,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXinstrument/POLARIZER">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXpolarizer"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXpolarizer"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXinstrument/POLARIZER</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXinstrument.html#nxinstrument-polarizer-group</rdfs:seeAlso>
@@ -10969,7 +11005,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXinstrument/POSITIONER">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXpositioner"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXpositioner"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXinstrument/POSITIONER</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXinstrument.html#nxinstrument-positioner-group</rdfs:seeAlso>
@@ -10977,7 +11013,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXinstrument/SENSOR">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXsensor"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXsensor"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXinstrument/SENSOR</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXinstrument.html#nxinstrument-sensor-group</rdfs:seeAlso>
@@ -10985,7 +11021,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXinstrument/SOURCE">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXsource"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXsource"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXinstrument/SOURCE</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXinstrument.html#nxinstrument-source-group</rdfs:seeAlso>
@@ -10993,7 +11029,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXinstrument/DIFFRACTOMETER">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXtransformations"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXtransformations"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXinstrument/DIFFRACTOMETER</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXinstrument.html#nxinstrument-diffractometer-group</rdfs:seeAlso>
@@ -11001,7 +11037,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXinstrument/VELOCITY_SELECTOR">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXvelocity_selector"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXvelocity_selector"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXinstrument/VELOCITY_SELECTOR</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXinstrument.html#nxinstrument-velocity-selector-group</rdfs:seeAlso>
@@ -11009,7 +11045,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXinstrument/XRAYLENS">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXxraylens"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXxraylens"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXinstrument/XRAYLENS</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXinstrument.html#nxinstrument-xraylens-group</rdfs:seeAlso>
@@ -11017,6 +11053,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXinsertion_device/spectrum">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/DATA"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXinsertion_device/spectrum</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">spectrum of insertion device</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXinsertion_device.html#nxinsertion-device-spectrum-group</rdfs:seeAlso>
@@ -11043,7 +11080,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXpid_controller/pv_sensor">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXsensor"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -11051,6 +11087,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXsensor"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXpid_controller/pv_sensor</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
             The sensor representing the Process Value used in the feedback loop for the PID.
@@ -11062,6 +11099,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXpid_controller/pv_sensor/value_log">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXsensor/value_log"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -11092,6 +11130,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXcalibration/fit_formula_inputs">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/PARAMETERS"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -11108,6 +11147,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXcalibration/calibration_parameters">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/PARAMETERS"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -11142,6 +11182,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXcalibration/DATA">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/DATA"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXcalibration/DATA</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
             Any data acquired/used during the calibration that does not fit the `NX_FLOAT` fields above.
@@ -11152,7 +11193,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXvelocity_selector/geometry">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXgeometry"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXgeometry"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXvelocity_selector/geometry</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXvelocity_selector.html#nxvelocity-selector-geometry-group</rdfs:seeAlso>
@@ -11205,6 +11246,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXenvironment/NOTE">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/NOTE"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXenvironment/NOTE</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Additional information, LabView logs, digital photographs, etc</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXenvironment.html#nxenvironment-note-group</rdfs:seeAlso>
@@ -11234,6 +11276,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXmonitor/integral_log">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/GROUPNAME_log"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXmonitor/integral_log</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Time variation of monitor counts</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXmonitor.html#nxmonitor-integral-log-group</rdfs:seeAlso>
@@ -11269,6 +11312,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXguide/reflectivity">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/DATA"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -11355,6 +11399,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXmonochromator/distribution">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/DATA"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXmonochromator/distribution</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXmonochromator.html#nxmonochromator-distribution-group</rdfs:seeAlso>
@@ -11362,7 +11407,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXmonochromator/geometry">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXgeometry"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXgeometry"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXmonochromator/geometry</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXmonochromator.html#nxmonochromator-geometry-group</rdfs:seeAlso>
@@ -11389,7 +11434,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXmonochromator/VELOCITY_SELECTOR">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXvelocity_selector"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXvelocity_selector"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXmonochromator/VELOCITY_SELECTOR</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXmonochromator.html#nxmonochromator-velocity-selector-group</rdfs:seeAlso>
@@ -11405,7 +11450,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXmirror/GEOMETRY">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXgeometry"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXgeometry"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXmirror/GEOMETRY</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXmirror.html#nxmirror-geometry-group</rdfs:seeAlso>
@@ -11414,6 +11459,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXmirror/reflectivity">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/DATA"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXmirror/reflectivity</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Reflectivity as function of wavelength</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXmirror.html#nxmirror-reflectivity-group</rdfs:seeAlso>
@@ -11430,6 +11476,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXmirror/figure_data">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/DATA"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXmirror/figure_data</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Numerical description of the surface figure of the mirror.</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXmirror.html#nxmirror-figure-data-group</rdfs:seeAlso>
@@ -11456,6 +11503,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXmoderator/temperature_log">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/GROUPNAME_log"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXmoderator/temperature_log</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">log file of moderator temperature</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXmoderator.html#nxmoderator-temperature-log-group</rdfs:seeAlso>
@@ -11463,6 +11511,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXmoderator/pulse_shape">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/DATA"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXmoderator/pulse_shape</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">moderator pulse shape</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXmoderator.html#nxmoderator-pulse-shape-group</rdfs:seeAlso>
@@ -11488,6 +11537,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXbending_magnet/spectrum">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/DATA"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXbending_magnet/spectrum</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">bending magnet spectrum</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXbending_magnet.html#nxbending-magnet-spectrum-group</rdfs:seeAlso>
@@ -11536,6 +11586,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXsensor/value_log">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/GROUPNAME_log"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsensor/value_log</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Time history of sensor readings</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXsensor.html#nxsensor-value-log-group</rdfs:seeAlso>
@@ -11543,6 +11594,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXsensor/value_deriv1_log">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/GROUPNAME_log"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsensor/value_deriv1_log</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Time history of first derivative of sensor readings</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXsensor.html#nxsensor-value-deriv1-log-group</rdfs:seeAlso>
@@ -11550,6 +11602,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXsensor/value_deriv2_log">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/GROUPNAME_log"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsensor/value_deriv2_log</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Time history of second derivative of sensor readings</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXsensor.html#nxsensor-value-deriv2-log-group</rdfs:seeAlso>
@@ -11575,6 +11628,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXsensor/FABRICATION">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXcomponent/FABRICATION"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsensor/FABRICATION</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXsensor.html#nxsensor-fabrication-group</rdfs:seeAlso>
@@ -11607,6 +11661,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXdetector/efficiency">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/DATA"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -11649,6 +11704,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXdetector/calibration_method">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/NOTE"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXdetector/calibration_method</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
       summary of conversion of array data to pixels (e.g. polynomial
@@ -11659,6 +11715,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXdetector/data_file">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/NOTE"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXdetector/data_file</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXdetector.html#nxdetector-data-file-group</rdfs:seeAlso>
@@ -11666,6 +11723,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXdetector/COLLECTION">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/COLLECTION"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXdetector/COLLECTION</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
     Use this group to provide other data related to this NXdetector group.
@@ -11686,6 +11744,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXactivity/NOTE">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/NOTE"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXactivity/NOTE</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
              This can be any data or other descriptor acquired during the activity
@@ -11720,6 +11779,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXbeam/DATA">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/DATA"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXbeam/DATA</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
             Distribution of beam with respect to relevant variable e.g. wavelength. This is mainly
@@ -11764,6 +11824,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXcollimator/frequency_log">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/GROUPNAME_log"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXcollimator/frequency_log</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Log of frequency</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXcollimator.html#nxcollimator-frequency-log-group</rdfs:seeAlso>
@@ -11781,6 +11842,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXsample_component/transmission">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/DATA"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsample_component/transmission</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">As a function of Wavelength</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXsample_component.html#nxsample-component-transmission-group</rdfs:seeAlso>
@@ -11848,6 +11910,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXaperture/NOTE">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXobject/NOTE"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXaperture/NOTE</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
              Describe any additional information in a note.
@@ -11857,7 +11920,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXobject/COLLECTION">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXcollection"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXcollection"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXobject/COLLECTION</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXobject.html#nxobject-collection-group</rdfs:seeAlso>
@@ -11865,7 +11928,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXobject/DATA">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXdata"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXdata"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXobject/DATA</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXobject.html#nxobject-data-group</rdfs:seeAlso>
@@ -11873,7 +11936,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXobject/LOG">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXlog"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXlog"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXobject/LOG</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXobject.html#nxobject-log-group</rdfs:seeAlso>
@@ -11881,7 +11944,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXobject/NOTE">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXnote"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXnote"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXobject/NOTE</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXobject.html#nxobject-note-group</rdfs:seeAlso>
@@ -11889,7 +11952,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXobject/PARAMETERS">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXparameters"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXparameters"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXobject/PARAMETERS</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXobject.html#nxobject-parameters-group</rdfs:seeAlso>
@@ -11907,7 +11970,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXcomponent/FABRICATION">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXfabrication"/>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXfabrication"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXcomponent/FABRICATION</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXcomponent.html#nxcomponent-fabrication-group</rdfs:seeAlso>
@@ -11977,7 +12040,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXcanSAS/ENTRY">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -12020,6 +12082,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -12225,7 +12288,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXcanSAS/ENTRY/INSTRUMENT">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -12254,6 +12316,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -12844,7 +12907,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXcanSAS/ENTRY/PROCESS">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/PROCESS"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -12859,6 +12921,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/PROCESS"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -13055,7 +13118,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXfluo/ENTRY">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -13084,6 +13146,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -13112,7 +13175,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXfluo/ENTRY/INSTRUMENT">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -13134,6 +13196,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXfluo/ENTRY/INSTRUMENT</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXfluo.html#nxfluo-entry-instrument-group</rdfs:seeAlso>
@@ -13259,7 +13322,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXlauetof/ENTRY">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -13288,6 +13350,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -13302,7 +13365,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXlauetof/ENTRY/instrument">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -13310,6 +13372,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXlauetof/ENTRY/instrument</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXlauetof.html#nxlauetof-entry-instrument-group</rdfs:seeAlso>
@@ -13450,7 +13513,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXtas/ENTRY">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -13479,6 +13541,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -13507,7 +13570,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXtas/ENTRY/INSTRUMENT">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -13536,6 +13598,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXtas/ENTRY/INSTRUMENT</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXtas.html#nxtas-entry-instrument-group</rdfs:seeAlso>
@@ -13760,7 +13823,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXarpes/ENTRY">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -13782,6 +13844,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -13810,7 +13873,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXarpes/ENTRY/INSTRUMENT">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -13832,6 +13894,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXarpes/ENTRY/INSTRUMENT</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXarpes.html#nxarpes-entry-instrument-group</rdfs:seeAlso>
@@ -14012,7 +14075,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXxasproc/ENTRY">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -14034,6 +14096,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -14070,7 +14133,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXxasproc/ENTRY/XAS_data_reduction">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/PROCESS"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -14078,6 +14140,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/PROCESS"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -14164,6 +14227,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXxbase/ENTRY"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -14192,6 +14256,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXxbase/ENTRY/instrument"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXxrot/ENTRY/instrument</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXxrot.html#nxxrot-entry-instrument-group</rdfs:seeAlso>
@@ -14199,6 +14264,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXxrot/ENTRY/instrument/detector">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXxbase/ENTRY/instrument/detector"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -14242,6 +14308,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXxrot/ENTRY/sample">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXxbase/ENTRY/sample"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -14263,6 +14330,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXxrot/ENTRY/name">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXxbase/ENTRY/DATA"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXxrot/ENTRY/name</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXxrot.html#nxxrot-entry-name-group</rdfs:seeAlso>
@@ -14270,7 +14338,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXsastof/ENTRY">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -14299,6 +14366,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -14327,7 +14395,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXsastof/ENTRY/instrument">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -14349,6 +14416,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -14392,7 +14460,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXsastof/ENTRY/instrument/collimator">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXinstrument/COLLIMATOR"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -14400,6 +14467,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXinstrument/COLLIMATOR"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsastof/ENTRY/instrument/collimator</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXsastof.html#nxsastof-entry-instrument-collimator-group</rdfs:seeAlso>
@@ -14407,7 +14475,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXsastof/ENTRY/instrument/collimator/geometry">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXcollimator/GEOMETRY"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -14415,6 +14482,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXcollimator/GEOMETRY"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsastof/ENTRY/instrument/collimator/geometry</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXsastof.html#nxsastof-entry-instrument-collimator-geometry-group</rdfs:seeAlso>
@@ -14595,7 +14663,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXxlaue/ENTRY">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXxrot/ENTRY"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -14603,6 +14670,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXxrot/ENTRY"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -14617,7 +14685,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXxlaue/ENTRY/instrument">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXxrot/ENTRY/instrument"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -14625,6 +14692,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXxrot/ENTRY/instrument"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXxlaue/ENTRY/instrument</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXxlaue.html#nxxlaue-entry-instrument-group</rdfs:seeAlso>
@@ -14639,6 +14707,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXxbase/ENTRY/instrument/source"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXxlaue/ENTRY/instrument/source</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXxlaue.html#nxxlaue-entry-instrument-source-group</rdfs:seeAlso>
@@ -14691,6 +14760,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXxbase/ENTRY"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -14712,6 +14782,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXxbase/ENTRY/instrument"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXxkappa/ENTRY/instrument</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXxkappa.html#nxxkappa-entry-instrument-group</rdfs:seeAlso>
@@ -14719,6 +14790,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXxkappa/ENTRY/instrument/detector">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXxbase/ENTRY/instrument/detector"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -14733,6 +14805,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXxkappa/ENTRY/sample">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXxbase/ENTRY/sample"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -14768,6 +14841,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXxkappa/ENTRY/name">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXxbase/ENTRY/DATA"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXxkappa/ENTRY/name</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXxkappa.html#nxxkappa-entry-name-group</rdfs:seeAlso>
@@ -14775,7 +14849,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXstxm/ENTRY">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -14818,6 +14891,7 @@
       <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -14860,7 +14934,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXstxm/ENTRY/INSTRUMENT">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -14938,6 +15011,7 @@
       <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXstxm/ENTRY/INSTRUMENT</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXstxm.html#nxstxm-entry-instrument-group</rdfs:seeAlso>
@@ -15178,7 +15252,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXiqproc/ENTRY">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -15207,6 +15280,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -15228,7 +15302,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXiqproc/ENTRY/instrument">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -15236,6 +15309,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -15294,7 +15368,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXiqproc/ENTRY/reduction">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/PROCESS"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -15309,6 +15382,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/PROCESS"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -15410,6 +15484,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXxbase/ENTRY"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -15431,6 +15506,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXxbase/ENTRY/instrument"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXxnb/ENTRY/instrument</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXxnb.html#nxxnb-entry-instrument-group</rdfs:seeAlso>
@@ -15438,6 +15514,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXxnb/ENTRY/instrument/detector">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXxbase/ENTRY/instrument/detector"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -15459,6 +15536,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXxnb/ENTRY/sample">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXxbase/ENTRY/sample"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -15473,6 +15551,7 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXxnb/ENTRY/name">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXxbase/ENTRY/DATA"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXxnb/ENTRY/name</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXxnb.html#nxxnb-entry-name-group</rdfs:seeAlso>
@@ -15480,7 +15559,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXtomoproc/ENTRY">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -15509,6 +15587,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -15530,7 +15609,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXtomoproc/ENTRY/INSTRUMENT">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -15538,6 +15616,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXtomoproc/ENTRY/INSTRUMENT</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXtomoproc.html#nxtomoproc-entry-instrument-group</rdfs:seeAlso>
@@ -15589,7 +15668,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXtomoproc/ENTRY/reconstruction">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/PROCESS"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -15597,6 +15675,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/PROCESS"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -15676,7 +15755,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXtofnpd/ENTRY">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -15712,6 +15790,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -15762,7 +15841,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXtofnpd/ENTRY/INSTRUMENT">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -15770,6 +15848,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXtofnpd/ENTRY/INSTRUMENT</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXtofnpd.html#nxtofnpd-entry-instrument-group</rdfs:seeAlso>
@@ -15900,6 +15979,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXtofraw/ENTRY"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -15928,7 +16008,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXindirecttof/ENTRY/INSTRUMENT">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -15936,6 +16015,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXindirecttof/ENTRY/INSTRUMENT</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXindirecttof.html#nxindirecttof-entry-instrument-group</rdfs:seeAlso>
@@ -15972,7 +16052,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXmonopd/ENTRY">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -16001,6 +16080,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -16029,7 +16109,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXmonopd/ENTRY/INSTRUMENT">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -16051,6 +16130,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXmonopd/ENTRY/INSTRUMENT</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXmonopd.html#nxmonopd-entry-instrument-group</rdfs:seeAlso>
@@ -16183,7 +16263,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXtofsingle/ENTRY">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -16219,6 +16298,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -16276,7 +16356,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXtofsingle/ENTRY/INSTRUMENT">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -16284,6 +16363,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXtofsingle/ENTRY/INSTRUMENT</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXtofsingle.html#nxtofsingle-entry-instrument-group</rdfs:seeAlso>
@@ -16407,7 +16487,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXsqom/ENTRY">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -16436,6 +16515,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -16457,7 +16537,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXsqom/ENTRY/instrument">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -16465,6 +16544,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -16523,7 +16603,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXsqom/ENTRY/reduction">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/PROCESS"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -16538,6 +16617,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/PROCESS"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -16625,7 +16705,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXxbase/ENTRY">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -16654,6 +16733,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -16682,7 +16762,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXxbase/ENTRY/instrument">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -16704,6 +16783,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXxbase/ENTRY/instrument</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXxbase.html#nxxbase-entry-instrument-group</rdfs:seeAlso>
@@ -16901,7 +16981,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXtomophase/ENTRY">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -16930,6 +17009,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -16965,7 +17045,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXtomophase/ENTRY/instrument">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -16994,6 +17073,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXtomophase/ENTRY/instrument</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXtomophase.html#nxtomophase-entry-instrument-group</rdfs:seeAlso>
@@ -17183,7 +17263,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXscan/ENTRY">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -17212,6 +17291,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -17247,7 +17327,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXscan/ENTRY/INSTRUMENT">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -17255,6 +17334,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXscan/ENTRY/INSTRUMENT</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXscan.html#nxscan-entry-instrument-group</rdfs:seeAlso>
@@ -17315,7 +17395,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXtofraw/ENTRY">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -17351,6 +17430,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -17415,7 +17495,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXtofraw/ENTRY/instrument">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -17423,6 +17502,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXtofraw/ENTRY/instrument</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXtofraw.html#nxtofraw-entry-instrument-group</rdfs:seeAlso>
@@ -17560,7 +17640,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXxas/ENTRY">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -17589,6 +17668,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -17617,7 +17697,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXxas/ENTRY/INSTRUMENT">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -17646,6 +17725,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXxas/ENTRY/INSTRUMENT</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXxas.html#nxxas-entry-instrument-group</rdfs:seeAlso>
@@ -17786,7 +17866,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXrefscan/ENTRY">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -17815,6 +17894,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -17850,7 +17930,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXrefscan/ENTRY/instrument">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -17872,6 +17951,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXrefscan/ENTRY/instrument</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXrefscan.html#nxrefscan-entry-instrument-group</rdfs:seeAlso>
@@ -18004,7 +18084,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXsas/ENTRY">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -18033,6 +18112,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -18068,7 +18148,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXsas/ENTRY/INSTRUMENT">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -18097,6 +18176,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -18162,7 +18242,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXsas/ENTRY/INSTRUMENT/COLLIMATOR">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXinstrument/COLLIMATOR"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -18170,6 +18249,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXinstrument/COLLIMATOR"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsas/ENTRY/INSTRUMENT/COLLIMATOR</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXsas.html#nxsas-entry-instrument-collimator-group</rdfs:seeAlso>
@@ -18177,7 +18257,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXsas/ENTRY/INSTRUMENT/COLLIMATOR/GEOMETRY">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXcollimator/GEOMETRY"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -18185,6 +18264,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXcollimator/GEOMETRY"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsas/ENTRY/INSTRUMENT/COLLIMATOR/GEOMETRY</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXsas.html#nxsas-entry-instrument-collimator-geometry-group</rdfs:seeAlso>
@@ -18358,7 +18438,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXmx/ENTRY">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -18387,6 +18466,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -18469,7 +18549,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXmx/ENTRY/SAMPLE">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/SAMPLE"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -18477,6 +18556,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/SAMPLE"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -18527,7 +18607,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXmx/ENTRY/INSTRUMENT">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -18556,6 +18635,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -18650,7 +18730,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXmx/ENTRY/INSTRUMENT/DETECTOR">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXinstrument/DETECTOR"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -18679,6 +18758,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXinstrument/DETECTOR"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -19016,7 +19096,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXmx/ENTRY/INSTRUMENT/BEAM">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXinstrument/BEAM"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -19024,6 +19103,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXinstrument/BEAM"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -19154,7 +19234,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXreftof/ENTRY">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -19183,6 +19262,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -19218,7 +19298,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXreftof/ENTRY/instrument">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -19233,6 +19312,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -19385,7 +19465,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXdirecttof/ENTRY">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXtofraw/ENTRY"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -19393,6 +19472,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXtofraw/ENTRY"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -19421,7 +19501,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXdirecttof/ENTRY/INSTRUMENT">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -19436,6 +19515,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXdirecttof/ENTRY/INSTRUMENT</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
           We definitely want the rotation_speed and energy of the chopper. Thus either
@@ -19490,7 +19570,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXtomo/ENTRY">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -19526,6 +19605,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -19582,7 +19662,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXtomo/ENTRY/instrument">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -19604,6 +19683,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXtomo/ENTRY/instrument</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXtomo.html#nxtomo-entry-instrument-group</rdfs:seeAlso>
@@ -19840,7 +19920,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXxlaueplate/ENTRY">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXxlaue/ENTRY"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -19848,6 +19927,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXxlaue/ENTRY"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -19862,7 +19942,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXxlaueplate/ENTRY/instrument">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXxlaue/ENTRY/instrument"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -19870,6 +19949,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXxlaue/ENTRY/instrument"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXxlaueplate/ENTRY/instrument</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXxlaueplate.html#nxxlaueplate-entry-instrument-group</rdfs:seeAlso>
@@ -19892,7 +19972,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXarchive/ENTRY">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -19914,6 +19993,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -20062,7 +20142,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXarchive/ENTRY/instrument">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -20070,6 +20149,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -20212,7 +20292,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXspe/ENTRY">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -20241,6 +20320,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/BaseClass/NXentry"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -20355,7 +20435,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXspe/ENTRY/INSTRUMENT">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -20363,6 +20442,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXentry/INSTRUMENT"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -20421,7 +20501,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXxeuler/ENTRY">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXxbase/ENTRY"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -20443,6 +20522,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Group/NXxbase/ENTRY"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -20457,7 +20537,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Group/NXxeuler/ENTRY/instrument">
   <rdfs:subClassOf rdf:resource="#NeXusGroup"/>
-  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXxbase/ENTRY/instrument"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -20465,6 +20544,7 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Group/NXxbase/ENTRY/instrument"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXxeuler/ENTRY/instrument</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXxeuler.html#nxxeuler-entry-instrument-group</rdfs:seeAlso>
@@ -21722,6 +21802,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/depends_on"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXcrystal/depends_on</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
           .. todo::
@@ -21747,6 +21828,7 @@
       </owl:allValuesFrom>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/description"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXbeam_stop/description</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">description of beamstop</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXbeam_stop.html#nxbeam-stop-description-field</rdfs:seeAlso>
@@ -21931,6 +22013,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/depends_on"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXbeam_stop/depends_on</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
         The reference point of the beam stop is its center in the x and y axis. The reference point on the z axis is the
@@ -22317,6 +22400,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/depends_on"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXxraylens/depends_on</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
             .. todo::
@@ -22893,6 +22977,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/depends_on"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXdisk_chopper/depends_on</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
             The reference plane of the disk chopper includes the surface of the spinning disk which faces
@@ -22933,6 +23018,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/name"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXactuator/name</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
              Name of the actuator
@@ -23138,6 +23224,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXobject/identifierNAME"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXhistory/identifierNAME</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
             An ID or reference to the location or a unique (globally
@@ -23494,6 +23581,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/name"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsample/name</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Descriptive name of sample</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXsample.html#nxsample-name-field</rdfs:seeAlso>
@@ -24132,6 +24220,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/description"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsample/description</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
 			Description of the sample
@@ -24775,6 +24864,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXobject/identifierNAME"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXentry/identifier_experiment</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
 			Unique identifier for the experiment,
@@ -24870,6 +24960,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXobject/identifierNAME"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXentry/identifier_collection</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">User or Data Acquisition defined group of NeXus files or NXentry</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXentry.html#nxentry-identifier-collection-field</rdfs:seeAlso>
@@ -24961,6 +25052,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXobject/identifierNAME"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXentry/identifier_entry</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">unique identifier for the measurement, defined by the facility.</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXentry.html#nxentry-identifier-entry-field</rdfs:seeAlso>
@@ -25029,6 +25121,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXobject/identifierNAME"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -25793,6 +25886,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXobject/identifierNAME"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXnote/identifierNAME</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
             Identifier of the resource if that resource that has been serialized.
@@ -26399,6 +26493,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/name"/>
   <rdfs:subClassOf>
     <owl:Restriction>
       <owl:onProperty rdf:resource="#has"/>
@@ -26916,6 +27011,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXdata/title"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsource/bunch_pattern/title</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">name of the bunch pattern</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXsource.html#nxsource-bunch-pattern-title-field</rdfs:seeAlso>
@@ -27418,6 +27514,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/depends_on"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsource/depends_on</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
 			The reference point of the source plane is its center in the x and y axis. The source is considered infinitely thin in the
@@ -27520,6 +27617,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXobject/identifierNAME"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsubentry/identifier_experiment</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
 			Unique identifier for the experiment,
@@ -27615,6 +27713,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXobject/identifierNAME"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsubentry/identifier_collection</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">User or Data Acquisition defined group of NeXus files or :ref:`NXentry`</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXsubentry.html#nxsubentry-identifier-collection-field</rdfs:seeAlso>
@@ -27706,6 +27805,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXobject/identifierNAME"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsubentry/identifier_entry</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">unique identifier for the measurement, defined by the facility.</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXsubentry.html#nxsubentry-identifier-entry-field</rdfs:seeAlso>
@@ -28537,6 +28637,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/depends_on"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXpolarizer/depends_on</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
             .. todo::
@@ -28728,6 +28829,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXobject/FIELDNAME_errors"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXdata/FIELDNAME_errors</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
 			"Errors" (meaning *uncertainties* or *standard deviations*)
@@ -29744,6 +29846,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/depends_on"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXgrating/depends_on</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
             .. todo::
@@ -30192,6 +30295,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/depends_on"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXfresnel_zone_plate/depends_on</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
             .. todo::
@@ -30403,6 +30507,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/depends_on"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXcapillary/depends_on</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
             .. todo::
@@ -30436,6 +30541,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/name"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXpositioner/name</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">symbolic or mnemonic name (one word)</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXpositioner.html#nxpositioner-name-field</rdfs:seeAlso>
@@ -30466,6 +30572,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/description"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXpositioner/description</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">description of positioner</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXpositioner.html#nxpositioner-description-field</rdfs:seeAlso>
@@ -30766,6 +30873,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/depends_on"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXpositioner/depends_on</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
             .. todo::
@@ -31288,6 +31396,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/depends_on"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXinsertion_device/depends_on</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
             .. todo::
@@ -31321,6 +31430,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/description"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXpid_controller/description</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
             Description of how the Process Value for the PID controller is produced by sensor(s) in the setup.
@@ -31355,6 +31465,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXlog/value"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXpid_controller/pv_sensor/value_log/value</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
                      The actual timeseries data fed back into the PID controller.
@@ -31696,6 +31807,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXobject/identifierNAME"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXcalibration/identifier_calibration_method</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
             A digital persistent identifier (e.g., DOI, ISO standard) referring to a detailed description of a
@@ -31729,6 +31841,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXobject/identifierNAME"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXcalibration/identifier_calibration_reference</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
             A digital persistent identifier (e.g., a DOI) referring to a publicly available calibration measurement
@@ -32488,6 +32601,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/depends_on"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXvelocity_selector/depends_on</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
             .. todo::
@@ -32733,6 +32847,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/depends_on"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXattenuator/depends_on</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
         The reference point of the attenuator is its center in the x and y axis. The reference point on the z axis is the
@@ -32771,6 +32886,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/depends_on"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXslit/depends_on</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
 			If desired the location of the slit can also be described relative to
@@ -33584,6 +33700,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/depends_on"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXmonitor/depends_on</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
             The reference plane of the monitor contains the surface of the detector that faces the source
@@ -33622,6 +33739,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/description"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXguide/description</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A description of this particular instance of ``NXguide``.</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXguide.html#nxguide-description-field</rdfs:seeAlso>
@@ -34105,6 +34223,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/depends_on"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXguide/depends_on</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
             The entry opening of the guide lies on the reference plane. The center of the opening on that plane is
@@ -36919,6 +37038,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/depends_on"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXmonochromator/depends_on</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
             .. todo::
@@ -36974,6 +37094,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/description"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXmirror/description</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">description of this mirror</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXmirror.html#nxmirror-description-field</rdfs:seeAlso>
@@ -37509,6 +37630,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/depends_on"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXmirror/depends_on</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
             Given a flat mirror, the reference plane is the plane which contains the "entry" surface of the mirror. The reference
@@ -37665,6 +37787,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_TRANSFORMATION"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXobject/FIELDNAME_set"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXtransformations/AXISNAME_increment_set</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
           ``AXISNAME_increment_set`` is a placeholder for a name constructed from the actual
@@ -37901,6 +38024,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/depends_on"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXmoderator/depends_on</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
             The reference point of the moderator is its center in the x and y axis. The reference point on the z axis is the
@@ -37978,6 +38102,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/depends_on"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXpinhole/depends_on</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
 			The reference direction of the pinhole is parallel with the z axis. The reference
@@ -38365,6 +38490,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/depends_on"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXbending_magnet/depends_on</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
         .. todo::
@@ -38525,6 +38651,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/name"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsensor/name</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Name for the sensor</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXsensor.html#nxsensor-name-field</rdfs:seeAlso>
@@ -38900,6 +39027,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/depends_on"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsensor/depends_on</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
             .. todo::
@@ -39158,6 +39286,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXobject/FIELDNAME_errors"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXdetector/data_errors</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
       The best estimate of the uncertainty in the data value (array size should match the data field). Where
@@ -39474,6 +39603,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/description"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXdetector/description</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">name/manufacturer/model/etc. information</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXdetector.html#nxdetector-description-field</rdfs:seeAlso>
@@ -41274,6 +41404,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/depends_on"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXdetector/depends_on</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXdetector.html#nxdetector-depends-on-field</rdfs:seeAlso>
@@ -41651,6 +41782,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/name"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXlens_em/name</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
             Name of the lens.
@@ -41683,6 +41815,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/description"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXlens_em/description</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
             Ideally, use instances of ``identifierNAME`` to point to a resource
@@ -42430,6 +42563,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/depends_on"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXflipper/depends_on</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
             .. todo::
@@ -43366,6 +43500,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/depends_on"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXfermi_chopper/depends_on</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
             .. todo::
@@ -43770,6 +43905,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ENERGY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXobject/FIELDNAME_weights"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXbeam/incident_energy_weights</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
              Relative weights of the corresponding energies in ``incident_energy``.
@@ -45099,6 +45235,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/depends_on"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXcollimator/depends_on</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
             Assuming a collimator with a "flat" entry surface, the reference plane is the plane which contains this surface. The reference
@@ -45136,6 +45273,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/name"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsample_component/name</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Descriptive name of sample component</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXsample_component.html#nxsample-component-name-field</rdfs:seeAlso>
@@ -45458,6 +45596,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/description"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsample_component/description</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
 			Description of the sample component
@@ -45634,6 +45773,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/depends_on"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXaperture/depends_on</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
         The reference point of the aperture is its center in the x and y axis. The reference point on the z axis is the
@@ -45702,6 +45842,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXcomponent/description"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXaperture/description</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Description of aperture</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXaperture.html#nxaperture-description-field</rdfs:seeAlso>
@@ -51285,6 +51426,7 @@
       </owl:unionOf>
     </owl:Class>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXxbase/ENTRY/definition"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXxrot/ENTRY/definition</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Official NeXus NXDL schema to which this file conforms.</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXxrot.html#nxxrot-entry-definition-field</rdfs:seeAlso>
@@ -52264,7 +52406,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Field/NXxlaue/ENTRY/definition">
   <rdfs:subClassOf rdf:resource="#NeXusField"/>
-  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXxrot/ENTRY/definition"/>
   <rdfs:subClassOf>
     <owl:Class>
       <owl:unionOf rdf:parseType="Collection">
@@ -52285,6 +52426,7 @@
       </owl:unionOf>
     </owl:Class>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXxrot/ENTRY/definition"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXxlaue/ENTRY/definition</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"> Official NeXus NXDL schema to which this file conforms </rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXxlaue.html#nxxlaue-entry-definition-field</rdfs:seeAlso>
@@ -52367,6 +52509,7 @@
       </owl:allValuesFrom>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXxbase/ENTRY/definition"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXxkappa/ENTRY/definition</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"> Official NeXus NXDL schema to which this file conforms </rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXxkappa.html#nxxkappa-entry-definition-field</rdfs:seeAlso>
@@ -53566,6 +53709,7 @@
       </owl:allValuesFrom>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXxbase/ENTRY/definition"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXxnb/ENTRY/definition</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"> Official NeXus NXDL schema to which this file conforms </rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXxnb.html#nxxnb-entry-definition-field</rdfs:seeAlso>
@@ -54662,6 +54806,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Field/NXtofraw/ENTRY/title"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXindirecttof/ENTRY/title</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXindirecttof.html#nxindirecttof-entry-title-field</rdfs:seeAlso>
@@ -54692,6 +54837,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Field/NXtofraw/ENTRY/start_time"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXindirecttof/ENTRY/start_time</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXindirecttof.html#nxindirecttof-entry-start-time-field</rdfs:seeAlso>
@@ -54714,6 +54860,7 @@
       </owl:allValuesFrom>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXtofraw/ENTRY/definition"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXindirecttof/ENTRY/definition</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"> Official NeXus NXDL schema to which this file conforms </rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXindirecttof.html#nxindirecttof-entry-definition-field</rdfs:seeAlso>
@@ -56271,7 +56418,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Field/NXxbase/ENTRY/definition">
   <rdfs:subClassOf rdf:resource="#NeXusField"/>
-  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXentry/definition"/>
   <rdfs:subClassOf>
     <owl:Class>
       <owl:unionOf rdf:parseType="Collection">
@@ -56307,6 +56453,7 @@
       </owl:unionOf>
     </owl:Class>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXentry/definition"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXxbase/ENTRY/definition</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"> Official NeXus NXDL schema to which this file conforms </rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXxbase.html#nxxbase-entry-definition-field</rdfs:seeAlso>
@@ -57847,7 +57994,6 @@
 
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Field/NXtofraw/ENTRY/definition">
   <rdfs:subClassOf rdf:resource="#NeXusField"/>
-  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXentry/definition"/>
   <rdfs:subClassOf>
     <owl:Class>
       <owl:unionOf rdf:parseType="Collection">
@@ -57873,6 +58019,7 @@
       </owl:unionOf>
     </owl:Class>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXentry/definition"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXtofraw/ENTRY/definition</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"> Official NeXus NXDL schema to which this file conforms </rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXtofraw.html#nxtofraw-entry-definition-field</rdfs:seeAlso>
@@ -65967,6 +66114,7 @@
       <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Attribute/NXobject/default"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXentry/default</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
 			.. index:: find the default plottable data
@@ -66318,6 +66466,7 @@
       <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Attribute/NXobject/default"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsubentry/default</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
 			.. index:: find the default plottable data
@@ -67639,6 +67788,7 @@
       <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Attribute/NXobject/default"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXcalibration/default</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
             .. index:: plotting
@@ -72339,7 +72489,6 @@
 <owl:AllDisjointClasses>
   <owl:members rdf:parseType="Collection">
     <rdf:Description rdf:about="http://purl.org/nexusformat/definitions/Units/NX_ANGLE"/>
-    <rdf:Description rdf:about="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     <rdf:Description rdf:about="http://purl.org/nexusformat/definitions/Units/NX_AREA"/>
     <rdf:Description rdf:about="http://purl.org/nexusformat/definitions/Units/NX_CROSS_SECTION"/>
     <rdf:Description rdf:about="http://purl.org/nexusformat/definitions/Units/NX_CHARGE"/>
