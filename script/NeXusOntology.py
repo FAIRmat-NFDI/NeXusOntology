@@ -111,7 +111,7 @@ class NeXusOntology:
             return set(
                 str(x)
                 for x in owl_class.is_a
-                if isinstance(x, owlready2.class_construct.Restriction)
+                #if isinstance(x, owlready2.class_construct.Restriction)
             )
         def has_diff_relations(subclass, superclass):
             return len(get_restriction_set(subclass) - get_restriction_set(superclass)) > 0
@@ -131,6 +131,7 @@ class NeXusOntology:
             f"  Restrictions: {subclass_restrictions}\n"
             f"  Comment: {subclass_comment}\n"
             f"  Has OneOf: {subclass_oneof}\n"
+            f"  rels: {set(str(x) for x in subclass.is_a)}\n"
             f"Superclass: {superclass}\n"
             f"  Restrictions: {superclass_restrictions}\n"
             f"  Comment: {superclass_comment}\n"
@@ -161,9 +162,13 @@ class NeXusOntology:
                         if self.nxdl_info[xml_tag][path]["maxOccurs"]:
                             self.nxdl_info["applications"][parent]["onto_class"].is_a.append(self.has.max(self.nxdl_info[xml_tag][path]["maxOccurs"], nx_class))
                 else:
-                    self.nxdl_info[parent_tag][parent]["onto_class"].is_a.append(self.has.min(self.nxdl_info[xml_tag][path]["minOccurs"], nx_class))
-                    if self.nxdl_info[xml_tag][path]["maxOccurs"]:
-                        self.nxdl_info[parent_tag][parent]["onto_class"].is_a.append(self.has.max(self.nxdl_info[xml_tag][path]["maxOccurs"], nx_class))
+                    if "onto_class" not in self.nxdl_info[parent_tag][parent].keys():
+                        print('ISSUE ========================')
+                        print(parent)
+                    else:
+                        self.nxdl_info[parent_tag][parent]["onto_class"].is_a.append(self.has.min(self.nxdl_info[xml_tag][path]["minOccurs"], nx_class))
+                        if self.nxdl_info[xml_tag][path]["maxOccurs"]:
+                            self.nxdl_info[parent_tag][parent]["onto_class"].is_a.append(self.has.max(self.nxdl_info[xml_tag][path]["maxOccurs"], nx_class))
 
     def get_unit_categories(self):
         with self.__onto__:
@@ -178,7 +183,7 @@ class NeXusOntology:
                 web_page = self.web_page_base_prefix + "nxdl-types.html#" + unit.lower().replace("_", "-")
                 nx_unit.seeAlso.append(web_page)
                 unit_categories[unit]["onto_class"] = nx_unit
-            owlready2.AllDisjoint([v["onto_class"] for k,v in unit_categories.items()])
+            owlready2.AllDisjoint([v["onto_class"] for k,v in unit_categories.items() if k not in ["NX_ANY", "NX_TRANSFORMATION", "NX_TIME_OF_FLIGHT"]])
         return unit_categories
 
 
@@ -276,9 +281,9 @@ class NeXusOntology:
                             else:
                                 nx_child.is_a.append(self.hasUnitContainer.some(self.unit_categories["NX_ANY"]["onto_class"]))
                 
-                superclass_type, superclass_path, pclass_super = self.get_parent(child_type,child)
-                if pclass_super:
-                    self.__set_is_a_or_equivalent(self.nxdl_info[child_type][child]["onto_class"], pclass_super)
+                # superclass_type, superclass_path, pclass_super = self.get_parent(child_type,child)
+                # if pclass_super:
+                #     self.__set_is_a_or_equivalent(self.nxdl_info[child_type][child]["onto_class"], pclass_super)
 
             # cleaning enum restrictions in superclass
             for child in self.nxdl_info[child_type].keys():
@@ -300,7 +305,13 @@ class NeXusOntology:
                                 break
                             act_type, act_child = superclass_type, superclass_path
                             superclass_type, superclass_path, pclass_super = self.get_parent(act_type,act_child)
-    
+
+            for child in self.nxdl_info[child_type].keys():
+                superclass_type, superclass_path, pclass_super = self.get_parent(child_type,child)
+                if pclass_super:
+                    self.__set_is_a_or_equivalent(self.nxdl_info[child_type][child]["onto_class"], pclass_super)
+
+
     # Instances - Dataset
     def gen_datasets(self):
         dataset="dataset_000/"

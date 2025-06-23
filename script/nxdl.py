@@ -138,8 +138,14 @@ def load_all_nxdls(full = True) -> dict:
                                             "minOccurs": get_min_occurs_from_xml_node(element, root.get("category") == "base"), "maxOccurs": get_max_occurs_from_xml_node(element)}
                 enums = nexus.get_enums(element)
                 if enums is not None:
-                    enums = enums[0].strip("[").strip("]")
-                    nxdl_info[xml_tag][path]["enums"] = enums.split(",")
+                    closed = True
+                    namespace2 = nexus.get_namespace(element)
+                    for enumeration in element.findall(f"{namespace2}enumeration"):
+                        if 'open' in enumeration.attrib.keys() and enumeration.attrib['open']=='true':
+                            closed = False
+                    # print(f"ENUM - closed: {closed} - {path}")
+                    if closed:
+                        nxdl_info[xml_tag][path]["enums"] = enums
                 elist = nexus.get_inherited_nodes(nxdl_path=path[path.find("/"):], nx_name=path[:path.find("/")])[2]
                 if len(elist)>1:
                     nxdl_info[xml_tag][path]["superclass_path"] = nexus.get_node_concept_path(elist[1]).replace(".nxdl.xml:","")
