@@ -4,8 +4,6 @@ import types
 import hashlib
 
 from . import nxdl
-import logging
-logging.basicConfig(filename='nexus_ontology.log', level=logging.INFO, format='%(message)s')
 
 
 script_files = next(walk("./"), (None, None, []))[2]
