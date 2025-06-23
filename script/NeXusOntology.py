@@ -106,39 +106,13 @@ class NeXusOntology:
 
     def __set_is_a_or_equivalent(self, subclass, superclass):
         def get_restriction_set(owl_class):
-            return set(
-                str(x)
-                for x in owl_class.is_a
-                #if isinstance(x, owlready2.class_construct.Restriction)
-            )
+            return set(str(x) for x in owl_class.is_a)
         def has_diff_relations(subclass, superclass):
             return len(get_restriction_set(subclass) - get_restriction_set(superclass)) > 0
         def has_oneof_relation(owl_class):
             return "OneOf([" in str([str(x) for x in owl_class.is_a])
 
-        # Gather info for logging
-        subclass_restrictions = get_restriction_set(subclass)
-        superclass_restrictions = get_restriction_set(superclass)
-        subclass_comment = getattr(subclass, 'comment', [""])[0]
-        superclass_comment = getattr(superclass, 'comment', [""])[0]
-        subclass_oneof = has_oneof_relation(subclass)
-        superclass_oneof = has_oneof_relation(superclass)
-
-        log_msg = (
-            f"Subclass: {subclass}\n"
-            f"  Restrictions: {subclass_restrictions}\n"
-            f"  Comment: {subclass_comment}\n"
-            f"  Has OneOf: {subclass_oneof}\n"
-            f"  rels: {set(str(x) for x in subclass.is_a)}\n"
-            f"Superclass: {superclass}\n"
-            f"  Restrictions: {superclass_restrictions}\n"
-            f"  Comment: {superclass_comment}\n"
-            f"  Has OneOf: {superclass_oneof}\n"
-            "----------------------------------------"
-        )
-        logging.info(log_msg)
-
-        if subclass_comment != "" or has_diff_relations(subclass, superclass) or subclass_oneof:
+        if subclass.comment[0] != "" or has_diff_relations(subclass, superclass) or has_oneof_relation(subclass):
             subclass.is_a.append(superclass)
 
             # To show that we override values we need to add an exception to the base class if the subclass overrides it in NeXus.
@@ -160,13 +134,9 @@ class NeXusOntology:
                         if self.nxdl_info[xml_tag][path]["maxOccurs"]:
                             self.nxdl_info["applications"][parent]["onto_class"].is_a.append(self.has.max(self.nxdl_info[xml_tag][path]["maxOccurs"], nx_class))
                 else:
-                    if "onto_class" not in self.nxdl_info[parent_tag][parent].keys():
-                        print('ISSUE ========================')
-                        print(parent)
-                    else:
-                        self.nxdl_info[parent_tag][parent]["onto_class"].is_a.append(self.has.min(self.nxdl_info[xml_tag][path]["minOccurs"], nx_class))
-                        if self.nxdl_info[xml_tag][path]["maxOccurs"]:
-                            self.nxdl_info[parent_tag][parent]["onto_class"].is_a.append(self.has.max(self.nxdl_info[xml_tag][path]["maxOccurs"], nx_class))
+                    self.nxdl_info[parent_tag][parent]["onto_class"].is_a.append(self.has.min(self.nxdl_info[xml_tag][path]["minOccurs"], nx_class))
+                    if self.nxdl_info[xml_tag][path]["maxOccurs"]:
+                        self.nxdl_info[parent_tag][parent]["onto_class"].is_a.append(self.has.max(self.nxdl_info[xml_tag][path]["maxOccurs"], nx_class))
 
     def get_unit_categories(self):
         with self.__onto__:
@@ -278,10 +248,7 @@ class NeXusOntology:
                                 nx_child.is_a.append(self.hasUnitContainer.some(self.unit_categories[unit]["onto_class"]))
                             else:
                                 nx_child.is_a.append(self.hasUnitContainer.some(self.unit_categories["NX_ANY"]["onto_class"]))
-                
-                # superclass_type, superclass_path, pclass_super = self.get_parent(child_type,child)
-                # if pclass_super:
-                #     self.__set_is_a_or_equivalent(self.nxdl_info[child_type][child]["onto_class"], pclass_super)
+                                
 
             # cleaning enum restrictions in superclass
             for child in self.nxdl_info[child_type].keys():

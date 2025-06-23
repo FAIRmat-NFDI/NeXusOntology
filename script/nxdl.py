@@ -143,7 +143,6 @@ def load_all_nxdls(full = True) -> dict:
                     for enumeration in element.findall(f"{namespace2}enumeration"):
                         if 'open' in enumeration.attrib.keys() and enumeration.attrib['open']=='true':
                             closed = False
-                    # print(f"ENUM - closed: {closed} - {path}")
                     if closed:
                         nxdl_info[xml_tag][path]["enums"] = enums
                 elist = nexus.get_inherited_nodes(nxdl_path=path[path.find("/"):], nx_name=path[:path.find("/")])[2]

@@ -20612,7 +20612,12 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bragg</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Laue</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -21821,7 +21826,12 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">circular</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">rectangular</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -21976,7 +21986,12 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">in</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">out</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -22035,7 +22050,22 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">paraboloid</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">spherical</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">elliptical</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hyperbolical</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -22121,7 +22151,12 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">line</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">point</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -22487,7 +22522,17 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Chopper type single</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">contra_rotating_pair</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">synchro_pair</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -24154,7 +24199,52 @@
               <owl:oneOf>
                 <rdf:Description>
               <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sample</rdf:first>
+                <rdf:rest>
+                <rdf:Description>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sample+can</rdf:first>
+                <rdf:rest>
+                <rdf:Description>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">can</rdf:first>
+                <rdf:rest>
+                <rdf:Description>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sample+buffer</rdf:first>
+                <rdf:rest>
+                <rdf:Description>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">buffer</rdf:first>
+                <rdf:rest>
+                <rdf:Description>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">calibration sample</rdf:first>
+                <rdf:rest>
+                <rdf:Description>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">normalisation sample</rdf:first>
+                <rdf:rest>
+                <rdf:Description>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">simulated data</rdf:first>
+                <rdf:rest>
+                <rdf:Description>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">none</rdf:first>
+                <rdf:rest>
+                <rdf:Description>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sample environment</rdf:first>
                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                </rdf:Description>
+                </rdf:rest>
+                </rdf:Description>
+                </rdf:rest>
+                </rdf:Description>
+                </rdf:rest>
+                </rdf:Description>
+                </rdf:rest>
+                </rdf:Description>
+                </rdf:rest>
+                </rdf:Description>
+                </rdf:rest>
+                </rdf:Description>
+                </rdf:rest>
+                </rdf:Description>
+                </rdf:rest>
+                </rdf:Description>
+                </rdf:rest>
                 </rdf:Description>
               </owl:oneOf>
             </rdfs:Datatype>
@@ -24179,7 +24269,37 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">air</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">vacuum</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">inert atmosphere</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">oxidising atmosphere</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">reducing atmosphere</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sealed can</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">other</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -24298,7 +24418,22 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sample</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">can</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">atmosphere</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">kit</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -24410,7 +24545,37 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">triclinic</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">monoclinic</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">orthorhombic</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">tetragonal</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">rhombohedral</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hexagonal</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cubic</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -26259,7 +26424,22 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">estimated</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">derived</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">calibrated</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">other</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -26509,24 +26689,27 @@
 <owl:Class rdf:about="http://purl.org/nexusformat/definitions/Field/NXsource/type">
   <rdfs:subClassOf rdf:resource="#NeXusField"/>
   <rdfs:subClassOf>
-    <owl:Class>
-      <owl:unionOf rdf:parseType="Collection">
-        <owl:Restriction>
-          <owl:onProperty rdf:resource="#actualValue"/>
-          <owl:allValuesFrom>
-            <rdfs:Datatype>
-              <owl:oneOf>
-                <rdf:Description>
-              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Spallation Neutron Source</rdf:first>
-                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-                </rdf:Description>
-              </owl:oneOf>
-            </rdfs:Datatype>
-          </owl:allValuesFrom>
-        </owl:Restriction>
-        <rdf:Description rdf:about="http://purl.org/nexusformat/definitions/Field/NXarchive/ENTRY/instrument/SOURCE/type"/>
-      </owl:unionOf>
-    </owl:Class>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasValueContainer"/>
+      <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/DataTypes/NX_CHAR"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasValueContainer"/>
+      <owl:onClass>
+        <owl:Class>
+          <owl:complementOf rdf:resource="http://purl.org/nexusformat/definitions/DataTypes/NX_CHAR"/>
+        </owl:Class>
+      </owl:onClass>
+      <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxQualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasUnitContainer"/>
+      <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
+    </owl:Restriction>
   </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsource/type</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">type of radiation source (pick one from the enumerated list and spell exactly)</rdfs:comment>
@@ -26573,7 +26756,47 @@
                                                                       <owl:oneOf>
                                                                         <rdf:Description>
                                                                       <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">neutron</rdf:first>
+                                                                        <rdf:rest>
+                                                                        <rdf:Description>
+                                                                      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">photon</rdf:first>
+                                                                        <rdf:rest>
+                                                                        <rdf:Description>
+                                                                      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">x-ray</rdf:first>
+                                                                        <rdf:rest>
+                                                                        <rdf:Description>
+                                                                      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">muon</rdf:first>
+                                                                        <rdf:rest>
+                                                                        <rdf:Description>
+                                                                      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">electron</rdf:first>
+                                                                        <rdf:rest>
+                                                                        <rdf:Description>
+                                                                      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ultraviolet</rdf:first>
+                                                                        <rdf:rest>
+                                                                        <rdf:Description>
+                                                                      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">visible light</rdf:first>
+                                                                        <rdf:rest>
+                                                                        <rdf:Description>
+                                                                      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">positron</rdf:first>
+                                                                        <rdf:rest>
+                                                                        <rdf:Description>
+                                                                      <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">proton</rdf:first>
                                                                         <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                        </rdf:Description>
+                                                                        </rdf:rest>
+                                                                        </rdf:Description>
+                                                                        </rdf:rest>
+                                                                        </rdf:Description>
+                                                                        </rdf:rest>
+                                                                        </rdf:Description>
+                                                                        </rdf:rest>
+                                                                        </rdf:Description>
+                                                                        </rdf:rest>
+                                                                        </rdf:Description>
+                                                                        </rdf:rest>
+                                                                        </rdf:Description>
+                                                                        </rdf:rest>
+                                                                        </rdf:Description>
+                                                                        </rdf:rest>
                                                                         </rdf:Description>
                                                                       </owl:oneOf>
                                                                     </rdfs:Datatype>
@@ -26974,7 +27197,37 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ta</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">W</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">depleted_U</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">enriched_U</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Hg</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pb</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">C</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -27141,17 +27394,25 @@
   <rdfs:subClassOf rdf:resource="#NeXusField"/>
   <rdfs:subClassOf>
     <owl:Restriction>
-      <owl:onProperty rdf:resource="#actualValue"/>
-      <owl:allValuesFrom>
-        <rdfs:Datatype>
-          <owl:oneOf>
-            <rdf:Description>
-          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Single Bunch</rdf:first>
-            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-            </rdf:Description>
-          </owl:oneOf>
-        </rdfs:Datatype>
-      </owl:allValuesFrom>
+      <owl:onProperty rdf:resource="#hasValueContainer"/>
+      <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/DataTypes/NX_CHAR"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasValueContainer"/>
+      <owl:onClass>
+        <owl:Class>
+          <owl:complementOf rdf:resource="http://purl.org/nexusformat/definitions/DataTypes/NX_CHAR"/>
+        </owl:Class>
+      </owl:onClass>
+      <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxQualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasUnitContainer"/>
+      <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsource/mode</rdfs:label>
@@ -29599,7 +29860,17 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">vacuum</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">helium</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">argon</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -29988,7 +30259,22 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">etched</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">plated</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">zone doubled</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">other</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -30315,7 +30601,17 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">single_bounce</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">polycapillary</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">conical_capillary</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -30933,7 +31229,47 @@
                   <owl:oneOf>
                     <rdf:Description>
                   <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">nxflat</rdf:first>
+                    <rdf:rest>
+                    <rdf:Description>
+                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">nxcylinder</rdf:first>
+                    <rdf:rest>
+                    <rdf:Description>
+                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">nxbox</rdf:first>
+                    <rdf:rest>
+                    <rdf:Description>
+                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">nxsphere</rdf:first>
+                    <rdf:rest>
+                    <rdf:Description>
+                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">nxcone</rdf:first>
+                    <rdf:rest>
+                    <rdf:Description>
+                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">nxelliptical</rdf:first>
+                    <rdf:rest>
+                    <rdf:Description>
+                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">nxtoroidal</rdf:first>
+                    <rdf:rest>
+                    <rdf:Description>
+                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">nxparabolic</rdf:first>
+                    <rdf:rest>
+                    <rdf:Description>
+                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">nxpolynomial</rdf:first>
                     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                    </rdf:rest>
+                    </rdf:Description>
+                    </rdf:rest>
+                    </rdf:Description>
+                    </rdf:rest>
+                    </rdf:Description>
+                    </rdf:rest>
+                    </rdf:Description>
+                    </rdf:rest>
+                    </rdf:Description>
+                    </rdf:rest>
+                    </rdf:Description>
+                    </rdf:rest>
+                    </rdf:Description>
+                    </rdf:rest>
                     </rdf:Description>
                   </owl:oneOf>
                 </rdfs:Datatype>
@@ -31007,7 +31343,12 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">concave</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">convex</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -31029,7 +31370,12 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">undulator</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">wiggler</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -31696,7 +32042,12 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">direct</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">reverse</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -32803,7 +33154,17 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">in</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">out</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">moving</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -33231,7 +33592,12 @@
                                                               <owl:oneOf>
                                                                 <rdf:Description>
                                                               <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">monitor</rdf:first>
+                                                                <rdf:rest>
+                                                                <rdf:Description>
+                                                              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">timer</rdf:first>
                                                                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                                                </rdf:Description>
+                                                                </rdf:rest>
                                                                 </rdf:Description>
                                                               </owl:oneOf>
                                                             </rdfs:Datatype>
@@ -33506,7 +33872,12 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fission Chamber</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Scintillator</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -33940,7 +34311,17 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">vacuum</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">helium</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">argon</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -37057,7 +37438,12 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">single</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">multi</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -37200,7 +37586,17 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">vacuum</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">helium</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">argon</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -37845,7 +38241,47 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">H20</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">D20</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Liquid H2</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Liquid CH4</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Liquid D2</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Solid D2</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">C</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Solid CH4</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Solid H2</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -37957,7 +38393,12 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gd</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Cd</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -38721,17 +39162,25 @@
   <rdfs:subClassOf rdf:resource="#NeXusField"/>
   <rdfs:subClassOf>
     <owl:Restriction>
-      <owl:onProperty rdf:resource="#actualValue"/>
-      <owl:allValuesFrom>
-        <rdfs:Datatype>
-          <owl:oneOf>
-            <rdf:Description>
-          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">temperature</rdf:first>
-            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-            </rdf:Description>
-          </owl:oneOf>
-        </rdfs:Datatype>
-      </owl:allValuesFrom>
+      <owl:onProperty rdf:resource="#hasValueContainer"/>
+      <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/DataTypes/NX_CHAR"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasValueContainer"/>
+      <owl:onClass>
+        <owl:Class>
+          <owl:complementOf rdf:resource="http://purl.org/nexusformat/definitions/DataTypes/NX_CHAR"/>
+        </owl:Class>
+      </owl:onClass>
+      <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxQualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasUnitContainer"/>
+      <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsensor/measurement</rdfs:label>
@@ -38990,7 +39439,32 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">along beam</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">across beam</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">transverse</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">solenoidal</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">flow shear gradient</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">flow vorticity</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -40211,7 +40685,17 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">point</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">linear</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">area</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -40434,7 +40918,37 @@
               <owl:oneOf>
                 <rdf:Description>
               <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">gated</rdf:first>
+                <rdf:rest>
+                <rdf:Description>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">triggered</rdf:first>
+                <rdf:rest>
+                <rdf:Description>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">summed</rdf:first>
+                <rdf:rest>
+                <rdf:Description>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">event</rdf:first>
+                <rdf:rest>
+                <rdf:Description>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">histogrammed</rdf:first>
+                <rdf:rest>
+                <rdf:Description>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">decimated</rdf:first>
+                <rdf:rest>
+                <rdf:Description>
+              <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pulse counting</rdf:first>
                 <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                </rdf:Description>
+                </rdf:rest>
+                </rdf:Description>
+                </rdf:rest>
+                </rdf:Description>
+                </rdf:rest>
+                </rdf:Description>
+                </rdf:rest>
+                </rdf:Description>
+                </rdf:rest>
+                </rdf:Description>
+                </rdf:rest>
                 </rdf:Description>
               </owl:oneOf>
             </rdfs:Datatype>
@@ -41985,7 +42499,32 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">single</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">double</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">quadrupole</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hexapole</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">octupole</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">dodecapole</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -42316,7 +42855,12 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">coil</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">current-sheet</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -44958,7 +45502,22 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Soller</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">radial</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">oscillating</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">honeycomb</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -45674,7 +46233,37 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">triclinic</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">monoclinic</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">orthorhombic</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">tetragonal</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">rhombohedral</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hexagonal</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cubic</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -45858,7 +46447,52 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">straight slit</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">curved slit</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">pinhole</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">circle</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">square</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hexagon</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">octagon</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">bladed</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">open</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">grid</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -46345,7 +46979,12 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">in</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">out</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -48068,7 +48707,102 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Spallation Neutron Source</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pulsed Reactor Neutron Source</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Reactor Neutron Source</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Synchrotron X-ray Source</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pulsed Muon Source</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rotating Anode X-ray</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fixed Tube X-ray</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UV Laser</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Free-Electron Laser</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Optical Laser</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Ion Source</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UV Plasma Source</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">neutron</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">x-ray</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">muon</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">electron</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ultraviolet</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">visible light</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">positron</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">proton</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -48986,7 +49720,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
-  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXsource/type"/>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Field/NXsource/type"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXfluo/ENTRY/INSTRUMENT/SOURCE/type</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXfluo.html#nxfluo-entry-instrument-source-type-field</rdfs:seeAlso>
@@ -49178,7 +49912,12 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">monitor</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">timer</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -49612,7 +50351,12 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">monitor</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">timer</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -49843,7 +50587,12 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">neutron</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">x-ray</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -50412,7 +51161,12 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">monitor</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">timer</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -50598,7 +51352,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
-  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXsource/type"/>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Field/NXsource/type"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXarpes/ENTRY/INSTRUMENT/SOURCE/type</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXarpes.html#nxarpes-entry-instrument-source-type-field</rdfs:seeAlso>
@@ -50759,7 +51513,12 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">swept</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">fixed</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -50782,7 +51541,12 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">curved</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">straight</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -51780,7 +52544,12 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">neutron</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">x-ray</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -51803,7 +52572,12 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">nxcylinder</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">nxbox</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -52300,7 +53074,12 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">monitor</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">timer</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -52815,7 +53594,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
-  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXsource/type"/>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Field/NXsource/type"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXstxm/ENTRY/INSTRUMENT/SOURCE/type</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXstxm.html#nxstxm-entry-instrument-source-type-field</rdfs:seeAlso>
@@ -53076,7 +53855,47 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sample point spectrum</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sample line spectrum</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sample image</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sample image stack</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sample focus</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">osa image</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">osa focus</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">detector image</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">generic scan</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -53345,7 +54164,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
-  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXsource/type"/>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Field/NXsource/type"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXiqproc/ENTRY/instrument/SOURCE/type</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXiqproc.html#nxiqproc-entry-instrument-source-type-field</rdfs:seeAlso>
@@ -53392,7 +54211,17 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">neutron</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">x-ray</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">electron</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -53894,7 +54723,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
-  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXsource/type"/>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Field/NXsource/type"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXtomoproc/ENTRY/INSTRUMENT/SOURCE/type</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXtomoproc.html#nxtomoproc-entry-instrument-source-type-field</rdfs:seeAlso>
@@ -53941,7 +54770,17 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">neutron</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">x-ray</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">electron</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -54643,7 +55482,12 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">monitor</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">timer</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -55067,7 +55911,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
-  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXsource/type"/>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Field/NXsource/type"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXmonopd/ENTRY/INSTRUMENT/SOURCE/type</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXmonopd.html#nxmonopd-entry-instrument-source-type-field</rdfs:seeAlso>
@@ -55114,7 +55958,17 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">neutron</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">x-ray</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">electron</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -55298,7 +56152,12 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">monitor</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">timer</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -55751,7 +56610,17 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">powder</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">liquid</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">single crystal</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -55773,7 +56642,12 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">monitor</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">timer</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -55990,7 +56864,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
-  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXsource/type"/>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Field/NXsource/type"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsqom/ENTRY/instrument/SOURCE/type</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXsqom.html#nxsqom-entry-instrument-source-type-field</rdfs:seeAlso>
@@ -56037,7 +56911,17 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">neutron</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">x-ray</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">electron</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -56484,7 +57368,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
-  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXsource/type"/>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Field/NXsource/type"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXxbase/ENTRY/instrument/source/type</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXxbase.html#nxxbase-entry-instrument-source-type-field</rdfs:seeAlso>
@@ -56531,7 +57415,17 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">neutron</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">x-ray</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">electron</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -56984,7 +57878,12 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">monitor</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">timer</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -57201,7 +58100,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
-  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXsource/type"/>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Field/NXsource/type"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXtomophase/ENTRY/instrument/SOURCE/type</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXtomophase.html#nxtomophase-entry-instrument-source-type-field</rdfs:seeAlso>
@@ -57248,7 +58147,17 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">neutron</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">x-ray</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">electron</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -58378,7 +59287,17 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">powder</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">liquid</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">single crystal</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -58400,7 +59319,12 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">monitor</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">timer</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -58678,7 +59602,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
-  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXsource/type"/>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Field/NXsource/type"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXxas/ENTRY/INSTRUMENT/SOURCE/type</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXxas.html#nxxas-entry-instrument-source-type-field</rdfs:seeAlso>
@@ -58872,7 +59796,12 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">monitor</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">timer</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -58959,7 +59888,27 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Total Electron Yield</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Partial Electron Yield</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Auger Electron Yield</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fluorescence Yield</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Transmission</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -59112,7 +60061,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
-  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXsource/type"/>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Field/NXsource/type"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXrefscan/ENTRY/instrument/SOURCE/type</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXrefscan.html#nxrefscan-entry-instrument-source-type-field</rdfs:seeAlso>
@@ -59159,7 +60108,17 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">neutron</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">x-ray</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">electron</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -59336,7 +60295,12 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">monitor</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">timer</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -59600,7 +60564,12 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">neutron</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">x-ray</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -59689,7 +60658,12 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">nxcylinder</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">nxbox</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -60169,7 +61143,12 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">monitor</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">timer</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -62669,7 +63648,22 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Gaussian</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Airy</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">top-hat</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">rectangular</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -63234,7 +64228,12 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">monitor</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">timer</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -63720,7 +64719,7 @@
       <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/Units/NX_ANY"/>
     </owl:Restriction>
   </rdfs:subClassOf>
-  <rdfs:subClassOf rdf:resource="http://purl.org/nexusformat/definitions/Field/NXsource/type"/>
+  <owl:equivalentClass rdf:resource="http://purl.org/nexusformat/definitions/Field/NXsource/type"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXtomo/ENTRY/instrument/SOURCE/type</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXtomo.html#nxtomo-entry-instrument-source-type-field</rdfs:seeAlso>
@@ -63767,7 +64766,17 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">neutron</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">x-ray</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">electron</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -64812,7 +65821,37 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Spallation Neutron Source</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pulsed Reactor Neutron Source</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Reactor Neutron Source</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Synchrotron X-Ray Source</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Pulsed Muon Source</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Rotating Anode X-Ray</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Fixed Tube X-Ray</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -64866,7 +65905,17 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">neutron</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">x-ray</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">electron</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -65042,7 +66091,37 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sample</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sample+can</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">calibration sample</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">normalisation sample</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">simulated data</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">none</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">sample_environment</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -66039,7 +67118,17 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">x</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">y</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">z</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -66061,7 +67150,17 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">x</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">y</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">z</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -66083,7 +67182,17 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">x</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">y</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">z</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -69453,7 +70562,12 @@
                   <owl:oneOf>
                     <rdf:Description>
                   <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">translation</rdf:first>
+                    <rdf:rest>
+                    <rdf:Description>
+                  <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">rotation</rdf:first>
                     <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                    </rdf:rest>
                     </rdf:Description>
                   </owl:oneOf>
                 </rdfs:Datatype>
@@ -70105,7 +71219,27 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">.</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">. .</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">. . .</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">. . . .</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">wavelength</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -70631,17 +71765,19 @@
   <rdfs:subClassOf rdf:resource="#NeXusAttribute"/>
   <rdfs:subClassOf>
     <owl:Restriction>
-      <owl:onProperty rdf:resource="#actualValue"/>
-      <owl:allValuesFrom>
-        <rdfs:Datatype>
-          <owl:oneOf>
-            <rdf:Description>
-          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">ARK</rdf:first>
-            <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
-            </rdf:Description>
-          </owl:oneOf>
-        </rdfs:Datatype>
-      </owl:allValuesFrom>
+      <owl:onProperty rdf:resource="#hasValueContainer"/>
+      <owl:someValuesFrom rdf:resource="http://purl.org/nexusformat/definitions/DataTypes/NX_CHAR"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasValueContainer"/>
+      <owl:onClass>
+        <owl:Class>
+          <owl:complementOf rdf:resource="http://purl.org/nexusformat/definitions/DataTypes/NX_CHAR"/>
+        </owl:Class>
+      </owl:onClass>
+      <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXobject/identifierNAME/type</rdfs:label>
@@ -71000,7 +72136,17 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1/m</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1/nm</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1/angstrom</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -71198,7 +72344,27 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1/m</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1/cm</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">m2/g</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cm2/g</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">arbitrary</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -71317,7 +72483,27 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1/m</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1/cm</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">m2/g</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">cm2/g</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">arbitrary</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -71349,7 +72535,17 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1/m</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1/nm</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1/angstrom</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -71377,7 +72573,17 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1/m</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1/nm</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1/angstrom</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -71405,7 +72611,17 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1/m</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1/nm</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1/angstrom</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -71433,7 +72649,17 @@
           <owl:oneOf>
             <rdf:Description>
           <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1/m</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1/nm</rdf:first>
+            <rdf:rest>
+            <rdf:Description>
+          <rdf:first rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1/angstrom</rdf:first>
             <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+            </rdf:rest>
+            </rdf:Description>
+            </rdf:rest>
             </rdf:Description>
           </owl:oneOf>
         </rdfs:Datatype>
@@ -72513,8 +73739,6 @@
     <rdf:Description rdf:about="http://purl.org/nexusformat/definitions/Units/NX_SOLID_ANGLE"/>
     <rdf:Description rdf:about="http://purl.org/nexusformat/definitions/Units/NX_TEMPERATURE"/>
     <rdf:Description rdf:about="http://purl.org/nexusformat/definitions/Units/NX_TIME"/>
-    <rdf:Description rdf:about="http://purl.org/nexusformat/definitions/Units/NX_TIME_OF_FLIGHT"/>
-    <rdf:Description rdf:about="http://purl.org/nexusformat/definitions/Units/NX_TRANSFORMATION"/>
     <rdf:Description rdf:about="http://purl.org/nexusformat/definitions/Units/NX_UNITLESS"/>
     <rdf:Description rdf:about="http://purl.org/nexusformat/definitions/Units/NX_VOLTAGE"/>
     <rdf:Description rdf:about="http://purl.org/nexusformat/definitions/Units/NX_VOLUME"/>
