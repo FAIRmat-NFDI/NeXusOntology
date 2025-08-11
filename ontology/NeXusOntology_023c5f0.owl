@@ -128985,7 +128985,6 @@
     <rdf:Description rdf:about="http://purl.org/nexusformat/definitions/Units/NX_CROSS_SECTION"/>
     <rdf:Description rdf:about="http://purl.org/nexusformat/definitions/Units/NX_CHARGE"/>
     <rdf:Description rdf:about="http://purl.org/nexusformat/definitions/Units/NX_CURRENT"/>
-    <rdf:Description rdf:about="http://purl.org/nexusformat/definitions/Units/NX_DIMENSIONLESS"/>
     <rdf:Description rdf:about="http://purl.org/nexusformat/definitions/Units/NX_EMITTANCE"/>
     <rdf:Description rdf:about="http://purl.org/nexusformat/definitions/Units/NX_ENERGY"/>
     <rdf:Description rdf:about="http://purl.org/nexusformat/definitions/Units/NX_FLUX"/>
@@ -129005,7 +129004,6 @@
     <rdf:Description rdf:about="http://purl.org/nexusformat/definitions/Units/NX_SOLID_ANGLE"/>
     <rdf:Description rdf:about="http://purl.org/nexusformat/definitions/Units/NX_TEMPERATURE"/>
     <rdf:Description rdf:about="http://purl.org/nexusformat/definitions/Units/NX_TIME"/>
-    <rdf:Description rdf:about="http://purl.org/nexusformat/definitions/Units/NX_UNITLESS"/>
     <rdf:Description rdf:about="http://purl.org/nexusformat/definitions/Units/NX_VOLTAGE"/>
     <rdf:Description rdf:about="http://purl.org/nexusformat/definitions/Units/NX_VOLUME"/>
     <rdf:Description rdf:about="http://purl.org/nexusformat/definitions/Units/NX_WAVELENGTH"/>

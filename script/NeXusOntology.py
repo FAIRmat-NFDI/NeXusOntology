@@ -151,7 +151,7 @@ class NeXusOntology:
                 web_page = self.web_page_base_prefix + "nxdl-types.html#" + unit.lower().replace("_", "-")
                 nx_unit.seeAlso.append(web_page)
                 unit_categories[unit]["onto_class"] = nx_unit
-            owlready2.AllDisjoint([v["onto_class"] for k,v in unit_categories.items() if k not in ["NX_ANY", "NX_TRANSFORMATION", "NX_TIME_OF_FLIGHT"]])
+            owlready2.AllDisjoint([v["onto_class"] for k,v in unit_categories.items() if k not in ["NX_ANY", "NX_TRANSFORMATION", "NX_TIME_OF_FLIGHT", "NX_UNITLESS", "NX_DIMENSIONLESS"]])
         return unit_categories
 
 
