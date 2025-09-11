@@ -282,7 +282,7 @@ class NeXusOntology:
                             #if it has enum, replace the condition
                             fnd = False
                             for restriction in pclass_super.is_a:
-                                if "actualValue" in str(restriction):
+                                if "hasEnumContainer" in str(restriction):
                                     fnd = True
                                     pclass_super.is_a.remove(restriction)
                                     pclass_super.is_a.append(owlready2.Or([restriction,self.nxdl_info[child_type][child]["onto_class"]]))
@@ -305,51 +305,69 @@ class NeXusOntology:
 
         value = self.data_types["NX_CHAR"]["onto_class"]()
         value.actualValue = ["Key something"]
+        value.set_iri(self.base_iri + "/testdata#" + f"{str(value.__class__).split('definitions.')[-1]}-{value.actualValue[0]}")
+
         valueInt = self.data_types["NX_INT"]["onto_class"]()
         valueInt.actualValue = [123]
+        valueInt.set_iri(self.base_iri + "/testdata#" + f"{str(valueInt.__class__).split('definitions.')[-1]}-{valueInt.actualValue[0]}")
+
         valueFloat = self.data_types["NX_FLOAT"]["onto_class"]()
         valueFloat.actualValue = [123.456]
+        valueFloat.set_iri(self.base_iri + "/testdata#" + f"{str(valueFloat.__class__).split('definitions.')[-1]}-{valueFloat.actualValue[0]}")
+
         unit1 = self.unit_categories["NX_ANY"]["onto_class"]()
         unit1.actualValue = ["keV"]
+        unit1.set_iri(self.base_iri + "/testdata#" + f"{str(unit1.__class__).split('definitions.')[-1]}-{unit1.actualValue[0]}")
+
         valueEnumDef = self.enums["NXiv_temp/ENTRY/definition/NXiv_temp"]["onto_class"]()
         valueEnumDef.actualValue = ["NXiv_temp"]
-    
+        valueEnumDef.set_iri(self.base_iri + "/testdata#" + f"{str(valueEnumDef.__class__).split('definitions.')[-1]}1")
+
         name = self.nxdl_info["field"]["NXsensor/name"]["onto_class"]()
         name.label.append(dataset+"NXiv_temp/ENTRY/INSTRUMENT/ENVIRONMENT/current_sensor/name")
+        name.set_iri(self.base_iri + "/testdata#" + f"{name.label[0].replace('/','-')}")
         name.hasValueContainer = value
         name.hasUnitContainer = unit1
 
         ltv = self.nxdl_info["field"]["NXsensor/low_trip_value"]["onto_class"]()
         ltv.label.append(dataset+"NXiv_temp/ENTRY/INSTRUMENT/ENVIRONMENT/current_sensor/low_trip_value")
+        ltv.set_iri(self.base_iri + "/testdata#" + f"{ltv.label[0].replace('/','-')}")
         ltv.hasValueContainer = valueFloat
         ltv.hasUnitContainer = unit1
 
         current_sensor = self.nxdl_info["group"]["NXiv_temp/ENTRY/INSTRUMENT/ENVIRONMENT/current_sensor"]["onto_class"]()
         current_sensor.label.append(dataset+"NXiv_temp/ENTRY/INSTRUMENT/ENVIRONMENT/current_sensor")
+        current_sensor.set_iri(self.base_iri + "/testdata#" + f"{current_sensor.label[0].replace('/','-')}")
         current_sensor.has = [name,ltv]
 
         environment = self.nxdl_info["group"]["NXiv_temp/ENTRY/INSTRUMENT/ENVIRONMENT"]["onto_class"]()
         environment.label.append(dataset+"NXiv_temp/ENTRY/INSTRUMENT/ENVIRONMENT")
+        environment.set_iri(self.base_iri + "/testdata#" + f"{environment.label[0].replace('/','-')}")
         environment.has = [current_sensor]
 
         instrument = self.nxdl_info["group"]["NXiv_temp/ENTRY/INSTRUMENT"]["onto_class"]()
         instrument.label.append(dataset+"NXiv_temp/ENTRY/INSTRUMENT")
+        instrument.set_iri(self.base_iri + "/testdata#" + f"{instrument.label[0].replace('/','-')}")
         instrument.has = [environment]
         
         definition = self.nxdl_info["field"]["NXiv_temp/ENTRY/definition"]["onto_class"]()
         definition.label.append(dataset+"NXiv_temp/ENTRY/definition")
+        definition.set_iri(self.base_iri + "/testdata#" + f"{definition.label[0].replace('/','-')}")
         definition.hasEnumContainer = valueEnumDef
         
         entry = self.nxdl_info["group"]["NXiv_temp/ENTRY"]["onto_class"]()
         entry.label.append(dataset+"NXiv_temp/ENTRY")
+        entry.set_iri(self.base_iri + "/testdata#" + f"{entry.label[0].replace('/','-')}")
         entry.has = [instrument,definition]
 
         appdef = self.nxdl_info["applications"]["NXiv_temp"]["onto_class"]()
         appdef.label.append(dataset+"NXiv_temp")
+        appdef.set_iri(self.base_iri + "/testdata#" + f"{appdef.label[0].replace('/','-')}")
         appdef.has = [entry]
 
         root = self.nxdl_info["base_classes"]["NXroot"]["onto_class"]()
         root.label.append(dataset)
+        root.set_iri(self.base_iri + "/testdata#" + f"{root.label[0].replace('/','-')}")
         root.has = [entry]
 
 
@@ -364,9 +382,12 @@ class NeXusOntology:
 
         valueEnumDef2 = self.enums["NXsensor_scan/ENTRY/definition/NXsensor_scan"]["onto_class"]()
         valueEnumDef2.actualValue = ["NXsensor_scan"]
+        valueEnumDef2.set_iri(self.base_iri + "/testdata#" + f"{str(valueEnumDef2.__class__).split('definitions.')[-1]}1")
+
         valueEnumDef3 = self.enums["NXapm/ENTRY/definition/NXapm"]["onto_class"]()
         valueEnumDef3.actualValue = ["NXapm"]
-        
+        valueEnumDef3.set_iri(self.base_iri + "/testdata#" + f"{str(valueEnumDef3.__class__).split('definitions.')[-1]}1")
+
         # definition.hasEnumContainer = valueEnumDef3
 
 

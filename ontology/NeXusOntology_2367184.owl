@@ -51524,24 +51524,34 @@
 <owl:Class rdf:about="#nxshape-shape-field">
   <rdfs:subClassOf rdf:resource="#NeXusField"/>
   <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasEnumContainer"/>
-      <owl:allValuesFrom>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
         <owl:Class>
           <owl:unionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="#nxshape-shape-nxflat-enum"/>
-            <rdf:Description rdf:about="#nxshape-shape-nxcylinder-enum"/>
-            <rdf:Description rdf:about="#nxshape-shape-nxbox-enum"/>
-            <rdf:Description rdf:about="#nxshape-shape-nxsphere-enum"/>
-            <rdf:Description rdf:about="#nxshape-shape-nxcone-enum"/>
-            <rdf:Description rdf:about="#nxshape-shape-nxelliptical-enum"/>
-            <rdf:Description rdf:about="#nxshape-shape-nxtoroidal-enum"/>
-            <rdf:Description rdf:about="#nxshape-shape-nxparabolic-enum"/>
-            <rdf:Description rdf:about="#nxshape-shape-nxpolynomial-enum"/>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasEnumContainer"/>
+              <owl:allValuesFrom>
+                <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#nxshape-shape-nxflat-enum"/>
+                    <rdf:Description rdf:about="#nxshape-shape-nxcylinder-enum"/>
+                    <rdf:Description rdf:about="#nxshape-shape-nxbox-enum"/>
+                    <rdf:Description rdf:about="#nxshape-shape-nxsphere-enum"/>
+                    <rdf:Description rdf:about="#nxshape-shape-nxcone-enum"/>
+                    <rdf:Description rdf:about="#nxshape-shape-nxelliptical-enum"/>
+                    <rdf:Description rdf:about="#nxshape-shape-nxtoroidal-enum"/>
+                    <rdf:Description rdf:about="#nxshape-shape-nxparabolic-enum"/>
+                    <rdf:Description rdf:about="#nxshape-shape-nxpolynomial-enum"/>
+                  </owl:unionOf>
+                </owl:Class>
+              </owl:allValuesFrom>
+            </owl:Restriction>
+            <rdf:Description rdf:about="#nxsas-entry-instrument-collimator-geometry-shape-shape-field"/>
           </owl:unionOf>
         </owl:Class>
-      </owl:allValuesFrom>
-    </owl:Restriction>
+        <rdf:Description rdf:about="#nxsastof-entry-instrument-collimator-geometry-shape-shape-field"/>
+      </owl:unionOf>
+    </owl:Class>
   </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXshape/shape</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">general shape of a component</rdfs:comment>
@@ -57009,22 +57019,27 @@
 <owl:Class rdf:about="#nxdetector-acquisition-mode-field">
   <rdfs:subClassOf rdf:resource="#NeXusField"/>
   <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasEnumContainer"/>
-      <owl:allValuesFrom>
-        <owl:Class>
-          <owl:unionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="#nxdetector-acquisition-mode-gated-enum"/>
-            <rdf:Description rdf:about="#nxdetector-acquisition-mode-triggered-enum"/>
-            <rdf:Description rdf:about="#nxdetector-acquisition-mode-summed-enum"/>
-            <rdf:Description rdf:about="#nxdetector-acquisition-mode-event-enum"/>
-            <rdf:Description rdf:about="#nxdetector-acquisition-mode-histogrammed-enum"/>
-            <rdf:Description rdf:about="#nxdetector-acquisition-mode-decimated-enum"/>
-            <rdf:Description rdf:about="#nxdetector-acquisition-mode-pulse-counting-enum"/>
-          </owl:unionOf>
-        </owl:Class>
-      </owl:allValuesFrom>
-    </owl:Restriction>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEnumContainer"/>
+          <owl:allValuesFrom>
+            <owl:Class>
+              <owl:unionOf rdf:parseType="Collection">
+                <rdf:Description rdf:about="#nxdetector-acquisition-mode-gated-enum"/>
+                <rdf:Description rdf:about="#nxdetector-acquisition-mode-triggered-enum"/>
+                <rdf:Description rdf:about="#nxdetector-acquisition-mode-summed-enum"/>
+                <rdf:Description rdf:about="#nxdetector-acquisition-mode-event-enum"/>
+                <rdf:Description rdf:about="#nxdetector-acquisition-mode-histogrammed-enum"/>
+                <rdf:Description rdf:about="#nxdetector-acquisition-mode-decimated-enum"/>
+                <rdf:Description rdf:about="#nxdetector-acquisition-mode-pulse-counting-enum"/>
+              </owl:unionOf>
+            </owl:Class>
+          </owl:allValuesFrom>
+        </owl:Restriction>
+        <rdf:Description rdf:about="#nxarpes-entry-instrument-analyser-acquisition-mode-field"/>
+      </owl:unionOf>
+    </owl:Class>
   </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXdetector/acquisition_mode</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The acquisition mode of the detector.</rdfs:comment>
@@ -60745,24 +60760,104 @@
 <owl:Class rdf:about="#nxsource-probe-field">
   <rdfs:subClassOf rdf:resource="#NeXusField"/>
   <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasEnumContainer"/>
-      <owl:allValuesFrom>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
         <owl:Class>
           <owl:unionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="#nxsource-probe-neutron-enum"/>
-            <rdf:Description rdf:about="#nxsource-probe-photon-enum"/>
-            <rdf:Description rdf:about="#nxsource-probe-x-ray-enum"/>
-            <rdf:Description rdf:about="#nxsource-probe-muon-enum"/>
-            <rdf:Description rdf:about="#nxsource-probe-electron-enum"/>
-            <rdf:Description rdf:about="#nxsource-probe-ultraviolet-enum"/>
-            <rdf:Description rdf:about="#nxsource-probe-visible-light-enum"/>
-            <rdf:Description rdf:about="#nxsource-probe-positron-enum"/>
-            <rdf:Description rdf:about="#nxsource-probe-proton-enum"/>
+            <owl:Class>
+              <owl:unionOf rdf:parseType="Collection">
+                <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                    <owl:Class>
+                      <owl:unionOf rdf:parseType="Collection">
+                        <owl:Class>
+                          <owl:unionOf rdf:parseType="Collection">
+                            <owl:Class>
+                              <owl:unionOf rdf:parseType="Collection">
+                                <owl:Class>
+                                  <owl:unionOf rdf:parseType="Collection">
+                                    <owl:Class>
+                                      <owl:unionOf rdf:parseType="Collection">
+                                        <owl:Class>
+                                          <owl:unionOf rdf:parseType="Collection">
+                                            <owl:Class>
+                                              <owl:unionOf rdf:parseType="Collection">
+                                                <owl:Class>
+                                                  <owl:unionOf rdf:parseType="Collection">
+                                                    <owl:Class>
+                                                      <owl:unionOf rdf:parseType="Collection">
+                                                        <owl:Class>
+                                                          <owl:unionOf rdf:parseType="Collection">
+                                                            <owl:Class>
+                                                              <owl:unionOf rdf:parseType="Collection">
+                                                                <owl:Class>
+                                                                  <owl:unionOf rdf:parseType="Collection">
+                                                                    <owl:Restriction>
+                                                                      <owl:onProperty rdf:resource="#hasEnumContainer"/>
+                                                                      <owl:allValuesFrom>
+                                                                        <owl:Class>
+                                                                          <owl:unionOf rdf:parseType="Collection">
+                                                                            <rdf:Description rdf:about="#nxsource-probe-neutron-enum"/>
+                                                                            <rdf:Description rdf:about="#nxsource-probe-photon-enum"/>
+                                                                            <rdf:Description rdf:about="#nxsource-probe-x-ray-enum"/>
+                                                                            <rdf:Description rdf:about="#nxsource-probe-muon-enum"/>
+                                                                            <rdf:Description rdf:about="#nxsource-probe-electron-enum"/>
+                                                                            <rdf:Description rdf:about="#nxsource-probe-ultraviolet-enum"/>
+                                                                            <rdf:Description rdf:about="#nxsource-probe-visible-light-enum"/>
+                                                                            <rdf:Description rdf:about="#nxsource-probe-positron-enum"/>
+                                                                            <rdf:Description rdf:about="#nxsource-probe-proton-enum"/>
+                                                                          </owl:unionOf>
+                                                                        </owl:Class>
+                                                                      </owl:allValuesFrom>
+                                                                    </owl:Restriction>
+                                                                    <rdf:Description rdf:about="#nxebeam-column-electron-source-probe-field"/>
+                                                                  </owl:unionOf>
+                                                                </owl:Class>
+                                                                <rdf:Description rdf:about="#nxtomophase-entry-instrument-source-probe-field"/>
+                                                              </owl:unionOf>
+                                                            </owl:Class>
+                                                            <rdf:Description rdf:about="#nxfluo-entry-instrument-source-probe-field"/>
+                                                          </owl:unionOf>
+                                                        </owl:Class>
+                                                        <rdf:Description rdf:about="#nxxas-entry-instrument-source-probe-field"/>
+                                                      </owl:unionOf>
+                                                    </owl:Class>
+                                                    <rdf:Description rdf:about="#nxtomoproc-entry-instrument-source-probe-field"/>
+                                                  </owl:unionOf>
+                                                </owl:Class>
+                                                <rdf:Description rdf:about="#nxtomo-entry-instrument-source-probe-field"/>
+                                              </owl:unionOf>
+                                            </owl:Class>
+                                            <rdf:Description rdf:about="#nxrefscan-entry-instrument-source-probe-field"/>
+                                          </owl:unionOf>
+                                        </owl:Class>
+                                        <rdf:Description rdf:about="#nxarpes-entry-instrument-source-probe-field"/>
+                                      </owl:unionOf>
+                                    </owl:Class>
+                                    <rdf:Description rdf:about="#nxiqproc-entry-instrument-source-probe-field"/>
+                                  </owl:unionOf>
+                                </owl:Class>
+                                <rdf:Description rdf:about="#nxsas-entry-instrument-source-probe-field"/>
+                              </owl:unionOf>
+                            </owl:Class>
+                            <rdf:Description rdf:about="#nxsqom-entry-instrument-source-probe-field"/>
+                          </owl:unionOf>
+                        </owl:Class>
+                        <rdf:Description rdf:about="#nxarchive-entry-instrument-source-probe-field"/>
+                      </owl:unionOf>
+                    </owl:Class>
+                    <rdf:Description rdf:about="#nxxbase-entry-instrument-source-probe-field"/>
+                  </owl:unionOf>
+                </owl:Class>
+                <rdf:Description rdf:about="#nxtas-entry-instrument-source-probe-field"/>
+              </owl:unionOf>
+            </owl:Class>
+            <rdf:Description rdf:about="#nxsastof-entry-instrument-source-probe-field"/>
           </owl:unionOf>
         </owl:Class>
-      </owl:allValuesFrom>
-    </owl:Restriction>
+        <rdf:Description rdf:about="#nxmonopd-entry-instrument-source-probe-field"/>
+      </owl:unionOf>
+    </owl:Class>
   </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsource/probe</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">type of radiation probe (pick one from the enumerated list and spell exactly)</rdfs:comment>
@@ -68015,16 +68110,21 @@
 <owl:Class rdf:about="#nxelectronanalyzer-energy-resolution-physical-quantity-field">
   <rdfs:subClassOf rdf:resource="#NeXusField"/>
   <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasEnumContainer"/>
-      <owl:allValuesFrom>
-        <owl:Class>
-          <owl:unionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="#nxelectronanalyzer-energy-resolution-physical-quantity-energy-enum"/>
-          </owl:unionOf>
-        </owl:Class>
-      </owl:allValuesFrom>
-    </owl:Restriction>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEnumContainer"/>
+          <owl:allValuesFrom>
+            <owl:Class>
+              <owl:unionOf rdf:parseType="Collection">
+                <rdf:Description rdf:about="#nxelectronanalyzer-energy-resolution-physical-quantity-energy-enum"/>
+              </owl:unionOf>
+            </owl:Class>
+          </owl:allValuesFrom>
+        </owl:Restriction>
+        <rdf:Description rdf:about="#nxmpes-entry-instrument-electronanalyzer-energy-resolution-physical-quantity-field"/>
+      </owl:unionOf>
+    </owl:Class>
   </rdfs:subClassOf>
   <rdfs:subClassOf rdf:resource="#nxresolution-physical-quantity-field"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXelectronanalyzer/energy_resolution/physical_quantity</rdfs:label>
@@ -83382,25 +83482,30 @@
 <owl:Class rdf:about="#nxsample-type-field">
   <rdfs:subClassOf rdf:resource="#NeXusField"/>
   <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasEnumContainer"/>
-      <owl:allValuesFrom>
-        <owl:Class>
-          <owl:unionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="#nxsample-type-sample-enum"/>
-            <rdf:Description rdf:about="#nxsample-type-sample+can-enum"/>
-            <rdf:Description rdf:about="#nxsample-type-can-enum"/>
-            <rdf:Description rdf:about="#nxsample-type-sample+buffer-enum"/>
-            <rdf:Description rdf:about="#nxsample-type-buffer-enum"/>
-            <rdf:Description rdf:about="#nxsample-type-calibration-sample-enum"/>
-            <rdf:Description rdf:about="#nxsample-type-normalisation-sample-enum"/>
-            <rdf:Description rdf:about="#nxsample-type-simulated-data-enum"/>
-            <rdf:Description rdf:about="#nxsample-type-none-enum"/>
-            <rdf:Description rdf:about="#nxsample-type-sample-environment-enum"/>
-          </owl:unionOf>
-        </owl:Class>
-      </owl:allValuesFrom>
-    </owl:Restriction>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEnumContainer"/>
+          <owl:allValuesFrom>
+            <owl:Class>
+              <owl:unionOf rdf:parseType="Collection">
+                <rdf:Description rdf:about="#nxsample-type-sample-enum"/>
+                <rdf:Description rdf:about="#nxsample-type-sample+can-enum"/>
+                <rdf:Description rdf:about="#nxsample-type-can-enum"/>
+                <rdf:Description rdf:about="#nxsample-type-sample+buffer-enum"/>
+                <rdf:Description rdf:about="#nxsample-type-buffer-enum"/>
+                <rdf:Description rdf:about="#nxsample-type-calibration-sample-enum"/>
+                <rdf:Description rdf:about="#nxsample-type-normalisation-sample-enum"/>
+                <rdf:Description rdf:about="#nxsample-type-simulated-data-enum"/>
+                <rdf:Description rdf:about="#nxsample-type-none-enum"/>
+                <rdf:Description rdf:about="#nxsample-type-sample-environment-enum"/>
+              </owl:unionOf>
+            </owl:Class>
+          </owl:allValuesFrom>
+        </owl:Restriction>
+        <rdf:Description rdf:about="#nxarchive-entry-sample-type-field"/>
+      </owl:unionOf>
+    </owl:Class>
   </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsample/type</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
@@ -83630,22 +83735,27 @@
 <owl:Class rdf:about="#nxsample-situation-field">
   <rdfs:subClassOf rdf:resource="#NeXusField"/>
   <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasEnumContainer"/>
-      <owl:allValuesFrom>
-        <owl:Class>
-          <owl:unionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="#nxsample-situation-air-enum"/>
-            <rdf:Description rdf:about="#nxsample-situation-vacuum-enum"/>
-            <rdf:Description rdf:about="#nxsample-situation-inert-atmosphere-enum"/>
-            <rdf:Description rdf:about="#nxsample-situation-oxidising-atmosphere-enum"/>
-            <rdf:Description rdf:about="#nxsample-situation-reducing-atmosphere-enum"/>
-            <rdf:Description rdf:about="#nxsample-situation-sealed-can-enum"/>
-            <rdf:Description rdf:about="#nxsample-situation-other-enum"/>
-          </owl:unionOf>
-        </owl:Class>
-      </owl:allValuesFrom>
-    </owl:Restriction>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEnumContainer"/>
+          <owl:allValuesFrom>
+            <owl:Class>
+              <owl:unionOf rdf:parseType="Collection">
+                <rdf:Description rdf:about="#nxsample-situation-air-enum"/>
+                <rdf:Description rdf:about="#nxsample-situation-vacuum-enum"/>
+                <rdf:Description rdf:about="#nxsample-situation-inert-atmosphere-enum"/>
+                <rdf:Description rdf:about="#nxsample-situation-oxidising-atmosphere-enum"/>
+                <rdf:Description rdf:about="#nxsample-situation-reducing-atmosphere-enum"/>
+                <rdf:Description rdf:about="#nxsample-situation-sealed-can-enum"/>
+                <rdf:Description rdf:about="#nxsample-situation-other-enum"/>
+              </owl:unionOf>
+            </owl:Class>
+          </owl:allValuesFrom>
+        </owl:Restriction>
+        <rdf:Description rdf:about="#nxmpes-entry-sample-situation-field"/>
+      </owl:unionOf>
+    </owl:Class>
   </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsample/situation</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
@@ -88274,16 +88384,21 @@
 <owl:Class rdf:about="#nxmanipulator-cryostat-actuation-target-field">
   <rdfs:subClassOf rdf:resource="#NeXusField"/>
   <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasEnumContainer"/>
-      <owl:allValuesFrom>
-        <owl:Class>
-          <owl:unionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="#nxmanipulator-cryostat-actuation-target-temperature-enum"/>
-          </owl:unionOf>
-        </owl:Class>
-      </owl:allValuesFrom>
-    </owl:Restriction>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEnumContainer"/>
+          <owl:allValuesFrom>
+            <owl:Class>
+              <owl:unionOf rdf:parseType="Collection">
+                <rdf:Description rdf:about="#nxmanipulator-cryostat-actuation-target-temperature-enum"/>
+              </owl:unionOf>
+            </owl:Class>
+          </owl:allValuesFrom>
+        </owl:Restriction>
+        <rdf:Description rdf:about="#nxmpes-entry-instrument-manipulator-cryostat-actuation-target-field"/>
+      </owl:unionOf>
+    </owl:Class>
   </rdfs:subClassOf>
   <rdfs:subClassOf rdf:resource="#nxactuator-actuation-target-field"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXmanipulator/cryostat/actuation_target</rdfs:label>
@@ -88383,16 +88498,21 @@
 <owl:Class rdf:about="#nxmanipulator-temperature-sensor-measurement-field">
   <rdfs:subClassOf rdf:resource="#NeXusField"/>
   <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasEnumContainer"/>
-      <owl:allValuesFrom>
-        <owl:Class>
-          <owl:unionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="#nxmanipulator-temperature-sensor-measurement-temperature-enum"/>
-          </owl:unionOf>
-        </owl:Class>
-      </owl:allValuesFrom>
-    </owl:Restriction>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEnumContainer"/>
+          <owl:allValuesFrom>
+            <owl:Class>
+              <owl:unionOf rdf:parseType="Collection">
+                <rdf:Description rdf:about="#nxmanipulator-temperature-sensor-measurement-temperature-enum"/>
+              </owl:unionOf>
+            </owl:Class>
+          </owl:allValuesFrom>
+        </owl:Restriction>
+        <rdf:Description rdf:about="#nxmpes-entry-instrument-manipulator-temperature-sensor-measurement-field"/>
+      </owl:unionOf>
+    </owl:Class>
   </rdfs:subClassOf>
   <rdfs:subClassOf rdf:resource="#nxsensor-measurement-field"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXmanipulator/temperature_sensor/measurement</rdfs:label>
@@ -88493,16 +88613,21 @@
 <owl:Class rdf:about="#nxmanipulator-sample-heater-actuation-target-field">
   <rdfs:subClassOf rdf:resource="#NeXusField"/>
   <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasEnumContainer"/>
-      <owl:allValuesFrom>
-        <owl:Class>
-          <owl:unionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="#nxmanipulator-sample-heater-actuation-target-temperature-enum"/>
-          </owl:unionOf>
-        </owl:Class>
-      </owl:allValuesFrom>
-    </owl:Restriction>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEnumContainer"/>
+          <owl:allValuesFrom>
+            <owl:Class>
+              <owl:unionOf rdf:parseType="Collection">
+                <rdf:Description rdf:about="#nxmanipulator-sample-heater-actuation-target-temperature-enum"/>
+              </owl:unionOf>
+            </owl:Class>
+          </owl:allValuesFrom>
+        </owl:Restriction>
+        <rdf:Description rdf:about="#nxmpes-entry-instrument-manipulator-sample-heater-actuation-target-field"/>
+      </owl:unionOf>
+    </owl:Class>
   </rdfs:subClassOf>
   <rdfs:subClassOf rdf:resource="#nxactuator-actuation-target-field"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXmanipulator/sample_heater/actuation_target</rdfs:label>
@@ -88668,16 +88793,21 @@
 <owl:Class rdf:about="#nxmanipulator-drain-current-ammeter-measurement-field">
   <rdfs:subClassOf rdf:resource="#NeXusField"/>
   <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasEnumContainer"/>
-      <owl:allValuesFrom>
-        <owl:Class>
-          <owl:unionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="#nxmanipulator-drain-current-ammeter-measurement-current-enum"/>
-          </owl:unionOf>
-        </owl:Class>
-      </owl:allValuesFrom>
-    </owl:Restriction>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEnumContainer"/>
+          <owl:allValuesFrom>
+            <owl:Class>
+              <owl:unionOf rdf:parseType="Collection">
+                <rdf:Description rdf:about="#nxmanipulator-drain-current-ammeter-measurement-current-enum"/>
+              </owl:unionOf>
+            </owl:Class>
+          </owl:allValuesFrom>
+        </owl:Restriction>
+        <rdf:Description rdf:about="#nxmpes-entry-instrument-manipulator-drain-current-ammeter-measurement-field"/>
+      </owl:unionOf>
+    </owl:Class>
   </rdfs:subClassOf>
   <rdfs:subClassOf rdf:resource="#nxsensor-measurement-field"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXmanipulator/drain_current_ammeter/measurement</rdfs:label>
@@ -88777,16 +88907,21 @@
 <owl:Class rdf:about="#nxmanipulator-sample-bias-potentiostat-actuation-target-field">
   <rdfs:subClassOf rdf:resource="#NeXusField"/>
   <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasEnumContainer"/>
-      <owl:allValuesFrom>
-        <owl:Class>
-          <owl:unionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="#nxmanipulator-sample-bias-potentiostat-actuation-target-voltage-enum"/>
-          </owl:unionOf>
-        </owl:Class>
-      </owl:allValuesFrom>
-    </owl:Restriction>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEnumContainer"/>
+          <owl:allValuesFrom>
+            <owl:Class>
+              <owl:unionOf rdf:parseType="Collection">
+                <rdf:Description rdf:about="#nxmanipulator-sample-bias-potentiostat-actuation-target-voltage-enum"/>
+              </owl:unionOf>
+            </owl:Class>
+          </owl:allValuesFrom>
+        </owl:Restriction>
+        <rdf:Description rdf:about="#nxmpes-entry-instrument-manipulator-sample-bias-potentiostat-actuation-target-field"/>
+      </owl:unionOf>
+    </owl:Class>
   </rdfs:subClassOf>
   <rdfs:subClassOf rdf:resource="#nxactuator-actuation-target-field"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXmanipulator/sample_bias_potentiostat/actuation_target</rdfs:label>
@@ -88886,16 +89021,21 @@
 <owl:Class rdf:about="#nxmanipulator-sample-bias-voltmeter-measurement-field">
   <rdfs:subClassOf rdf:resource="#NeXusField"/>
   <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasEnumContainer"/>
-      <owl:allValuesFrom>
-        <owl:Class>
-          <owl:unionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="#nxmanipulator-sample-bias-voltmeter-measurement-voltage-enum"/>
-          </owl:unionOf>
-        </owl:Class>
-      </owl:allValuesFrom>
-    </owl:Restriction>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEnumContainer"/>
+          <owl:allValuesFrom>
+            <owl:Class>
+              <owl:unionOf rdf:parseType="Collection">
+                <rdf:Description rdf:about="#nxmanipulator-sample-bias-voltmeter-measurement-voltage-enum"/>
+              </owl:unionOf>
+            </owl:Class>
+          </owl:allValuesFrom>
+        </owl:Restriction>
+        <rdf:Description rdf:about="#nxmpes-entry-instrument-manipulator-sample-bias-voltmeter-measurement-field"/>
+      </owl:unionOf>
+    </owl:Class>
   </rdfs:subClassOf>
   <rdfs:subClassOf rdf:resource="#nxsensor-measurement-field"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXmanipulator/sample_bias_voltmeter/measurement</rdfs:label>
@@ -91329,17 +91469,82 @@
 <owl:Class rdf:about="#nxmonitor-mode-field">
   <rdfs:subClassOf rdf:resource="#NeXusField"/>
   <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasEnumContainer"/>
-      <owl:allValuesFrom>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
         <owl:Class>
           <owl:unionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="#nxmonitor-mode-monitor-enum"/>
-            <rdf:Description rdf:about="#nxmonitor-mode-timer-enum"/>
+            <owl:Class>
+              <owl:unionOf rdf:parseType="Collection">
+                <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                    <owl:Class>
+                      <owl:unionOf rdf:parseType="Collection">
+                        <owl:Class>
+                          <owl:unionOf rdf:parseType="Collection">
+                            <owl:Class>
+                              <owl:unionOf rdf:parseType="Collection">
+                                <owl:Class>
+                                  <owl:unionOf rdf:parseType="Collection">
+                                    <owl:Class>
+                                      <owl:unionOf rdf:parseType="Collection">
+                                        <owl:Class>
+                                          <owl:unionOf rdf:parseType="Collection">
+                                            <owl:Class>
+                                              <owl:unionOf rdf:parseType="Collection">
+                                                <owl:Class>
+                                                  <owl:unionOf rdf:parseType="Collection">
+                                                    <owl:Class>
+                                                      <owl:unionOf rdf:parseType="Collection">
+                                                        <owl:Restriction>
+                                                          <owl:onProperty rdf:resource="#hasEnumContainer"/>
+                                                          <owl:allValuesFrom>
+                                                            <owl:Class>
+                                                              <owl:unionOf rdf:parseType="Collection">
+                                                                <rdf:Description rdf:about="#nxmonitor-mode-monitor-enum"/>
+                                                                <rdf:Description rdf:about="#nxmonitor-mode-timer-enum"/>
+                                                              </owl:unionOf>
+                                                            </owl:Class>
+                                                          </owl:allValuesFrom>
+                                                        </owl:Restriction>
+                                                        <rdf:Description rdf:about="#nxfluo-entry-monitor-mode-field"/>
+                                                      </owl:unionOf>
+                                                    </owl:Class>
+                                                    <rdf:Description rdf:about="#nxtofnpd-entry-monitor-mode-field"/>
+                                                  </owl:unionOf>
+                                                </owl:Class>
+                                                <rdf:Description rdf:about="#nxlauetof-entry-control-mode-field"/>
+                                              </owl:unionOf>
+                                            </owl:Class>
+                                            <rdf:Description rdf:about="#nxxas-entry-monitor-mode-field"/>
+                                          </owl:unionOf>
+                                        </owl:Class>
+                                        <rdf:Description rdf:about="#nxrefscan-entry-control-mode-field"/>
+                                      </owl:unionOf>
+                                    </owl:Class>
+                                    <rdf:Description rdf:about="#nxsas-entry-monitor-mode-field"/>
+                                  </owl:unionOf>
+                                </owl:Class>
+                                <rdf:Description rdf:about="#nxreftof-entry-control-mode-field"/>
+                              </owl:unionOf>
+                            </owl:Class>
+                            <rdf:Description rdf:about="#nxtofsingle-entry-monitor-mode-field"/>
+                          </owl:unionOf>
+                        </owl:Class>
+                        <rdf:Description rdf:about="#nxxbase-entry-control-mode-field"/>
+                      </owl:unionOf>
+                    </owl:Class>
+                    <rdf:Description rdf:about="#nxtofraw-entry-monitor-mode-field"/>
+                  </owl:unionOf>
+                </owl:Class>
+                <rdf:Description rdf:about="#nxtas-entry-monitor-mode-field"/>
+              </owl:unionOf>
+            </owl:Class>
+            <rdf:Description rdf:about="#nxsastof-entry-control-mode-field"/>
           </owl:unionOf>
         </owl:Class>
-      </owl:allValuesFrom>
-    </owl:Restriction>
+        <rdf:Description rdf:about="#nxmonopd-entry-monitor-mode-field"/>
+      </owl:unionOf>
+    </owl:Class>
   </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXmonitor/mode</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
@@ -99466,25 +99671,30 @@
 <owl:Class rdf:about="#nxaperture-shape-field">
   <rdfs:subClassOf rdf:resource="#NeXusField"/>
   <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasEnumContainer"/>
-      <owl:allValuesFrom>
-        <owl:Class>
-          <owl:unionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="#nxaperture-shape-straight-slit-enum"/>
-            <rdf:Description rdf:about="#nxaperture-shape-curved-slit-enum"/>
-            <rdf:Description rdf:about="#nxaperture-shape-pinhole-enum"/>
-            <rdf:Description rdf:about="#nxaperture-shape-circle-enum"/>
-            <rdf:Description rdf:about="#nxaperture-shape-square-enum"/>
-            <rdf:Description rdf:about="#nxaperture-shape-hexagon-enum"/>
-            <rdf:Description rdf:about="#nxaperture-shape-octagon-enum"/>
-            <rdf:Description rdf:about="#nxaperture-shape-bladed-enum"/>
-            <rdf:Description rdf:about="#nxaperture-shape-open-enum"/>
-            <rdf:Description rdf:about="#nxaperture-shape-grid-enum"/>
-          </owl:unionOf>
-        </owl:Class>
-      </owl:allValuesFrom>
-    </owl:Restriction>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEnumContainer"/>
+          <owl:allValuesFrom>
+            <owl:Class>
+              <owl:unionOf rdf:parseType="Collection">
+                <rdf:Description rdf:about="#nxaperture-shape-straight-slit-enum"/>
+                <rdf:Description rdf:about="#nxaperture-shape-curved-slit-enum"/>
+                <rdf:Description rdf:about="#nxaperture-shape-pinhole-enum"/>
+                <rdf:Description rdf:about="#nxaperture-shape-circle-enum"/>
+                <rdf:Description rdf:about="#nxaperture-shape-square-enum"/>
+                <rdf:Description rdf:about="#nxaperture-shape-hexagon-enum"/>
+                <rdf:Description rdf:about="#nxaperture-shape-octagon-enum"/>
+                <rdf:Description rdf:about="#nxaperture-shape-bladed-enum"/>
+                <rdf:Description rdf:about="#nxaperture-shape-open-enum"/>
+                <rdf:Description rdf:about="#nxaperture-shape-grid-enum"/>
+              </owl:unionOf>
+            </owl:Class>
+          </owl:allValuesFrom>
+        </owl:Restriction>
+        <rdf:Description rdf:about="#nxmpes-arpes-entry-instrument-electronanalyzer-energydispersion-entrance-slit-shape-field"/>
+      </owl:unionOf>
+    </owl:Class>
   </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXaperture/shape</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
@@ -106075,16 +106285,21 @@
 <owl:Class rdf:about="#nxxlaue-entry-definition-field">
   <rdfs:subClassOf rdf:resource="#NeXusField"/>
   <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasEnumContainer"/>
-      <owl:allValuesFrom>
-        <owl:Class>
-          <owl:unionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="#nxxlaue-entry-definition-nxxlaue-enum"/>
-          </owl:unionOf>
-        </owl:Class>
-      </owl:allValuesFrom>
-    </owl:Restriction>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEnumContainer"/>
+          <owl:allValuesFrom>
+            <owl:Class>
+              <owl:unionOf rdf:parseType="Collection">
+                <rdf:Description rdf:about="#nxxlaue-entry-definition-nxxlaue-enum"/>
+              </owl:unionOf>
+            </owl:Class>
+          </owl:allValuesFrom>
+        </owl:Restriction>
+        <rdf:Description rdf:about="#nxxlaueplate-entry-definition-field"/>
+      </owl:unionOf>
+    </owl:Class>
   </rdfs:subClassOf>
   <rdfs:subClassOf rdf:resource="#nxxrot-entry-definition-field"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXxlaue/ENTRY/definition</rdfs:label>
@@ -110640,16 +110855,26 @@
 <owl:Class rdf:about="#nxoptical-spectroscopy-entry-definition-field">
   <rdfs:subClassOf rdf:resource="#NeXusField"/>
   <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasEnumContainer"/>
-      <owl:allValuesFrom>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
         <owl:Class>
           <owl:unionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="#nxoptical-spectroscopy-entry-definition-nxoptical-spectroscopy-enum"/>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasEnumContainer"/>
+              <owl:allValuesFrom>
+                <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#nxoptical-spectroscopy-entry-definition-nxoptical-spectroscopy-enum"/>
+                  </owl:unionOf>
+                </owl:Class>
+              </owl:allValuesFrom>
+            </owl:Restriction>
+            <rdf:Description rdf:about="#nxraman-entry-definition-field"/>
           </owl:unionOf>
         </owl:Class>
-      </owl:allValuesFrom>
-    </owl:Restriction>
+        <rdf:Description rdf:about="#nxellipsometry-entry-definition-field"/>
+      </owl:unionOf>
+    </owl:Class>
   </rdfs:subClassOf>
   <rdfs:subClassOf>
     <owl:Restriction>
@@ -149519,16 +149744,21 @@
 <owl:Class rdf:about="#nxxrot-entry-definition-field">
   <rdfs:subClassOf rdf:resource="#NeXusField"/>
   <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasEnumContainer"/>
-      <owl:allValuesFrom>
-        <owl:Class>
-          <owl:unionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="#nxxrot-entry-definition-nxxrot-enum"/>
-          </owl:unionOf>
-        </owl:Class>
-      </owl:allValuesFrom>
-    </owl:Restriction>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEnumContainer"/>
+          <owl:allValuesFrom>
+            <owl:Class>
+              <owl:unionOf rdf:parseType="Collection">
+                <rdf:Description rdf:about="#nxxrot-entry-definition-nxxrot-enum"/>
+              </owl:unionOf>
+            </owl:Class>
+          </owl:allValuesFrom>
+        </owl:Restriction>
+        <rdf:Description rdf:about="#nxxlaue-entry-definition-field"/>
+      </owl:unionOf>
+    </owl:Class>
   </rdfs:subClassOf>
   <rdfs:subClassOf rdf:resource="#nxxbase-entry-definition-field"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXxrot/ENTRY/definition</rdfs:label>
@@ -149814,16 +150044,36 @@
 <owl:Class rdf:about="#nxxbase-entry-definition-field">
   <rdfs:subClassOf rdf:resource="#NeXusField"/>
   <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasEnumContainer"/>
-      <owl:allValuesFrom>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
         <owl:Class>
           <owl:unionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="#nxxbase-entry-definition-nxxbase-enum"/>
+            <owl:Class>
+              <owl:unionOf rdf:parseType="Collection">
+                <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                    <owl:Restriction>
+                      <owl:onProperty rdf:resource="#hasEnumContainer"/>
+                      <owl:allValuesFrom>
+                        <owl:Class>
+                          <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="#nxxbase-entry-definition-nxxbase-enum"/>
+                          </owl:unionOf>
+                        </owl:Class>
+                      </owl:allValuesFrom>
+                    </owl:Restriction>
+                    <rdf:Description rdf:about="#nxxkappa-entry-definition-field"/>
+                  </owl:unionOf>
+                </owl:Class>
+                <rdf:Description rdf:about="#nxxnb-entry-definition-field"/>
+              </owl:unionOf>
+            </owl:Class>
+            <rdf:Description rdf:about="#nxxeuler-entry-definition-field"/>
           </owl:unionOf>
         </owl:Class>
-      </owl:allValuesFrom>
-    </owl:Restriction>
+        <rdf:Description rdf:about="#nxxrot-entry-definition-field"/>
+      </owl:unionOf>
+    </owl:Class>
   </rdfs:subClassOf>
   <rdfs:subClassOf rdf:resource="#nxentry-definition-field"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXxbase/ENTRY/definition</rdfs:label>
@@ -150565,16 +150815,26 @@
 <owl:Class rdf:about="#nxmpes-entry-definition-field">
   <rdfs:subClassOf rdf:resource="#NeXusField"/>
   <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasEnumContainer"/>
-      <owl:allValuesFrom>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
         <owl:Class>
           <owl:unionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="#nxmpes-entry-definition-nxmpes-enum"/>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasEnumContainer"/>
+              <owl:allValuesFrom>
+                <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#nxmpes-entry-definition-nxmpes-enum"/>
+                  </owl:unionOf>
+                </owl:Class>
+              </owl:allValuesFrom>
+            </owl:Restriction>
+            <rdf:Description rdf:about="#nxmpes-arpes-entry-definition-field"/>
           </owl:unionOf>
         </owl:Class>
-      </owl:allValuesFrom>
-    </owl:Restriction>
+        <rdf:Description rdf:about="#nxxps-entry-definition-field"/>
+      </owl:unionOf>
+    </owl:Class>
   </rdfs:subClassOf>
   <rdfs:subClassOf>
     <owl:Restriction>
@@ -152742,19 +153002,24 @@
 <owl:Class rdf:about="#nxmpes-entry-instrument-electronanalyzer-collectioncolumn-scheme-field">
   <rdfs:subClassOf rdf:resource="#NeXusField"/>
   <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasEnumContainer"/>
-      <owl:allValuesFrom>
-        <owl:Class>
-          <owl:unionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="#nxmpes-entry-instrument-electronanalyzer-collectioncolumn-scheme-angular-dispersive-enum"/>
-            <rdf:Description rdf:about="#nxmpes-entry-instrument-electronanalyzer-collectioncolumn-scheme-spatial-dispersive-enum"/>
-            <rdf:Description rdf:about="#nxmpes-entry-instrument-electronanalyzer-collectioncolumn-scheme-momentum-dispersive-enum"/>
-            <rdf:Description rdf:about="#nxmpes-entry-instrument-electronanalyzer-collectioncolumn-scheme-non-dispersive-enum"/>
-          </owl:unionOf>
-        </owl:Class>
-      </owl:allValuesFrom>
-    </owl:Restriction>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEnumContainer"/>
+          <owl:allValuesFrom>
+            <owl:Class>
+              <owl:unionOf rdf:parseType="Collection">
+                <rdf:Description rdf:about="#nxmpes-entry-instrument-electronanalyzer-collectioncolumn-scheme-angular-dispersive-enum"/>
+                <rdf:Description rdf:about="#nxmpes-entry-instrument-electronanalyzer-collectioncolumn-scheme-spatial-dispersive-enum"/>
+                <rdf:Description rdf:about="#nxmpes-entry-instrument-electronanalyzer-collectioncolumn-scheme-momentum-dispersive-enum"/>
+                <rdf:Description rdf:about="#nxmpes-entry-instrument-electronanalyzer-collectioncolumn-scheme-non-dispersive-enum"/>
+              </owl:unionOf>
+            </owl:Class>
+          </owl:allValuesFrom>
+        </owl:Restriction>
+        <rdf:Description rdf:about="#nxmpes-arpes-entry-instrument-electronanalyzer-collectioncolumn-scheme-field"/>
+      </owl:unionOf>
+    </owl:Class>
   </rdfs:subClassOf>
   <rdfs:subClassOf rdf:resource="#nxcollectioncolumn-scheme-field"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXmpes/ENTRY/INSTRUMENT/ELECTRONANALYZER/COLLECTIONCOLUMN/scheme</rdfs:label>
@@ -156208,19 +156473,24 @@
 <owl:Class rdf:about="#nxmpes-entry-sample-situation-field">
   <rdfs:subClassOf rdf:resource="#NeXusField"/>
   <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasEnumContainer"/>
-      <owl:allValuesFrom>
-        <owl:Class>
-          <owl:unionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="#nxmpes-entry-sample-situation-vacuum-enum"/>
-            <rdf:Description rdf:about="#nxmpes-entry-sample-situation-inert-atmosphere-enum"/>
-            <rdf:Description rdf:about="#nxmpes-entry-sample-situation-oxidizing-atmosphere-enum"/>
-            <rdf:Description rdf:about="#nxmpes-entry-sample-situation-reducing-atmosphere-enum"/>
-          </owl:unionOf>
-        </owl:Class>
-      </owl:allValuesFrom>
-    </owl:Restriction>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEnumContainer"/>
+          <owl:allValuesFrom>
+            <owl:Class>
+              <owl:unionOf rdf:parseType="Collection">
+                <rdf:Description rdf:about="#nxmpes-entry-sample-situation-vacuum-enum"/>
+                <rdf:Description rdf:about="#nxmpes-entry-sample-situation-inert-atmosphere-enum"/>
+                <rdf:Description rdf:about="#nxmpes-entry-sample-situation-oxidizing-atmosphere-enum"/>
+                <rdf:Description rdf:about="#nxmpes-entry-sample-situation-reducing-atmosphere-enum"/>
+              </owl:unionOf>
+            </owl:Class>
+          </owl:allValuesFrom>
+        </owl:Restriction>
+        <rdf:Description rdf:about="#nxmpes-arpes-entry-sample-situation-field"/>
+      </owl:unionOf>
+    </owl:Class>
   </rdfs:subClassOf>
   <rdfs:subClassOf rdf:resource="#nxsample-situation-field"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXmpes/ENTRY/SAMPLE/situation</rdfs:label>
@@ -157479,16 +157749,26 @@
 <owl:Class rdf:about="#nxtofraw-entry-definition-field">
   <rdfs:subClassOf rdf:resource="#NeXusField"/>
   <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasEnumContainer"/>
-      <owl:allValuesFrom>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
         <owl:Class>
           <owl:unionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="#nxtofraw-entry-definition-nxtofraw-enum"/>
+            <owl:Restriction>
+              <owl:onProperty rdf:resource="#hasEnumContainer"/>
+              <owl:allValuesFrom>
+                <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="#nxtofraw-entry-definition-nxtofraw-enum"/>
+                  </owl:unionOf>
+                </owl:Class>
+              </owl:allValuesFrom>
+            </owl:Restriction>
+            <rdf:Description rdf:about="#nxdirecttof-entry-definition-field"/>
           </owl:unionOf>
         </owl:Class>
-      </owl:allValuesFrom>
-    </owl:Restriction>
+        <rdf:Description rdf:about="#nxindirecttof-entry-definition-field"/>
+      </owl:unionOf>
+    </owl:Class>
   </rdfs:subClassOf>
   <rdfs:subClassOf rdf:resource="#nxentry-definition-field"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXtofraw/ENTRY/definition</rdfs:label>
@@ -164205,16 +164485,21 @@
 <owl:Class rdf:about="#nxdetector-module-module-offset-transformation-type-attribute">
   <rdfs:subClassOf rdf:resource="#NeXusAttribute"/>
   <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasEnumContainer"/>
-      <owl:allValuesFrom>
-        <owl:Class>
-          <owl:unionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="#nxdetector-module-module-offset-transformation-type-translation-enum"/>
-          </owl:unionOf>
-        </owl:Class>
-      </owl:allValuesFrom>
-    </owl:Restriction>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEnumContainer"/>
+          <owl:allValuesFrom>
+            <owl:Class>
+              <owl:unionOf rdf:parseType="Collection">
+                <rdf:Description rdf:about="#nxdetector-module-module-offset-transformation-type-translation-enum"/>
+              </owl:unionOf>
+            </owl:Class>
+          </owl:allValuesFrom>
+        </owl:Restriction>
+        <rdf:Description rdf:about="#nxmx-entry-instrument-detector-detector-module-module-offset-transformation-type-attribute"/>
+      </owl:unionOf>
+    </owl:Class>
   </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXdetector_module/module_offset/transformation_type</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
@@ -164350,16 +164635,21 @@
 <owl:Class rdf:about="#nxdetector-module-fast-pixel-direction-transformation-type-attribute">
   <rdfs:subClassOf rdf:resource="#NeXusAttribute"/>
   <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasEnumContainer"/>
-      <owl:allValuesFrom>
-        <owl:Class>
-          <owl:unionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="#nxdetector-module-fast-pixel-direction-transformation-type-translation-enum"/>
-          </owl:unionOf>
-        </owl:Class>
-      </owl:allValuesFrom>
-    </owl:Restriction>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEnumContainer"/>
+          <owl:allValuesFrom>
+            <owl:Class>
+              <owl:unionOf rdf:parseType="Collection">
+                <rdf:Description rdf:about="#nxdetector-module-fast-pixel-direction-transformation-type-translation-enum"/>
+              </owl:unionOf>
+            </owl:Class>
+          </owl:allValuesFrom>
+        </owl:Restriction>
+        <rdf:Description rdf:about="#nxmx-entry-instrument-detector-detector-module-fast-pixel-direction-transformation-type-attribute"/>
+      </owl:unionOf>
+    </owl:Class>
   </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXdetector_module/fast_pixel_direction/transformation_type</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
@@ -164495,16 +164785,21 @@
 <owl:Class rdf:about="#nxdetector-module-slow-pixel-direction-transformation-type-attribute">
   <rdfs:subClassOf rdf:resource="#NeXusAttribute"/>
   <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasEnumContainer"/>
-      <owl:allValuesFrom>
-        <owl:Class>
-          <owl:unionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="#nxdetector-module-slow-pixel-direction-transformation-type-translation-enum"/>
-          </owl:unionOf>
-        </owl:Class>
-      </owl:allValuesFrom>
-    </owl:Restriction>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEnumContainer"/>
+          <owl:allValuesFrom>
+            <owl:Class>
+              <owl:unionOf rdf:parseType="Collection">
+                <rdf:Description rdf:about="#nxdetector-module-slow-pixel-direction-transformation-type-translation-enum"/>
+              </owl:unionOf>
+            </owl:Class>
+          </owl:allValuesFrom>
+        </owl:Restriction>
+        <rdf:Description rdf:about="#nxmx-entry-instrument-detector-detector-module-slow-pixel-direction-transformation-type-attribute"/>
+      </owl:unionOf>
+    </owl:Class>
   </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXdetector_module/slow_pixel_direction/transformation_type</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
@@ -166460,17 +166755,107 @@
 <owl:Class rdf:about="#nxtransformations-axisname-transformation-type-attribute">
   <rdfs:subClassOf rdf:resource="#NeXusAttribute"/>
   <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasEnumContainer"/>
-      <owl:allValuesFrom>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
         <owl:Class>
           <owl:unionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="#nxtransformations-axisname-transformation-type-translation-enum"/>
-            <rdf:Description rdf:about="#nxtransformations-axisname-transformation-type-rotation-enum"/>
+            <owl:Class>
+              <owl:unionOf rdf:parseType="Collection">
+                <owl:Class>
+                  <owl:unionOf rdf:parseType="Collection">
+                    <owl:Class>
+                      <owl:unionOf rdf:parseType="Collection">
+                        <owl:Class>
+                          <owl:unionOf rdf:parseType="Collection">
+                            <owl:Class>
+                              <owl:unionOf rdf:parseType="Collection">
+                                <owl:Class>
+                                  <owl:unionOf rdf:parseType="Collection">
+                                    <owl:Class>
+                                      <owl:unionOf rdf:parseType="Collection">
+                                        <owl:Class>
+                                          <owl:unionOf rdf:parseType="Collection">
+                                            <owl:Class>
+                                              <owl:unionOf rdf:parseType="Collection">
+                                                <owl:Class>
+                                                  <owl:unionOf rdf:parseType="Collection">
+                                                    <owl:Class>
+                                                      <owl:unionOf rdf:parseType="Collection">
+                                                        <owl:Class>
+                                                          <owl:unionOf rdf:parseType="Collection">
+                                                            <owl:Class>
+                                                              <owl:unionOf rdf:parseType="Collection">
+                                                                <owl:Class>
+                                                                  <owl:unionOf rdf:parseType="Collection">
+                                                                    <owl:Class>
+                                                                      <owl:unionOf rdf:parseType="Collection">
+                                                                        <owl:Class>
+                                                                          <owl:unionOf rdf:parseType="Collection">
+                                                                            <owl:Restriction>
+                                                                              <owl:onProperty rdf:resource="#hasEnumContainer"/>
+                                                                              <owl:allValuesFrom>
+                                                                                <owl:Class>
+                                                                                  <owl:unionOf rdf:parseType="Collection">
+                                                                                    <rdf:Description rdf:about="#nxtransformations-axisname-transformation-type-translation-enum"/>
+                                                                                    <rdf:Description rdf:about="#nxtransformations-axisname-transformation-type-rotation-enum"/>
+                                                                                  </owl:unionOf>
+                                                                                </owl:Class>
+                                                                              </owl:allValuesFrom>
+                                                                            </owl:Restriction>
+                                                                            <rdf:Description rdf:about="#nxmpes-arpes-entry-instrument-electronanalyzer-transformations-analyzer-rotation-transformation-type-attribute"/>
+                                                                          </owl:unionOf>
+                                                                        </owl:Class>
+                                                                        <rdf:Description rdf:about="#nxmpes-arpes-entry-instrument-electronanalyzer-transformations-analyzer-elevation-transformation-type-attribute"/>
+                                                                      </owl:unionOf>
+                                                                    </owl:Class>
+                                                                    <rdf:Description rdf:about="#nxmpes-arpes-entry-instrument-electronanalyzer-transformations-analyzer-dispersion-transformation-type-attribute"/>
+                                                                  </owl:unionOf>
+                                                                </owl:Class>
+                                                                <rdf:Description rdf:about="#nxmpes-arpes-entry-sample-transformations-sample-azimuth-transformation-type-attribute"/>
+                                                              </owl:unionOf>
+                                                            </owl:Class>
+                                                            <rdf:Description rdf:about="#nxmpes-arpes-entry-sample-transformations-offset-azimuth-transformation-type-attribute"/>
+                                                          </owl:unionOf>
+                                                        </owl:Class>
+                                                        <rdf:Description rdf:about="#nxmpes-arpes-entry-sample-transformations-sample-tilt-transformation-type-attribute"/>
+                                                      </owl:unionOf>
+                                                    </owl:Class>
+                                                    <rdf:Description rdf:about="#nxmpes-arpes-entry-sample-transformations-offset-tilt-transformation-type-attribute"/>
+                                                  </owl:unionOf>
+                                                </owl:Class>
+                                                <rdf:Description rdf:about="#nxmpes-arpes-entry-sample-transformations-sample-polar-transformation-type-attribute"/>
+                                              </owl:unionOf>
+                                            </owl:Class>
+                                            <rdf:Description rdf:about="#nxmpes-arpes-entry-sample-transformations-offset-polar-transformation-type-attribute"/>
+                                          </owl:unionOf>
+                                        </owl:Class>
+                                        <rdf:Description rdf:about="#nxoptical-spectroscopy-entry-instrument-generic-beam-sample-angle-type-polar-transformation-type-attribute"/>
+                                      </owl:unionOf>
+                                    </owl:Class>
+                                    <rdf:Description rdf:about="#nxoptical-spectroscopy-entry-instrument-generic-beam-sample-angle-type-azimuth-transformation-type-attribute"/>
+                                  </owl:unionOf>
+                                </owl:Class>
+                                <rdf:Description rdf:about="#nxxps-entry-instrument-beam-probe-transformations-beam-polar-angle-of-incidence-transformation-type-attribute"/>
+                              </owl:unionOf>
+                            </owl:Class>
+                            <rdf:Description rdf:about="#nxxps-entry-instrument-beam-probe-transformations-beam-azimuth-angle-transformation-type-attribute"/>
+                          </owl:unionOf>
+                        </owl:Class>
+                        <rdf:Description rdf:about="#nxxps-entry-instrument-electronanalyzer-transformations-analyzer-take-off-polar-angle-transformation-type-attribute"/>
+                      </owl:unionOf>
+                    </owl:Class>
+                    <rdf:Description rdf:about="#nxxps-entry-instrument-electronanalyzer-transformations-analyzer-take-off-azimuth-angle-transformation-type-attribute"/>
+                  </owl:unionOf>
+                </owl:Class>
+                <rdf:Description rdf:about="#nxxps-entry-sample-transformations-sample-rotation-angle-transformation-type-attribute"/>
+              </owl:unionOf>
+            </owl:Class>
+            <rdf:Description rdf:about="#nxxps-entry-sample-transformations-sample-normal-polar-angle-of-tilt-transformation-type-attribute"/>
           </owl:unionOf>
         </owl:Class>
-      </owl:allValuesFrom>
-    </owl:Restriction>
+        <rdf:Description rdf:about="#nxxps-entry-sample-transformations-sample-normal-tilt-azimuth-angle-transformation-type-attribute"/>
+      </owl:unionOf>
+    </owl:Class>
   </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXtransformations/AXISNAME/transformation_type</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
@@ -179556,16 +179941,21 @@
 <owl:Class rdf:about="#nxmpes-entry-data-signal-attribute">
   <rdfs:subClassOf rdf:resource="#NeXusAttribute"/>
   <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasEnumContainer"/>
-      <owl:allValuesFrom>
-        <owl:Class>
-          <owl:unionOf rdf:parseType="Collection">
-            <rdf:Description rdf:about="#nxmpes-entry-data-signal-data-enum"/>
-          </owl:unionOf>
-        </owl:Class>
-      </owl:allValuesFrom>
-    </owl:Restriction>
+    <owl:Class>
+      <owl:unionOf rdf:parseType="Collection">
+        <owl:Restriction>
+          <owl:onProperty rdf:resource="#hasEnumContainer"/>
+          <owl:allValuesFrom>
+            <owl:Class>
+              <owl:unionOf rdf:parseType="Collection">
+                <rdf:Description rdf:about="#nxmpes-entry-data-signal-data-enum"/>
+              </owl:unionOf>
+            </owl:Class>
+          </owl:allValuesFrom>
+        </owl:Restriction>
+        <rdf:Description rdf:about="#nxmpes-arpes-entry-data-signal-attribute"/>
+      </owl:unionOf>
+    </owl:Class>
   </rdfs:subClassOf>
   <rdfs:subClassOf rdf:resource="#nxdata-signal-attribute"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXmpes/ENTRY/DATA/signal</rdfs:label>

@@ -4,8 +4,8 @@ import pygit2
 import os
 import sys
 
-def main(full=False, nexus_def_path=None, def_commit=None):
-    print(f"Debug: Generating ontology with full={full}")
+def main(full=False, testdata=False, nexus_def_path=None, def_commit=None):
+    print(f"Debug: Generating ontology with full={full} and testdata={testdata}")
     local_dir = os.path.abspath(os.path.dirname(__file__))
     os.environ['NEXUS_DEF_PATH'] = nexus_def_path
 
@@ -20,8 +20,11 @@ def main(full=False, nexus_def_path=None, def_commit=None):
     nexus_ontology.gen_classes()
     nexus_ontology.gen_children()
     if full:
-        nexus_ontology.gen_datasets()
-        fullsuffix = '_full'
+        if testdata:
+            nexus_ontology.gen_datasets()
+            fullsuffix = '_full_testdata'
+        else:
+            fullsuffix = '_full'
     else:
         fullsuffix = ''
     
@@ -41,11 +44,17 @@ if __name__ == "__main__":
         nexus_def_path = two_up
     else:
         raise FileNotFoundError("definitions folder not found one or two directories up from script location.")
+    commit_arg=1
     full = len(sys.argv) > 1 and sys.argv[1] == 'full'
+    if full:
+        commit_arg = 2
+    testdata = full and len(sys.argv) > 2 and sys.argv[2] == 'testdata'
+    if testdata:
+        commit_arg = 3
     repo = pygit2.Repository(nexus_def_path)
     # Check for provided commit hash argument
-    if len(sys.argv) > 2:
-        commit_hash = sys.argv[2]
+    if len(sys.argv) > commit_arg:
+        commit_hash = sys.argv[commit_arg]
         try:
             # Use the provided commit hash directly
             commit = repo.revparse_single(commit_hash)
@@ -59,4 +68,4 @@ if __name__ == "__main__":
     else:
         # Use the current HEAD commit if no version is specified
         def_commit = str(repo.head.target)[:7]
-    main(full=full, nexus_def_path=nexus_def_path, def_commit=def_commit)
+    main(full=full, testdata=testdata, nexus_def_path=nexus_def_path, def_commit=def_commit)

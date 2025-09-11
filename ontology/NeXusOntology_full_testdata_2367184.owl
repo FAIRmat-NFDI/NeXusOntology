@@ -295936,6 +295936,99 @@
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXxps.html#nxxps-entry-data-energy-indices-attribute</rdfs:seeAlso>
 </owl:Class>
 
+<owl:NamedIndividual rdf:about="http://purl.org/nexusformat/definitions/testdata#NX_CHAR-Key something">
+  <rdf:type rdf:resource="#NX_CHAR"/>
+  <actualValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Key something</actualValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/nexusformat/definitions/testdata#NX_INT-123">
+  <rdf:type rdf:resource="#NX_INT"/>
+  <actualValue rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">123</actualValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/nexusformat/definitions/testdata#NX_FLOAT-123.456">
+  <rdf:type rdf:resource="#NX_FLOAT"/>
+  <actualValue rdf:datatype="http://www.w3.org/2001/XMLSchema#decimal">123.456</actualValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/nexusformat/definitions/testdata#NX_ANY-keV">
+  <rdf:type rdf:resource="#NX_ANY"/>
+  <actualValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">keV</actualValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/nexusformat/definitions/testdata#nxiv-temp-entry-definition-nxiv-temp-enum1">
+  <rdf:type rdf:resource="#nxiv-temp-entry-definition-nxiv-temp-enum"/>
+  <actualValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXiv_temp</actualValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/nexusformat/definitions/testdata#dataset_000-NXiv_temp-ENTRY-INSTRUMENT-ENVIRONMENT-current_sensor-name">
+  <rdf:type rdf:resource="#nxsensor-name-field"/>
+  <hasValueContainer rdf:resource="http://purl.org/nexusformat/definitions/testdata#NX_CHAR-Key something"/>
+  <hasUnitContainer rdf:resource="http://purl.org/nexusformat/definitions/testdata#NX_ANY-keV"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">dataset_000/NXiv_temp/ENTRY/INSTRUMENT/ENVIRONMENT/current_sensor/name</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/nexusformat/definitions/testdata#dataset_000-NXiv_temp-ENTRY-INSTRUMENT-ENVIRONMENT-current_sensor-low_trip_value">
+  <rdf:type rdf:resource="#nxsensor-low-trip-value-field"/>
+  <hasValueContainer rdf:resource="http://purl.org/nexusformat/definitions/testdata#NX_FLOAT-123.456"/>
+  <hasUnitContainer rdf:resource="http://purl.org/nexusformat/definitions/testdata#NX_ANY-keV"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">dataset_000/NXiv_temp/ENTRY/INSTRUMENT/ENVIRONMENT/current_sensor/low_trip_value</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/nexusformat/definitions/testdata#dataset_000-NXiv_temp-ENTRY-INSTRUMENT-ENVIRONMENT-current_sensor">
+  <rdf:type rdf:resource="#nxiv-temp-entry-instrument-environment-current-sensor-group"/>
+  <has rdf:resource="http://purl.org/nexusformat/definitions/testdata#dataset_000-NXiv_temp-ENTRY-INSTRUMENT-ENVIRONMENT-current_sensor-name"/>
+  <has rdf:resource="http://purl.org/nexusformat/definitions/testdata#dataset_000-NXiv_temp-ENTRY-INSTRUMENT-ENVIRONMENT-current_sensor-low_trip_value"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">dataset_000/NXiv_temp/ENTRY/INSTRUMENT/ENVIRONMENT/current_sensor</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/nexusformat/definitions/testdata#dataset_000-NXiv_temp-ENTRY-INSTRUMENT-ENVIRONMENT">
+  <rdf:type rdf:resource="#nxiv-temp-entry-instrument-environment-group"/>
+  <has rdf:resource="http://purl.org/nexusformat/definitions/testdata#dataset_000-NXiv_temp-ENTRY-INSTRUMENT-ENVIRONMENT-current_sensor"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">dataset_000/NXiv_temp/ENTRY/INSTRUMENT/ENVIRONMENT</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/nexusformat/definitions/testdata#dataset_000-NXiv_temp-ENTRY-INSTRUMENT">
+  <rdf:type rdf:resource="#nxiv-temp-entry-instrument-group"/>
+  <has rdf:resource="http://purl.org/nexusformat/definitions/testdata#dataset_000-NXiv_temp-ENTRY-INSTRUMENT-ENVIRONMENT"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">dataset_000/NXiv_temp/ENTRY/INSTRUMENT</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/nexusformat/definitions/testdata#dataset_000-NXiv_temp-ENTRY-definition">
+  <rdf:type rdf:resource="#nxiv-temp-entry-definition-field"/>
+  <hasEnumContainer rdf:resource="http://purl.org/nexusformat/definitions/testdata#nxiv-temp-entry-definition-nxiv-temp-enum1"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">dataset_000/NXiv_temp/ENTRY/definition</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/nexusformat/definitions/testdata#dataset_000-NXiv_temp-ENTRY">
+  <rdf:type rdf:resource="#nxiv-temp-entry-group"/>
+  <has rdf:resource="http://purl.org/nexusformat/definitions/testdata#dataset_000-NXiv_temp-ENTRY-INSTRUMENT"/>
+  <has rdf:resource="http://purl.org/nexusformat/definitions/testdata#dataset_000-NXiv_temp-ENTRY-definition"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">dataset_000/NXiv_temp/ENTRY</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/nexusformat/definitions/testdata#dataset_000-NXiv_temp">
+  <rdf:type rdf:resource="#NXiv_temp"/>
+  <has rdf:resource="http://purl.org/nexusformat/definitions/testdata#dataset_000-NXiv_temp-ENTRY"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">dataset_000/NXiv_temp</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/nexusformat/definitions/testdata#dataset_000-">
+  <rdf:type rdf:resource="#NXroot"/>
+  <has rdf:resource="http://purl.org/nexusformat/definitions/testdata#dataset_000-NXiv_temp-ENTRY"/>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">dataset_000/</rdfs:label>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/nexusformat/definitions/testdata#nxsensor-scan-entry-definition-nxsensor-scan-enum1">
+  <rdf:type rdf:resource="#nxsensor-scan-entry-definition-nxsensor-scan-enum"/>
+  <actualValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXsensor_scan</actualValue>
+</owl:NamedIndividual>
+
+<owl:NamedIndividual rdf:about="http://purl.org/nexusformat/definitions/testdata#nxapm-entry-definition-nxapm-enum1">
+  <rdf:type rdf:resource="#nxapm-entry-definition-nxapm-enum"/>
+  <actualValue rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXapm</actualValue>
+</owl:NamedIndividual>
+
 <owl:AllDisjointClasses>
   <owl:members rdf:parseType="Collection">
     <rdf:Description rdf:about="#nxcansas-entry-data-qmean-units-1-m-enum"/>
