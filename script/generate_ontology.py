@@ -16,6 +16,9 @@ def main(full=False, nexus_def_path=None, def_commit=None):
     base_iri = 'http://purl.org/nexusformat/definitions/'
     onto = owlready2.get_ontology(base_iri + "NeXusOntology")
 
+    esrfet_iri = "https://raw.githubusercontent.com/pan-ontologies/esrf-ontologies/refs/heads/oscars-deliverable-2/ontologies/esrfet/ESRFET.owl"
+    onto.imported_ontologies.append(owlready2.get_ontology(esrfet_iri))
+
     nexus_ontology = NeXusOntology(onto, base_iri, web_page_base_prefix, def_commit, full)
     nexus_ontology.gen_classes()
     nexus_ontology.gen_children()
