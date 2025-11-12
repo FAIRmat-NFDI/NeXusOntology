@@ -40,17 +40,19 @@ if __name__ == "__main__":
     local_dir = os.path.abspath(os.path.dirname(__file__))
     one_up = os.path.join(local_dir, "..", "definitions")
     two_up = os.path.join(local_dir, "..", "..", "definitions")
-    if os.path.isdir(one_up):
-        nexus_def_path = one_up
-    elif os.path.isdir(two_up):
+    if os.path.isdir(two_up):
         nexus_def_path = two_up
+    elif os.path.isdir(one_up):
+        nexus_def_path = one_up
     else:
         raise FileNotFoundError("definitions folder not found one or two directories up from script location.")
-    full = len(sys.argv) > 1 and sys.argv[1] == 'full'
+    full = True if "full" in sys.argv else False
+    store_commit_filename = True if "store_commit_filename" in sys.argv else False
     repo = pygit2.Repository(nexus_def_path)
     # Check for provided commit hash argument
-    if len(sys.argv) > 2:
-        commit_hash = sys.argv[2]
+    extra_args = [arg for arg in sys.argv[1:] if arg not in ("full", "store_commit_filename")]
+    if extra_args:
+        commit_hash = extra_args[-1]
         try:
             # Use the provided commit hash directly
             commit = repo.revparse_single(commit_hash)
@@ -64,4 +66,5 @@ if __name__ == "__main__":
     else:
         # Use the current HEAD commit if no version is specified
         def_commit = str(repo.head.target)[:7]
-    main(full=full, nexus_def_path=nexus_def_path, def_commit=def_commit, store_commit_filename=False)
+
+    main(full=full, nexus_def_path=nexus_def_path, def_commit=def_commit, store_commit_filename=True)

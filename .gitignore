@@ -195,5 +195,6 @@ cython_debug/
 # Custom settings
 
 .ontology/
-ontology/NeXusOntology_c*.owl
-ontology/NeXusOntology_full_c*.owl
+ontology/NeXusOntology_*.owl
+ontology/NeXusOntology_full_*.owl
+!ontology/NeXusOntology_full.owl
