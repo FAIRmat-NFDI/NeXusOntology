@@ -289224,8 +289224,8 @@
 
 <owl:NamedIndividual rdf:about="http://purl.org/nexusformat/definitions/Group/NXiv_temp/entry1">
   <rdf:type rdf:resource="http://purl.org/nexusformat/definitions/Group/NXiv_temp/ENTRY"/>
-  <has rdf:resource="http://purl.org/nexusformat/definitions/Group/NXiv_temp/ENTRY/instrument1"/>
   <has rdf:resource="http://purl.org/nexusformat/definitions/Field/NXiv_temp/ENTRY/definition1"/>
+  <has rdf:resource="http://purl.org/nexusformat/definitions/Group/NXiv_temp/ENTRY/instrument1"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">dataset_000/NXiv_temp/ENTRY</rdfs:label>
 </owl:NamedIndividual>
 

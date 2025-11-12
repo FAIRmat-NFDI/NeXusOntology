@@ -4,7 +4,7 @@ import pygit2
 import os
 import sys
 
-def main(full=False, nexus_def_path=None, def_commit=None):
+def main(full=False, nexus_def_path=None, def_commit=None, store_commit_filename = False):
     print(f"Debug: Generating ontology with full={full}")
     local_dir = os.path.abspath(os.path.dirname(__file__))
     os.environ['NEXUS_DEF_PATH'] = nexus_def_path
@@ -29,7 +29,9 @@ def main(full=False, nexus_def_path=None, def_commit=None):
         fullsuffix = ''
     
     # Include the commit hash in the output file name
-    output_file_name = f"NeXusOntology{fullsuffix}_{def_commit}.owl"
+
+    def_commit_text = f"_{def_commit}" if store_commit_filename else "" 
+    output_file_name = f"NeXusOntology{fullsuffix}{def_commit_text}.owl"
     output_path = os.path.join(local_dir, f"..{os.sep}ontology{os.sep}{output_file_name}")
     onto.save(file=output_path, format="rdfxml")
 
@@ -62,4 +64,4 @@ if __name__ == "__main__":
     else:
         # Use the current HEAD commit if no version is specified
         def_commit = str(repo.head.target)[:7]
-    main(full=full, nexus_def_path=nexus_def_path, def_commit=def_commit)
+    main(full=full, nexus_def_path=nexus_def_path, def_commit=def_commit, store_commit_filename=False)
