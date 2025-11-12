@@ -67,4 +67,4 @@ if __name__ == "__main__":
         # Use the current HEAD commit if no version is specified
         def_commit = str(repo.head.target)[:7]
 
-    main(full=full, nexus_def_path=nexus_def_path, def_commit=def_commit, store_commit_filename=True)
+    main(full=full, nexus_def_path=nexus_def_path, def_commit=def_commit, store_commit_filename=store_commit_filename)
