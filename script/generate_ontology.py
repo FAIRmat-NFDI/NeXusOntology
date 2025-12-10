@@ -13,8 +13,8 @@ def main(full=False, nexus_def_path=None, def_commit=None, store_commit_filename
     web_page_base_prefix = 'https://manual.nexusformat.org/'
 
     detailed_iri = 'http://purl.org/nexusformat/v2.0/definitions/' + def_commit + '/'
-    base_iri = 'http://purl.org/nexusformat/definitions/'
-    onto = owlready2.get_ontology(base_iri + "NeXusOntology")
+    base_iri = 'http://purl.org/nexusformat/definitions'
+    onto = owlready2.get_ontology(base_iri)
 
     esrfet_iri = "https://raw.githubusercontent.com/pan-ontologies/esrf-ontologies/refs/heads/oscars-deliverable-2/ontologies/esrfet/ESRFET.owl"
     onto.imported_ontologies.append(owlready2.get_ontology(esrfet_iri))

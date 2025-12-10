@@ -19,6 +19,7 @@ class NeXusOntology:
 
     def __init__(self, onto, base_iri, web_page_base_prefix, versionInfo, full = True):
         self.__onto__ = onto
+        self.enums = {}
         self.nxdl_info = nxdl.load_all_nxdls(full)
         self.base_iri = base_iri
         self.web_page_base_prefix = web_page_base_prefix
@@ -82,7 +83,12 @@ class NeXusOntology:
                 label = "NeXusDataType"
             self.NeXusDataType = NeXusDataType
 
-            owlready2.AllDisjoint([NeXusDataType,NeXusUnitCategory,NeXusObject])
+            class NeXusEnumerations(NeXus):
+                comment = "Vocabulary used in NeXus enumerations"
+                label = "NeXusEnumerations"
+            self.NeXusEnumerations = NeXusEnumerations
+
+            owlready2.AllDisjoint([NeXusDataType,NeXusUnitCategory,NeXusEnumerations,NeXusObject])
             owlready2.AllDisjoint([NeXusQuantity,NeXusBaseClass,NeXusApplicationClass])
             owlready2.AllDisjoint([NeXusGroup,NeXusQuantity,NeXusApplicationClass])
             owlready2.AllDisjoint([NeXusField,NeXusAttribute])
@@ -96,13 +102,16 @@ class NeXusOntology:
             class actualValue(owlready2.DataProperty):
                 domain = [NeXus]
             self.actualValue = actualValue
-            class hasValueContainer(owlready2.FunctionalProperty, NeXusObject >> NeXusDataType):
-                comment = 'Representation fo having a Value assigned.'
+            class hasValueContainer(owlready2.FunctionalProperty, NeXusQuantity >> NeXusDataType):
+                comment = 'Representation of having a Value assigned.'
             self.hasValueContainer = hasValueContainer
-            class hasUnitContainer(owlready2.FunctionalProperty, NeXusField >> NeXusUnitCategory):
+            class hasUnitContainer(owlready2.FunctionalProperty, NeXusQuantity >> NeXusUnitCategory):
                 comment = 'Representation of having a Unit assigned.'
             self.hasUnitContainer = hasUnitContainer
-            owlready2.AllDisjoint([has,hasValueContainer,hasUnitContainer])
+            class hasEnumContainer(owlready2.FunctionalProperty, NeXusQuantity >> NeXusEnumerations):
+                comment = 'Representation of having an Enumeration assigned.'
+            self.hasEnumContainer = hasEnumContainer
+            owlready2.AllDisjoint([has,hasValueContainer,hasUnitContainer,hasEnumContainer])
 
     def __set_is_a_or_equivalent(self, subclass, superclass):
         def get_restriction_set(owl_class):
@@ -143,7 +152,7 @@ class NeXusOntology:
             unit_categories = nxdl.load_unit_categories()
             for unit in unit_categories.keys():
                 nx_unit = types.new_class(unit, (self.NeXusUnitCategory,))
-                nx_unit.set_iri(nx_unit, self.base_iri + "Units/" + unit)
+                nx_unit.set_iri(nx_unit, self.base_iri + "#" + unit)
                 nx_unit.label.append(unit)
                 nx_unit.comment.append(unit_categories[unit]["doc"])
                 # TODO: Figure out how to add examples to the ontology
@@ -162,7 +171,7 @@ class NeXusOntology:
                 # nx_dtype = types.new_class(dtype, (str,)) # TODO: This should be the appropriate Python data type.
                 # owlready2.declare_datatype(nx_dtype, base_iri + "DataTypes/" + dtype, lambda x : x, lambda x : x)
                 nx_dtype = types.new_class(dtype, (self.NeXusDataType,)) # TODO: This should be the appropriate Python data type.
-                nx_dtype.set_iri(nx_dtype, self.base_iri + "DataTypes/" + dtype)
+                nx_dtype.set_iri(nx_dtype, self.base_iri + "#" + dtype)
                 nx_dtype.label.append(dtype)
                 nx_dtype.comment.append(data_types[dtype]["doc"])
                 web_page = self.web_page_base_prefix + "nxdl-types.html#" + dtype.lower().replace("_", "-")
@@ -181,7 +190,7 @@ class NeXusOntology:
             for base_or_app in ("base_classes", "applications"):
                 for class_name in self.nxdl_info[base_or_app].keys():
                     nx_class = types.new_class(class_name, (self.NeXusBaseClass if base_or_app == "base_classes" else self.NeXusApplicationClass,))
-                    nx_class.set_iri(nx_class, self.base_iri + ("BaseClass/" if base_or_app == "base_classes" else "Application/") + class_name) # use agreed term iri
+                    nx_class.set_iri(nx_class, self.base_iri + "#" + class_name) # use agreed term iri
                     self.nxdl_info[base_or_app][class_name]['onto_class'] =  nx_class    # add class to dict 
                     nx_class.comment.append(self.nxdl_info[base_or_app][class_name]['doc'])
                     nx_class.label.append(class_name)
@@ -224,7 +233,7 @@ class NeXusOntology:
         for child_type in ("group", "field", "attribute"):        
             for child in self.nxdl_info[child_type].keys():
                 nx_child = types.new_class(child, (classes[child_type],))
-                nx_child.set_iri(nx_child, self.base_iri + child_type.capitalize() + "/" + child)
+                nx_child.set_iri(nx_child, self.base_iri + "#" + child.lower().replace("/", "-").replace("_", "-") + "-" + child_type)
                 nx_child.label.append(child)
                 self.nxdl_info[child_type][child]["onto_class"] = nx_child
                 nx_child.comment.append(self.nxdl_info[child_type][child]["comment"])
@@ -236,7 +245,20 @@ class NeXusOntology:
             
                 if child_type in ("field", "attribute"):
                     if "enums" in self.nxdl_info[child_type][child]:
-                           nx_child.is_a.append(self.actualValue.only(owlready2.OneOf(self.nxdl_info[child_type][child]["enums"])))
+                        enums = []
+                        for enum in self.nxdl_info[child_type][child]["enums"]:
+                            enum_name = child + "/" + enum
+                            enum_cls = types.new_class(enum_name, (self.NeXusEnumerations,))
+                            enum_cls.set_iri(enum_cls, self.base_iri + "#" +   enum_name.lower().replace("/", "-").replace("_", "-").replace(" ", "-") + "-enum")
+                            enum_cls.label.append(enum_name)
+                            enum_cls.comment.append("Enumeration item for " + child + ": " + enum)
+                            enum_cls.seeAlso.append(web_page)
+                            enum_cls.is_a.append(self.actualValue.only(owlready2.OneOf([enum])))
+                            enums.append(enum_cls)
+                            self.enums[enum_name] = {"onto_class": enum_cls}
+                        #TODO: add child/custom for open enums to enums as an option
+                        owlready2.AllDisjoint(enums)
+                        nx_child.is_a.append(self.hasEnumContainer.only(owlready2.Or(enums)))
                     else:
                         nx_child.is_a.append(self.hasValueContainer.some(self.data_types[self.nxdl_info[child_type][child]["type"]]["onto_class"]))
                         nx_child.is_a.append(self.hasValueContainer.max(0,owlready2.Not(self.data_types[self.nxdl_info[child_type][child]["type"]]["onto_class"])))
@@ -248,7 +270,6 @@ class NeXusOntology:
                                 nx_child.is_a.append(self.hasUnitContainer.some(self.unit_categories[unit]["onto_class"]))
                             else:
                                 nx_child.is_a.append(self.hasUnitContainer.some(self.unit_categories["NX_ANY"]["onto_class"]))
-                                
 
             # cleaning enum restrictions in superclass
             for child in self.nxdl_info[child_type].keys():
@@ -261,7 +282,7 @@ class NeXusOntology:
                             #if it has enum, replace the condition
                             fnd = False
                             for restriction in pclass_super.is_a:
-                                if "actualValue" in str(restriction):
+                                if "hasEnumContainer" in str(restriction):
                                     fnd = True
                                     pclass_super.is_a.remove(restriction)
                                     pclass_super.is_a.append(owlready2.Or([restriction,self.nxdl_info[child_type][child]["onto_class"]]))
@@ -271,6 +292,7 @@ class NeXusOntology:
                             act_type, act_child = superclass_type, superclass_path
                             superclass_type, superclass_path, pclass_super = self.get_parent(act_type,act_child)
 
+        for child_type in ("group", "field", "attribute"):        
             for child in self.nxdl_info[child_type].keys():
                 superclass_type, superclass_path, pclass_super = self.get_parent(child_type,child)
                 if pclass_super:
@@ -283,49 +305,69 @@ class NeXusOntology:
 
         value = self.data_types["NX_CHAR"]["onto_class"]()
         value.actualValue = ["Key something"]
+        value.set_iri(self.base_iri + "/testdata#" + f"{str(value.__class__).split('definitions.')[-1]}-{value.actualValue[0]}")
+
         valueInt = self.data_types["NX_INT"]["onto_class"]()
         valueInt.actualValue = [123]
+        valueInt.set_iri(self.base_iri + "/testdata#" + f"{str(valueInt.__class__).split('definitions.')[-1]}-{valueInt.actualValue[0]}")
+
         valueFloat = self.data_types["NX_FLOAT"]["onto_class"]()
         valueFloat.actualValue = [123.456]
+        valueFloat.set_iri(self.base_iri + "/testdata#" + f"{str(valueFloat.__class__).split('definitions.')[-1]}-{valueFloat.actualValue[0]}")
+
         unit1 = self.unit_categories["NX_ANY"]["onto_class"]()
         unit1.actualValue = ["keV"]
-    
+        unit1.set_iri(self.base_iri + "/testdata#" + f"{str(unit1.__class__).split('definitions.')[-1]}-{unit1.actualValue[0]}")
+
+        valueEnumDef = self.enums["NXiv_temp/ENTRY/definition/NXiv_temp"]["onto_class"]()
+        valueEnumDef.actualValue = ["NXiv_temp"]
+        valueEnumDef.set_iri(self.base_iri + "/testdata#" + f"{str(valueEnumDef.__class__).split('definitions.')[-1]}1")
+
         name = self.nxdl_info["field"]["NXsensor/name"]["onto_class"]()
         name.label.append(dataset+"NXiv_temp/ENTRY/INSTRUMENT/ENVIRONMENT/current_sensor/name")
+        name.set_iri(self.base_iri + "/testdata#" + f"{name.label[0].replace('/','-')}")
         name.hasValueContainer = value
         name.hasUnitContainer = unit1
 
         ltv = self.nxdl_info["field"]["NXsensor/low_trip_value"]["onto_class"]()
         ltv.label.append(dataset+"NXiv_temp/ENTRY/INSTRUMENT/ENVIRONMENT/current_sensor/low_trip_value")
+        ltv.set_iri(self.base_iri + "/testdata#" + f"{ltv.label[0].replace('/','-')}")
         ltv.hasValueContainer = valueFloat
         ltv.hasUnitContainer = unit1
 
         current_sensor = self.nxdl_info["group"]["NXiv_temp/ENTRY/INSTRUMENT/ENVIRONMENT/current_sensor"]["onto_class"]()
         current_sensor.label.append(dataset+"NXiv_temp/ENTRY/INSTRUMENT/ENVIRONMENT/current_sensor")
+        current_sensor.set_iri(self.base_iri + "/testdata#" + f"{current_sensor.label[0].replace('/','-')}")
         current_sensor.has = [name,ltv]
 
         environment = self.nxdl_info["group"]["NXiv_temp/ENTRY/INSTRUMENT/ENVIRONMENT"]["onto_class"]()
         environment.label.append(dataset+"NXiv_temp/ENTRY/INSTRUMENT/ENVIRONMENT")
+        environment.set_iri(self.base_iri + "/testdata#" + f"{environment.label[0].replace('/','-')}")
         environment.has = [current_sensor]
 
         instrument = self.nxdl_info["group"]["NXiv_temp/ENTRY/INSTRUMENT"]["onto_class"]()
         instrument.label.append(dataset+"NXiv_temp/ENTRY/INSTRUMENT")
+        instrument.set_iri(self.base_iri + "/testdata#" + f"{instrument.label[0].replace('/','-')}")
         instrument.has = [environment]
         
         definition = self.nxdl_info["field"]["NXiv_temp/ENTRY/definition"]["onto_class"]()
         definition.label.append(dataset+"NXiv_temp/ENTRY/definition")
-        definition.actualValue = ["NXiv_temp"]
+        definition.set_iri(self.base_iri + "/testdata#" + f"{definition.label[0].replace('/','-')}")
+        definition.hasEnumContainer = valueEnumDef
         
         entry = self.nxdl_info["group"]["NXiv_temp/ENTRY"]["onto_class"]()
         entry.label.append(dataset+"NXiv_temp/ENTRY")
+        entry.set_iri(self.base_iri + "/testdata#" + f"{entry.label[0].replace('/','-')}")
         entry.has = [instrument,definition]
 
         appdef = self.nxdl_info["applications"]["NXiv_temp"]["onto_class"]()
         appdef.label.append(dataset+"NXiv_temp")
+        appdef.set_iri(self.base_iri + "/testdata#" + f"{appdef.label[0].replace('/','-')}")
         appdef.has = [entry]
 
         root = self.nxdl_info["base_classes"]["NXroot"]["onto_class"]()
         root.label.append(dataset)
+        root.set_iri(self.base_iri + "/testdata#" + f"{root.label[0].replace('/','-')}")
         root.has = [entry]
 
 
@@ -338,5 +380,12 @@ class NeXusOntology:
         # wrong enums
         # definition.actualValue = ["still bad"]
 
+        valueEnumDef2 = self.enums["NXsensor_scan/ENTRY/definition/NXsensor_scan"]["onto_class"]()
+        valueEnumDef2.actualValue = ["NXsensor_scan"]
+        valueEnumDef2.set_iri(self.base_iri + "/testdata#" + f"{str(valueEnumDef2.__class__).split('definitions.')[-1]}1")
 
+        valueEnumDef3 = self.enums["NXapm/ENTRY/definition/NXapm"]["onto_class"]()
+        valueEnumDef3.actualValue = ["NXapm"]
+        valueEnumDef3.set_iri(self.base_iri + "/testdata#" + f"{str(valueEnumDef3.__class__).split('definitions.')[-1]}1")
 
+        # definition.hasEnumContainer = valueEnumDef3
