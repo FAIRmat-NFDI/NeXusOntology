@@ -389,3 +389,5 @@ class NeXusOntology:
         valueEnumDef3.set_iri(self.base_iri + "/testdata#" + f"{str(valueEnumDef3.__class__).split('definitions.')[-1]}1")
 
         # definition.hasEnumContainer = valueEnumDef3
+
+
