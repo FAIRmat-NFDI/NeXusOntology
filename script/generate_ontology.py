@@ -4,7 +4,7 @@ import pygit2
 import os
 import sys
 
-def main(full=False, testdata = False, nexus_def_path=None, def_commit=None, store_commit_filename = False):
+def main(full=False, testdata = False, nexus_def_path=None, def_commit=None, store_commit_filename = False, imports=[]):
     print(f"Debug: Generating ontology with full={full} and testdata={testdata}")
     local_dir = os.path.abspath(os.path.dirname(__file__))
     os.environ['NEXUS_DEF_PATH'] = nexus_def_path
@@ -16,8 +16,9 @@ def main(full=False, testdata = False, nexus_def_path=None, def_commit=None, sto
     base_iri = 'http://purl.org/nexusformat/definitions'
     onto = owlready2.get_ontology(base_iri)
 
-    esrfet_iri = "https://raw.githubusercontent.com/pan-ontologies/esrf-ontologies/refs/heads/oscars-deliverable-2/ontologies/esrfet/ESRFET.owl"
-    onto.imported_ontologies.append(owlready2.get_ontology(esrfet_iri))
+    if imports:
+        for import_iri in imports:
+            onto.imported_ontologies.append(owlready2.get_ontology(import_iri))
 
     nexus_ontology = NeXusOntology(onto, base_iri, web_page_base_prefix, def_commit, full)
     nexus_ontology.gen_classes()
