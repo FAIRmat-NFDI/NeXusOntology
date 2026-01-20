@@ -12,8 +12,7 @@ def main(full=False, testdata = False, nexus_def_path=None, def_commit=None, sto
     # Official NeXus definitions: https://manual.nexusformat.org/classes/
     web_page_base_prefix = 'https://manual.nexusformat.org/'
 
-    detailed_iri = 'http://purl.org/nexusformat/v2.0/definitions/' + def_commit + '/'
-    base_iri = 'http://purl.org/nexusformat/definitions'
+    base_iri = 'https://w3id.org/nexusformat/definitions'
     onto = owlready2.get_ontology(base_iri)
 
     if imports:
