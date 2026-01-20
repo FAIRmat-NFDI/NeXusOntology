@@ -4,7 +4,7 @@ import pygit2
 import os
 import sys
 
-def main(full=False, testdata = False, nexus_def_path=None, def_commit=None, store_commit_filename = False):
+def main(full=False, testdata = False, nexus_def_path=None, def_commit=None, store_commit_filename = False, imports=[]):
     print(f"Debug: Generating ontology with full={full} and testdata={testdata}")
     local_dir = os.path.abspath(os.path.dirname(__file__))
     os.environ['NEXUS_DEF_PATH'] = nexus_def_path
@@ -12,9 +12,12 @@ def main(full=False, testdata = False, nexus_def_path=None, def_commit=None, sto
     # Official NeXus definitions: https://manual.nexusformat.org/classes/
     web_page_base_prefix = 'https://manual.nexusformat.org/'
 
-    detailed_iri = 'http://purl.org/nexusformat/v2.0/definitions/' + def_commit + '/'
-    base_iri = 'http://purl.org/nexusformat/definitions'
+    base_iri = 'https://w3id.org/nexusformat/definitions'
     onto = owlready2.get_ontology(base_iri)
+
+    if imports:
+        for import_iri in imports:
+            onto.imported_ontologies.append(owlready2.get_ontology(import_iri))
 
     nexus_ontology = NeXusOntology(onto, base_iri, web_page_base_prefix, def_commit, full)
     nexus_ontology.gen_classes()
@@ -30,7 +33,7 @@ def main(full=False, testdata = False, nexus_def_path=None, def_commit=None, sto
     
     # Include the commit hash in the output file name
 
-    def_commit_text = f"_{def_commit}" if store_commit_filename else ""
+    def_commit_text = f"_{def_commit}" if store_commit_filename else "" 
     output_file_name = f"NeXusOntology{fullsuffix}{def_commit_text}.owl"
     output_path = os.path.join(local_dir, f"..{os.sep}ontology{os.sep}{output_file_name}")
     onto.save(file=output_path, format="rdfxml")
