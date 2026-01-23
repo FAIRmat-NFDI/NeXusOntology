@@ -4,9 +4,8 @@ import pygit2
 import os
 import sys
 
-def main(full=False, testdata = False, nexus_def_path=None, def_commit=None, store_commit_filename = False, imports=[]):
+def main(full=False, testdata = False, nexus_def_path=None, def_commit=None, store_commit_filename = False, imports=[], output_dir=None):
     print(f"Debug: Generating ontology with full={full} and testdata={testdata}")
-    local_dir = os.path.abspath(os.path.dirname(__file__))
     os.environ['NEXUS_DEF_PATH'] = nexus_def_path
 
     # Official NeXus definitions: https://manual.nexusformat.org/classes/
@@ -36,7 +35,13 @@ def main(full=False, testdata = False, nexus_def_path=None, def_commit=None, sto
 
     def_commit_text = f"_{def_commit}" if store_commit_filename else "" 
     output_file_name = f"NeXusOntology{fullsuffix}{def_commit_text}.owl"
-    output_path = os.path.join(local_dir, f"..{os.sep}ontology{os.sep}{output_file_name}")
+
+    if output_dir is None:
+        output_dir = os.path.abspath(os.path.dirname(__file__))
+        output_path = os.path.join(output_dir, f"..{os.sep}ontology{os.sep}{output_file_name}")
+    else:
+        output_path = os.path.join(output_dir, output_file_name)
+
     onto.save(file=output_path, format="rdfxml")
 
 if __name__ == "__main__":
