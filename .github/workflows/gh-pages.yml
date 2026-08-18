@@ -33,7 +33,7 @@ jobs:
           ont_file: ontology/NeXusOntology_full.owl
         run: |
           java -jar widoco.jar -ontFile ${ont_file} -outFolder ./_site \
-               -uniteSections -includeAnnotationProperties -webVowl
+               -includeAnnotationProperties
           mv ./_site/index-en.html ./_site/index.html
       - uses: actions/upload-pages-artifact@v5
 
