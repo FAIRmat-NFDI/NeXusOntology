@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - r2025_11
+      - gh-pages-docs
     paths:
       - 'ontology/NeXusOntology_full.owl'
   workflow_dispatch:
