@@ -2,24 +2,41 @@ from os import walk
 import owlready2
 import types
 import hashlib
+import re
 
 from . import nxdl
 
 
 script_files = next(walk("./"), (None, None, []))[2]
-script_files = list(filter(lambda filename: filename.endswith(".py"), script_files))
+script_files = sorted(filter(lambda filename: filename.endswith(".py"), script_files))
+
+_NON_ALNUM = re.compile(r"[^a-z0-9]+")
+
+def _slugify(text):
+    """Turn arbitrary text (e.g. an nxdl enumeration item's value) into a
+    safe IRI local-name segment, collapsing any run of non-alphanumeric
+    characters into a single hyphen. This is deliberately aggressive
+    (Widoco's own namespace-declaration table renders incorrectly for
+    *any* leftover punctuation, not just brackets/quotes) - collisions
+    this causes between distinct values (e.g. NXdispersion_table's
+    "n + ik" vs "n - ik", which would otherwise both collapse to
+    "n-ik") are handled by __unique_enum_slug's disambiguation, not here."""
+    slug = _NON_ALNUM.sub("-", text.lower()).strip("-")
+    return slug or "empty"
 
 def get_script_hash():
     h = hashlib.sha1()
     for file in script_files:
         with open(file, "rb") as f:
             h.update(f.read())
-            return h.hexdigest()
+    return h.hexdigest()
+
 class NeXusOntology:
 
     def __init__(self, onto, base_iri, web_page_base_prefix, versionInfo, full = True):
         self.__onto__ = onto
         self.enums = {}
+        self.__used_enum_slugs__ = set()
         self.nxdl_info = nxdl.load_all_nxdls(full)
         self.base_iri = base_iri
         self.web_page_base_prefix = web_page_base_prefix
@@ -228,6 +245,16 @@ class NeXusOntology:
                 print("Warning: " + child + " is not of same type as " + superclass_path)
         return superclass_type, superclass_path, pclass_super
 
+    def __unique_enum_slug(self, enum_name):
+        slug = _slugify(enum_name)
+        unique_slug = slug
+        n = 2
+        while unique_slug in self.__used_enum_slugs__:
+            unique_slug = f"{slug}-{n}"
+            n += 1
+        self.__used_enum_slugs__.add(unique_slug)
+        return unique_slug
+
     def gen_children(self):
         classes = {"group": self.NeXusGroup, "field": self.NeXusField, "attribute": self.NeXusAttribute}
         for child_type in ("group", "field", "attribute"):        
@@ -249,7 +276,7 @@ class NeXusOntology:
                         for enum in self.nxdl_info[child_type][child]["enums"]:
                             enum_name = child + "/" + enum
                             enum_cls = types.new_class(enum_name, (self.NeXusEnumerations,))
-                            enum_cls.set_iri(enum_cls, self.base_iri + "#" +   enum_name.lower().replace("/", "-").replace("_", "-").replace(" ", "-") + "-enum")
+                            enum_cls.set_iri(enum_cls, self.base_iri + "#" + self.__unique_enum_slug(enum_name) + "-enum")
                             enum_cls.label.append(enum_name)
                             enum_cls.comment.append("Enumeration item for " + child + ": " + enum)
                             enum_cls.seeAlso.append(web_page)

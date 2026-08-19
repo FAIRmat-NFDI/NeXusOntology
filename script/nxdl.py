@@ -115,7 +115,7 @@ def load_all_nxdls(full = True) -> dict:
 
     for folder in act_folders:
         files_in_folder = next(walk(nexus_def_path + "/" + folder), (None, None, []))[2]
-        files_in_folder = list(filter(lambda filename: filename.endswith(".nxdl.xml"), files_in_folder))
+        files_in_folder = sorted(filter(lambda filename: filename.endswith(".nxdl.xml"), files_in_folder))
         intersection = [value for value in just_fnames if value in files_in_folder]
         just_fnames.extend(files_in_folder)
         files.extend([nexus_def_path+"/"+folder+"/"+path for path in files_in_folder])
