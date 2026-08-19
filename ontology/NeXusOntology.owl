@@ -44,7 +44,7 @@
 <owl:Class rdf:about="#NeXus">
   <rdfs:subClassOf rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NeXus concept</rdfs:comment>
-  <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">72448f0</owl:versionInfo>
+  <owl:versionInfo rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0ad0f78</owl:versionInfo>
 </owl:Class>
 
 <owl:Class rdf:about="#NeXusObject">
@@ -10997,7 +10997,28 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Container for parameters, usually used in processing or analysis.</rdfs:comment>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#has"/>
+      <owl:onClass rdf:resource="#nxparameters-model-attribute"/>
+      <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+        Container for parameters used in processing or analysing data.
+
+        Typically, this group is stored in a :ref:`NXprocess` group in
+        order to contain parameters that are either inputs to or
+        resulting from the process defined by the parent group. However,
+        this base class can also be added to other groups for use in
+        other contexts.
+        
+        Although this base class can be used to store any kind of
+        parameter, one possible use case is to store parameters that are
+        refined by a fitting function or model. A number of attributes
+        have been defined to store metadata associated with such a
+        refinement.       
+    </rdfs:comment>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXparameters</rdfs:label>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXparameters.html</rdfs:seeAlso>
   <extends rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXobject</extends>
@@ -81486,33 +81507,11 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#has"/>
-      <owl:onClass rdf:resource="#nxfit-function-fit-parameters-parameter-fixed-attribute"/>
-      <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-    </owl:Restriction>
-  </rdfs:subClassOf>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#has"/>
-      <owl:onClass rdf:resource="#nxfit-function-fit-parameters-parameter-min-value-attribute"/>
-      <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-    </owl:Restriction>
-  </rdfs:subClassOf>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#has"/>
-      <owl:onClass rdf:resource="#nxfit-function-fit-parameters-parameter-max-value-attribute"/>
-      <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
-    </owl:Restriction>
-  </rdfs:subClassOf>
   <rdfs:subClassOf rdf:resource="#nxparameters-parameter-field"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXfit_function/fit_parameters/PARAMETER</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
-                A parameter for a fit function.
-                This would typically be a variable that
-                is optimized in a fit.
+                A parameter for a fit function. This would typically be
+                a variable that is optimized in a fit.
             </rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXfit_function.html#nxfit-function-fit-parameters-parameter-field</rdfs:seeAlso>
 </owl:Class>
@@ -91221,8 +91220,59 @@
       <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#has"/>
+      <owl:onClass rdf:resource="#nxparameters-parameter-error-attribute"/>
+      <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#has"/>
+      <owl:onClass rdf:resource="#nxparameters-parameter-description-attribute"/>
+      <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#has"/>
+      <owl:onClass rdf:resource="#nxparameters-parameter-expression-attribute"/>
+      <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#has"/>
+      <owl:onClass rdf:resource="#nxparameters-parameter-initial-attribute"/>
+      <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#has"/>
+      <owl:onClass rdf:resource="#nxparameters-parameter-max-attribute"/>
+      <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#has"/>
+      <owl:onClass rdf:resource="#nxparameters-parameter-min-attribute"/>
+      <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#has"/>
+      <owl:onClass rdf:resource="#nxparameters-parameter-vary-attribute"/>
+      <owl:minQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:minQualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXparameters/PARAMETER</rdfs:label>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A parameter (also known as a term) that is used in or results from processing.</rdfs:comment>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+            A parameter that is used in or results from processing. 
+        </rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXparameters.html#nxparameters-parameter-field</rdfs:seeAlso>
 </owl:Class>
 
@@ -159539,7 +159589,9 @@
     </owl:Restriction>
   </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXstress/ENTRY/FIT/fit_type</rdfs:label>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+                    Describes how the fitting of the peaks was done. For example, single peak fit, multiple peak fit, Pawley refinement, Rietveld refinement, …
+                </rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXstress.html#nxstress-entry-fit-fit-type-field</rdfs:seeAlso>
 </owl:Class>
 
@@ -159601,9 +159653,7 @@
     </owl:Restriction>
   </rdfs:subClassOf>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXstress/ENTRY/FIT/goodness_of_fit</rdfs:label>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
-                    Type and value describing the goodness of fit. For example, Rw 0.23.
-                </rdfs:comment>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXstress.html#nxstress-entry-fit-goodness-of-fit-field</rdfs:seeAlso>
 </owl:Class>
 
@@ -174882,6 +174932,7 @@
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXentry/thumbnail/type</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The mime type should be an ``image/*``</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXentry.html#nxentry-thumbnail-type-attribute</rdfs:seeAlso>
+  <owl:deprecated rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</owl:deprecated>
 </owl:Class>
 
 <owl:Class rdf:about="#nxentry-thumbnail-type-image-enum">
@@ -175030,89 +175081,12 @@
       <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
+  <rdfs:subClassOf rdf:resource="#nxparameters-parameter-description-attribute"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXfit_function/fit_parameters/PARAMETER/description</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
                     A description of what this parameter represents.
                 </rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXfit_function.html#nxfit-function-fit-parameters-parameter-description-attribute</rdfs:seeAlso>
-</owl:Class>
-
-<owl:Class rdf:about="#nxfit-function-fit-parameters-parameter-fixed-attribute">
-  <rdfs:subClassOf rdf:resource="#NeXusAttribute"/>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasValueContainer"/>
-      <owl:someValuesFrom rdf:resource="#NX_BOOLEAN"/>
-    </owl:Restriction>
-  </rdfs:subClassOf>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasValueContainer"/>
-      <owl:onClass>
-        <owl:Class>
-          <owl:complementOf rdf:resource="#NX_BOOLEAN"/>
-        </owl:Class>
-      </owl:onClass>
-      <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxQualifiedCardinality>
-    </owl:Restriction>
-  </rdfs:subClassOf>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXfit_function/fit_parameters/PARAMETER/fixed</rdfs:label>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
-                    If the parameter is held constant, then this attribute should be True.
-                </rdfs:comment>
-  <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXfit_function.html#nxfit-function-fit-parameters-parameter-fixed-attribute</rdfs:seeAlso>
-</owl:Class>
-
-<owl:Class rdf:about="#nxfit-function-fit-parameters-parameter-min-value-attribute">
-  <rdfs:subClassOf rdf:resource="#NeXusAttribute"/>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasValueContainer"/>
-      <owl:someValuesFrom rdf:resource="#NX_NUMBER"/>
-    </owl:Restriction>
-  </rdfs:subClassOf>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasValueContainer"/>
-      <owl:onClass>
-        <owl:Class>
-          <owl:complementOf rdf:resource="#NX_NUMBER"/>
-        </owl:Class>
-      </owl:onClass>
-      <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxQualifiedCardinality>
-    </owl:Restriction>
-  </rdfs:subClassOf>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXfit_function/fit_parameters/PARAMETER/min_value</rdfs:label>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
-                    The minimal value of the parameter, to be used as a constraint during fitting.
-                </rdfs:comment>
-  <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXfit_function.html#nxfit-function-fit-parameters-parameter-min-value-attribute</rdfs:seeAlso>
-</owl:Class>
-
-<owl:Class rdf:about="#nxfit-function-fit-parameters-parameter-max-value-attribute">
-  <rdfs:subClassOf rdf:resource="#NeXusAttribute"/>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasValueContainer"/>
-      <owl:someValuesFrom rdf:resource="#NX_NUMBER"/>
-    </owl:Restriction>
-  </rdfs:subClassOf>
-  <rdfs:subClassOf>
-    <owl:Restriction>
-      <owl:onProperty rdf:resource="#hasValueContainer"/>
-      <owl:onClass>
-        <owl:Class>
-          <owl:complementOf rdf:resource="#NX_NUMBER"/>
-        </owl:Class>
-      </owl:onClass>
-      <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxQualifiedCardinality>
-    </owl:Restriction>
-  </rdfs:subClassOf>
-  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXfit_function/fit_parameters/PARAMETER/max_value</rdfs:label>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
-                    The maximal value of the parameter, to be used as a constraint during fitting.
-                </rdfs:comment>
-  <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXfit_function.html#nxfit-function-fit-parameters-parameter-max-value-attribute</rdfs:seeAlso>
 </owl:Class>
 
 <owl:Class rdf:about="#nxguide-reflectivity-signal-attribute">
@@ -176039,6 +176013,37 @@
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXobject.html#nxobject-default-attribute</rdfs:seeAlso>
 </owl:Class>
 
+<owl:Class rdf:about="#nxparameters-model-attribute">
+  <rdfs:subClassOf rdf:resource="#NeXusAttribute"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasValueContainer"/>
+      <owl:someValuesFrom rdf:resource="#NX_CHAR"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasValueContainer"/>
+      <owl:onClass>
+        <owl:Class>
+          <owl:complementOf rdf:resource="#NX_CHAR"/>
+        </owl:Class>
+      </owl:onClass>
+      <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxQualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXparameters/model</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+            The name of the model used in optimizing the parameter
+            values. Fitting packages such as LMFIT
+            (https://lmfit.github.io/lmfit-py/) provide models, which
+            instantiate functions to be fitted to the data. If this
+            attribute is provided, it is assumed that all the parameters
+            in this group are associated with this model.
+        </rdfs:comment>
+  <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXparameters.html#nxparameters-model-attribute</rdfs:seeAlso>
+</owl:Class>
+
 <owl:Class rdf:about="#nxparameters-parameter-units-attribute">
   <rdfs:subClassOf rdf:resource="#NeXusAttribute"/>
   <rdfs:subClassOf>
@@ -176061,6 +176066,193 @@
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXparameters/PARAMETER/units</rdfs:label>
   <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXparameters.html#nxparameters-parameter-units-attribute</rdfs:seeAlso>
+</owl:Class>
+
+<owl:Class rdf:about="#nxparameters-parameter-error-attribute">
+  <rdfs:subClassOf rdf:resource="#NeXusAttribute"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasValueContainer"/>
+      <owl:someValuesFrom rdf:resource="#NX_NUMBER"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasValueContainer"/>
+      <owl:onClass>
+        <owl:Class>
+          <owl:complementOf rdf:resource="#NX_NUMBER"/>
+        </owl:Class>
+      </owl:onClass>
+      <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxQualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXparameters/PARAMETER/error</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+                The standard deviation of the parameter after optimizing
+                its value.
+            </rdfs:comment>
+  <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXparameters.html#nxparameters-parameter-error-attribute</rdfs:seeAlso>
+</owl:Class>
+
+<owl:Class rdf:about="#nxparameters-parameter-description-attribute">
+  <rdfs:subClassOf rdf:resource="#NeXusAttribute"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasValueContainer"/>
+      <owl:someValuesFrom rdf:resource="#NX_CHAR"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasValueContainer"/>
+      <owl:onClass>
+        <owl:Class>
+          <owl:complementOf rdf:resource="#NX_CHAR"/>
+        </owl:Class>
+      </owl:onClass>
+      <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxQualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXparameters/PARAMETER/description</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+                A description of what this parameter represents.
+            </rdfs:comment>
+  <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXparameters.html#nxparameters-parameter-description-attribute</rdfs:seeAlso>
+</owl:Class>
+
+<owl:Class rdf:about="#nxparameters-parameter-expression-attribute">
+  <rdfs:subClassOf rdf:resource="#NeXusAttribute"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasValueContainer"/>
+      <owl:someValuesFrom rdf:resource="#NX_CHAR"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasValueContainer"/>
+      <owl:onClass>
+        <owl:Class>
+          <owl:complementOf rdf:resource="#NX_CHAR"/>
+        </owl:Class>
+      </owl:onClass>
+      <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxQualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXparameters/PARAMETER/expression</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+                A string representing an expression that can be used to
+                relate the parameter to another parameter's value. The
+                format of this string is dependent on the program used
+                to optimize the parameters and is not specified by
+                NeXus.
+            </rdfs:comment>
+  <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXparameters.html#nxparameters-parameter-expression-attribute</rdfs:seeAlso>
+</owl:Class>
+
+<owl:Class rdf:about="#nxparameters-parameter-initial-attribute">
+  <rdfs:subClassOf rdf:resource="#NeXusAttribute"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasValueContainer"/>
+      <owl:someValuesFrom rdf:resource="#NX_NUMBER"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasValueContainer"/>
+      <owl:onClass>
+        <owl:Class>
+          <owl:complementOf rdf:resource="#NX_NUMBER"/>
+        </owl:Class>
+      </owl:onClass>
+      <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxQualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXparameters/PARAMETER/initial</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+                The initial value of the parameter used in optimization.
+            </rdfs:comment>
+  <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXparameters.html#nxparameters-parameter-initial-attribute</rdfs:seeAlso>
+</owl:Class>
+
+<owl:Class rdf:about="#nxparameters-parameter-max-attribute">
+  <rdfs:subClassOf rdf:resource="#NeXusAttribute"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasValueContainer"/>
+      <owl:someValuesFrom rdf:resource="#NX_NUMBER"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasValueContainer"/>
+      <owl:onClass>
+        <owl:Class>
+          <owl:complementOf rdf:resource="#NX_NUMBER"/>
+        </owl:Class>
+      </owl:onClass>
+      <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxQualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXparameters/PARAMETER/max</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+                The upper bound of the parameter used in optimization.
+            </rdfs:comment>
+  <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXparameters.html#nxparameters-parameter-max-attribute</rdfs:seeAlso>
+</owl:Class>
+
+<owl:Class rdf:about="#nxparameters-parameter-min-attribute">
+  <rdfs:subClassOf rdf:resource="#NeXusAttribute"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasValueContainer"/>
+      <owl:someValuesFrom rdf:resource="#NX_NUMBER"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasValueContainer"/>
+      <owl:onClass>
+        <owl:Class>
+          <owl:complementOf rdf:resource="#NX_NUMBER"/>
+        </owl:Class>
+      </owl:onClass>
+      <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxQualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXparameters/PARAMETER/min</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+                The lower bound of the parameter used in optimization.
+            </rdfs:comment>
+  <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXparameters.html#nxparameters-parameter-min-attribute</rdfs:seeAlso>
+</owl:Class>
+
+<owl:Class rdf:about="#nxparameters-parameter-vary-attribute">
+  <rdfs:subClassOf rdf:resource="#NeXusAttribute"/>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasValueContainer"/>
+      <owl:someValuesFrom rdf:resource="#NX_BOOLEAN"/>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:subClassOf>
+    <owl:Restriction>
+      <owl:onProperty rdf:resource="#hasValueContainer"/>
+      <owl:onClass>
+        <owl:Class>
+          <owl:complementOf rdf:resource="#NX_BOOLEAN"/>
+        </owl:Class>
+      </owl:onClass>
+      <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxQualifiedCardinality>
+    </owl:Restriction>
+  </rdfs:subClassOf>
+  <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXparameters/PARAMETER/vary</rdfs:label>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">
+                True if the parameter was varied during optimization.
+            </rdfs:comment>
+  <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/base_classes/NXparameters.html#nxparameters-parameter-vary-attribute</rdfs:seeAlso>
 </owl:Class>
 
 <owl:Class rdf:about="#nxprogram-program-version-attribute">
@@ -190956,9 +191148,9 @@
       <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">0</owl:maxQualifiedCardinality>
     </owl:Restriction>
   </rdfs:subClassOf>
-  <owl:equivalentClass rdf:resource="#nxdata-axes-attribute"/>
+  <rdfs:subClassOf rdf:resource="#nxdata-axes-attribute"/>
   <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">NXstress/ENTRY/FIT/DIFFRACTOGRAM/axes</rdfs:label>
-  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+  <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">List of the one to two axes field name(s) to be used by default. The axes are further described in the fields DAXIS and XAXIS.</rdfs:comment>
   <rdfs:seeAlso rdf:datatype="http://www.w3.org/2001/XMLSchema#string">https://manual.nexusformat.org/classes/applications/NXstress.html#nxstress-entry-fit-diffractogram-axes-attribute</rdfs:seeAlso>
 </owl:Class>
 
