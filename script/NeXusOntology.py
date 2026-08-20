@@ -66,10 +66,10 @@ class NeXusOntology:
             onto.metadata.abstract.append(
                 owlready2.locstr(
                     "The NeXus Ontology is a formal semantic representation of the NeXus data standard," +
-                    "providing a structured vocabulary for experimental materials science, neutron, X-ray," +
-                    "and muon facilities. By translating the hierarchical NeXus Application Definitions (NXDL)" + 
-                    "into the Web Ontology Language (OWL), this ontology facilitates FAIR data principles." +
-                    "It enables machine-actionability, automated data indexing, and advanced semantic reasoning" +
+                    "providing a structured vocabulary for experimental materials science, neutron, X-ray, " +
+                    "and muon facilities. By translating the hierarchical NeXus Application Definitions (NXDL) " + 
+                    "into the Web Ontology Language (OWL), this ontology facilitates FAIR data principles. " +
+                    "It enables machine-actionability, automated data indexing, and advanced semantic reasoning " +
                     "across diverse scientific data management pipelines.", 
                     lang="en"
                 )
@@ -77,16 +77,16 @@ class NeXusOntology:
 
             onto.metadata.description.append(
                 owlready2.locstr(
-                    "The NeXus Ontology maps the structural components of the NeXus hierarchical format—including" +
-                    "base classes, application definitions, fields, and dimensions into a comprehensive semantic graph." +
-                    " This mapping transforms raw experimental data schemas into a standardized ontology that supports " +
-                    "automated inference and integration with external knowledge graphs." + 
-                    "Designed for seamless integration into modern research data management platforms," +
-                    "the ontology provides the semantic scaffolding necessary to parse complex measurement workflows." +
-                    "By defining explicit relationships between instruments, physical properties," +
-                    "and measurement protocols, it supports the extraction and standardization of metadata." +
-                    " The ontology is persistently resolvable via the w3id.org namespace, ensuring stable," +
-                    "long-term integration for standalone ontology services, automated REST endpoints, and customized" +
+                    "The NeXus Ontology maps the structural components of the NeXus hierarchical format—including " +
+                    "base classes, application definitions, fields, and dimensions into a comprehensive semantic graph. " +
+                    "This mapping transforms raw experimental data schemas into a standardized ontology that supports " +
+                    "automated inference and integration with external knowledge graphs. " + 
+                    "Designed for seamless integration into modern research data management platforms, " +
+                    "the ontology provides the semantic scaffolding necessary to parse complex measurement workflows. " +
+                    "By defining explicit relationships between instruments, physical properties, " +
+                    "and measurement protocols, it supports the extraction and standardization of metadata. " +
+                    " The ontology is persistently resolvable via the w3id.org namespace, ensuring stable, " +
+                    "long-term integration for standalone ontology services, automated REST endpoints, and customized " +
                     "data extraction plugins tailored to advanced solid-state physics and materials characterization.", 
                     lang="en"
                 )
@@ -94,14 +94,14 @@ class NeXusOntology:
 
             onto.metadata.introduction.append(
                 owlready2.locstr(
-                    "Welcome to the documentation for the NeXus Ontology. This framework serves as a critical bridge" +
-                    "between the established NeXus data format and the Semantic Web, bringing robust knowledge" +
-                    "representation to experimental physics and materials science." +
-                    "In this documentation, you will find a complete taxonomy of the NeXus classes, object properties," +
+                    "Welcome to the documentation for the NeXus Ontology. This framework serves as a critical bridge " +
+                    "between the established NeXus data format and the Semantic Web, bringing robust knowledge " +
+                    "representation to experimental physics and materials science. " +
+                    "In this documentation, you will find a complete taxonomy of the NeXus classes, object properties, " +
                     "and data properties. Navigating through the sections will reveal how instrument components and" +
-                    "experimental measurements are logically structured. Whether you are validating measurement protocol configurations,"+
-                    "developing automated indexing services, or mapping laboratory data to FAIR standards,"+
-                    "this ontology provides the necessary semantic infrastructure to ensure your datasets are interoperable and fully machine-readable.", 
+                    "experimental measurements are logically structured. Whether you are validating measurement protocol configurations, "+
+                    "developing automated indexing services, or mapping laboratory data to FAIR standards, "+
+                    "this ontology provides the necessary semantic infrastructure to ensure your datasets are interoperable and fully machine-readable. ", 
                     lang="en"
                 )
             )
