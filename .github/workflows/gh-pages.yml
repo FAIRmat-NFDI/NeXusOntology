@@ -26,7 +26,7 @@ jobs:
       - uses: actions/configure-pages@v6
       - name: Download Widoco
         env:
-          widoco_url: https://github.com/dgarijo/Widoco/releases/download/v1.4.17/java-11-widoco-1.4.17-jar-with-dependencies.jar
+          widoco_url: https://github.com/dgarijo/Widoco/releases/download/v1.4.25/widoco-1.4.25-jar-with-dependencies_JDK-11.jar
         run: wget ${widoco_url} -O widoco.jar
       - name: Convert RDF
         env:
