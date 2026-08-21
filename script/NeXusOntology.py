@@ -57,11 +57,11 @@ class NeXusOntology:
 
             class description(owlready2.AnnotationProperty):
                 pass
-            description.iri = "http://purl.org/dc/elements/1.1/description"
+            description.iri = "http://purl.org/dc/terms/description"
 
             class introduction(owlready2.AnnotationProperty):
                 pass
-            introduction.iri = "http://w3id.org/widoco/vocab#introduction"
+            introduction.iri = "https://w3id.org/widoco/vocab#introduction"
 
             onto.metadata.abstract.append(
                 owlready2.locstr(
