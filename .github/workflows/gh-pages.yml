@@ -33,7 +33,6 @@ jobs:
           ont_file: ontology/NeXusOntology_full.owl
         run: |
           java -jar widoco.jar -ontFile ${ont_file} -outFolder ./_site \
-               -confFile .github/widoco/widoco.properties \
                -getOntologyMetadata \
                -includeAnnotationProperties
           mv ./_site/index-en.html ./_site/index.html
