@@ -3,8 +3,10 @@ name: NeXusOntology release on definitions release
 on:
   push:
     branches: ['*']
+  repository_dispatch:
+    types: [definitions_release]     # allow the definitions repo (or other automation) to trigger this workflow
   schedule:
-    - cron: "17 3 1 * *"   # 03:17 UTC on day 1 of every month
+    - cron: "0 0 * * *"              # daily check as a fallback (UTC midnight)
   workflow_dispatch:
 
 permissions:
@@ -21,6 +23,8 @@ env:
   DEFINITIONS_REPO: definitions
   SUBMODULE_PATH: definitions
   TARGET_BRANCH: PaNET-inspired
+  WIDOCO_VERSION: 1.4.25
+  WIDOCO_URL: https://github.com/dgarijo/Widoco/releases/download/v1.4.25/widoco-1.4.25-jar-with-dependencies_JDK-11.jar
 
 jobs:
   sync-build-release-deploy:
@@ -40,31 +44,52 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - name: Get latest definitions release tag
+      - name: Get latest definitions release tag (or use repository_dispatch payload)
         id: defrel
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
-          api="https://api.github.com/repos/${DEFINITIONS_OWNER}/${DEFINITIONS_REPO}/releases/latest"
-          json="$(curl -fsSL -H "Authorization: Bearer ${GH_TOKEN}" -H "Accept: application/vnd.github+json" "$api")"
-          tag="$(echo "$json" | jq -r '.tag_name')"
-          if [[ -z "$tag" || "$tag" == "null" ]]; then
-            echo "Unable to read latest release tag from ${DEFINITIONS_OWNER}/${DEFINITIONS_REPO}"
-            exit 1
+
+          # If this workflow was triggered via repository_dispatch and a tag is provided in client_payload, use it.
+          tag=""
+          if [ "${GITHUB_EVENT_NAME:-}" = "repository_dispatch" ] ; then
+            if [ -f "${GITHUB_EVENT_PATH:-}" ]; then
+              tag="$(jq -r '.client_payload.tag // empty' "$GITHUB_EVENT_PATH" || true)"
+            fi
           fi
+
+          if [ -n "$tag" ]; then
+            echo "Using tag from repository_dispatch payload: $tag"
+          else
+            api="https://api.github.com/repos/${DEFINITIONS_OWNER}/${DEFINITIONS_REPO}/releases/latest"
+            json="$(curl -fsSL -H "Authorization: Bearer ${GH_TOKEN}" -H "Accept: application/vnd.github+json" "$api")"
+            tag="$(echo "$json" | jq -r '.tag_name')"
+            if [[ -z "$tag" || "$tag" == "null" ]]; then
+              echo "Unable to read latest release tag from ${DEFINITIONS_OWNER}/${DEFINITIONS_REPO}"
+              exit 1
+            fi
+            echo "Resolved latest definitions release tag via API: $tag"
+          fi
+
           echo "tag=$tag" >> "$GITHUB_OUTPUT"
 
       - name: Resolve current and target submodule SHA
         id: shas
         run: |
           set -euo pipefail
-          current_sha="$(git rev-parse HEAD:${SUBMODULE_PATH})"
-          git -C "${SUBMODULE_PATH}" fetch --tags origin
-          target_sha="$(git -C "${SUBMODULE_PATH}" rev-list -n 1 "${{ steps.defrel.outputs.tag }}")"
+          # current submodule SHA recorded in parent repo
+          current_sha="$(git rev-parse --verify HEAD:${SUBMODULE_PATH} 2>/dev/null || true)"
+          # fetch tags in the submodule repository
+          git -C "${SUBMODULE_PATH}" fetch --tags origin || true
+
+          # try to resolve tag to commit in submodule
+          # prefer environment-provided tag (from previous step)
+          target_tag="${{ steps.defrel.outputs.tag }}"
+          target_sha="$(git -C "${SUBMODULE_PATH}" rev-list -n 1 "${target_tag}" 2>/dev/null || true)"
 
           if [[ -z "$target_sha" ]]; then
-            echo "Could not resolve definitions tag ${{ steps.defrel.outputs.tag }} to a commit"
+            echo "Could not resolve definitions tag ${target_tag} to a commit inside submodule ${SUBMODULE_PATH}"
             exit 1
           fi
 
@@ -88,7 +113,8 @@ jobs:
           set -euo pipefail
           git -C "${SUBMODULE_PATH}" checkout "${{ steps.shas.outputs.target_sha }}"
           git add "${SUBMODULE_PATH}"
-          git commit -m "chore(definitions): bump to ${{ steps.defrel.outputs.tag }} (${{ steps.shas.outputs.target_sha }})"
+          git commit -m "chore(definitions): bump to ${{ steps.defrel.outputs.tag }} (${{ steps.shas.outputs.target_sha }})" || echo "No changes to commit"
+          # push to the repository's TARGET_BRANCH
           git push origin "HEAD:${TARGET_BRANCH}"
 
       - name: Prepare release tag in parent repo
@@ -125,10 +151,13 @@ jobs:
       - name: Download Widoco
         if: steps.sync_check.outputs.synced == 'false'
         env:
-          WIDOCO_URL: https://github.com/dgarijo/Widoco/releases/download/v1.4.25/widoco-1.4.25-jar-with-dependencies_JDK-11.jar
-        run: wget "${WIDOCO_URL}" -O widoco.jar
+          WIDOCO_URL: ${{ env.WIDOCO_URL }}
+        run: |
+          set -euo pipefail
+          wget -q "${WIDOCO_URL}" -O widoco.jar
+          ls -lh widoco.jar
 
-      - name: Build website content
+      - name: Build website content with Widoco (include annotation props, imports, stable anchors)
         if: steps.sync_check.outputs.synced == 'false'
         env:
           VERSION: ${{ steps.parent_tag.outputs.tag }}
@@ -137,20 +166,31 @@ jobs:
           mkdir -p ./_site/releases/"${VERSION}"
           mkdir -p ./_site/latest
 
+          # copy ontology to site root and latest
           cp ontology/NeXusOntology_full.owl ./_site/NeXusOntology_full.owl
           cp ontology/NeXusOntology_full.owl ./_site/latest/NeXusOntology_full.owl
 
+          # Widoco invocation - explicit flags to ensure inclusion of annotation properties,
+          # imported ontologies and stable anchors derived from entity local names.
           java -jar widoco.jar \
             -ontFile ontology/NeXusOntology_full.owl \
             -outFolder ./_site \
-            -getOntologyMetadata \
-            -includeAnnotationProperties \
-            -rewriteAll
+            -getOntologyMetadata true \
+            -includeAnnotationProperties true \
+            -includeImportedOntologies true \
+            -rewriteAll true \
+            -rewriteOntURIs true || { echo "Widoco failed"; exit 1; }
 
-          mv ./_site/index-en.html ./_site/index.html
+          # Make index.html consistent and copy release-specific files
+          if [ -f ./_site/index-en.html ]; then
+            mv ./_site/index-en.html ./_site/index.html
+          fi
+
           cp ontology/NeXusOntology_full.owl "./_site/releases/${VERSION}/NeXusOntology_full.owl"
-          cp ./_site/index.html "./_site/releases/${VERSION}/index.html"
-          cp ./_site/index.html ./_site/latest/index.html
+          if [ -f ./_site/index.html ]; then
+            cp ./_site/index.html "./_site/releases/${VERSION}/index.html"
+            cp ./_site/index.html ./_site/latest/index.html
+          fi
 
       - name: Upload Pages artifact
         if: steps.sync_check.outputs.synced == 'false'
