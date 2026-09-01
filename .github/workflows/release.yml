@@ -52,23 +52,23 @@ jobs:
         env:
           VERSION: ${{ github.ref_name }}
         run: |
-          mkdir -p _site/releases/"${VERSION}"
-          mkdir -p _site/latest
+          mkdir -p ./_site/releases/"${VERSION}"
+          mkdir -p ./_site/latest
 
-          cp ontology/NeXusOntology_full.owl _site/NeXusOntology_full.owl
-          cp ontology/NeXusOntology_full.owl _site/latest/NeXusOntology_full.owl
+          cp ontology/NeXusOntology_full.owl ./_site/NeXusOntology_full.owl
+          cp ontology/NeXusOntology_full.owl ./_site/latest/NeXusOntology_full.owl
 
           java -jar widoco.jar \
             -ontFile ontology/NeXusOntology_full.owl \
-            -outFolder _site \
+            -outFolder ./_site \
             -getOntologyMetadata \
             -includeAnnotationProperties \
             -rewriteAll
 
-          mv _site/index-en.html _site/index.html
+          mv ./_site/index-en.html ./_site/index.html
 
-          cp ontology/NeXusOntology_full.owl "_site/releases/${VERSION}/NeXusOntology_full.owl"
-          cp _site/index.html _site/latest/index.html
+          cp ontology/NeXusOntology_full.owl "./_site/releases/${VERSION}/NeXusOntology_full.owl"
+          cp ./_site/index.html ./_site/latest/index.html
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v5
