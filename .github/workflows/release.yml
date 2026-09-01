@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -65,25 +65,21 @@ jobs:
           cp -r "site/releases/${VERSION}/docs" site/latest/docs
           cp "site/releases/${VERSION}/docs/index.html" site/latest/index.html
 
-      - name: Upload release asset
-        if: github.ref_type == 'tag'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          export GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
-          gh release create "${GITHUB_REF_NAME}" \
-            --title "${GITHUB_REF_NAME}" \
-            --notes "NeXus ontology release ${GITHUB_REF_NAME}" \
-            --verify-tag || true
-
-          gh release upload "${GITHUB_REF_NAME}" "ontology/NeXusOntology_full.owl" --clobber
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./site
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     environment:
-      name: GitHub Pages
+      name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - id: deployment
+      - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v5
