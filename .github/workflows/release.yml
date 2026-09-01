@@ -2,10 +2,8 @@ name: NeXus ontology release
 
 on:
   push:
-    branches:
-        - PaNET-inspired
-    tags:
-      - 'v*.*.*'
+    branches: ['*']
+    tags: ['v*.*']
   workflow_dispatch:
 
 permissions:
@@ -68,6 +66,7 @@ jobs:
           cp "site/releases/${VERSION}/docs/index.html" site/latest/index.html
 
       - name: Upload release asset
+        if: github.ref_type == 'tag'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
