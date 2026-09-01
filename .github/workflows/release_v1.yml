@@ -1,0 +1,185 @@
+name: NeXusOntology release on definitions release
+
+on:
+  schedule:
+    - cron: "17 3 1 * *"   # 03:17 UTC on day 1 of every month
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: nexusontology-definitions-release
+  cancel-in-progress: false
+
+env:
+  DEFINITIONS_OWNER: nexusformat
+  DEFINITIONS_REPO: definitions
+  SUBMODULE_PATH: definitions
+  TARGET_BRANCH: PaNET-inspired
+
+jobs:
+  sync-build-release-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout parent repo
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TARGET_BRANCH }}
+          fetch-depth: 0
+          submodules: recursive
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Get latest definitions release tag
+        id: defrel
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          api="https://api.github.com/repos/${DEFINITIONS_OWNER}/${DEFINITIONS_REPO}/releases/latest"
+          json="$(curl -fsSL -H "Authorization: Bearer ${GH_TOKEN}" -H "Accept: application/vnd.github+json" "$api")"
+          tag="$(echo "$json" | jq -r '.tag_name')"
+          if [[ -z "$tag" || "$tag" == "null" ]]; then
+            echo "Unable to read latest release tag from ${DEFINITIONS_OWNER}/${DEFINITIONS_REPO}"
+            exit 1
+          fi
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+
+      - name: Resolve current and target submodule SHA
+        id: shas
+        run: |
+          set -euo pipefail
+          current_sha="$(git rev-parse HEAD:${SUBMODULE_PATH})"
+          git -C "${SUBMODULE_PATH}" fetch --tags origin
+          target_sha="$(git -C "${SUBMODULE_PATH}" rev-list -n 1 "${{ steps.defrel.outputs.tag }}")"
+
+          if [[ -z "$target_sha" ]]; then
+            echo "Could not resolve definitions tag ${{ steps.defrel.outputs.tag }} to a commit"
+            exit 1
+          fi
+
+          echo "current_sha=$current_sha" >> "$GITHUB_OUTPUT"
+          echo "target_sha=$target_sha" >> "$GITHUB_OUTPUT"
+
+      - name: Exit if already synced
+        id: sync_check
+        run: |
+          set -euo pipefail
+          if [[ "${{ steps.shas.outputs.current_sha }}" == "${{ steps.shas.outputs.target_sha }}" ]]; then
+            echo "synced=true" >> "$GITHUB_OUTPUT"
+            echo "Already synced to latest definitions release; nothing to do."
+          else
+            echo "synced=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Update submodule to latest definitions release commit
+        if: steps.sync_check.outputs.synced == 'false'
+        run: |
+          set -euo pipefail
+          git -C "${SUBMODULE_PATH}" checkout "${{ steps.shas.outputs.target_sha }}"
+          git add "${SUBMODULE_PATH}"
+          git commit -m "chore(definitions): bump to ${{ steps.defrel.outputs.tag }} (${{ steps.shas.outputs.target_sha }})"
+          git push origin "HEAD:${TARGET_BRANCH}"
+
+      - name: Prepare release tag in parent repo
+        if: steps.sync_check.outputs.synced == 'false'
+        id: parent_tag
+        run: |
+          set -euo pipefail
+          tag="nexusontology-${{ steps.defrel.outputs.tag }}"
+          if git ls-remote --tags origin "refs/tags/${tag}" | grep -q "${tag}"; then
+            echo "Tag ${tag} already exists."
+          else
+            git tag "${tag}"
+            git push origin "refs/tags/${tag}"
+          fi
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+
+      - name: Set up Python
+        if: steps.sync_check.outputs.synced == 'false'
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Python dependencies
+        if: steps.sync_check.outputs.synced == 'false'
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r definitions/requirements.txt
+          pip install owlready2 pygit2
+
+      - name: Generate ontology
+        if: steps.sync_check.outputs.synced == 'false'
+        run: python -m script.generate_ontology full
+
+      - name: Download Widoco
+        if: steps.sync_check.outputs.synced == 'false'
+        env:
+          WIDOCO_URL: https://github.com/dgarijo/Widoco/releases/download/v1.4.25/widoco-1.4.25-jar-with-dependencies_JDK-11.jar
+        run: wget "${WIDOCO_URL}" -O widoco.jar
+
+      - name: Build website content
+        if: steps.sync_check.outputs.synced == 'false'
+        env:
+          VERSION: ${{ steps.parent_tag.outputs.tag }}
+        run: |
+          set -euo pipefail
+          mkdir -p ./_site/releases/"${VERSION}"
+          mkdir -p ./_site/latest
+
+          cp ontology/NeXusOntology_full.owl ./_site/NeXusOntology_full.owl
+          cp ontology/NeXusOntology_full.owl ./_site/latest/NeXusOntology_full.owl
+
+          java -jar widoco.jar \
+            -ontFile ontology/NeXusOntology_full.owl \
+            -outFolder ./_site \
+            -getOntologyMetadata \
+            -includeAnnotationProperties \
+            -rewriteAll
+
+          mv ./_site/index-en.html ./_site/index.html
+          cp ontology/NeXusOntology_full.owl "./_site/releases/${VERSION}/NeXusOntology_full.owl"
+          cp ./_site/index.html "./_site/releases/${VERSION}/index.html"
+          cp ./_site/index.html ./_site/latest/index.html
+
+      - name: Upload Pages artifact
+        if: steps.sync_check.outputs.synced == 'false'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./_site
+
+      - name: Deploy to GitHub Pages
+        if: steps.sync_check.outputs.synced == 'false'
+        uses: actions/deploy-pages@v4
+
+      - name: Package release assets
+        if: steps.sync_check.outputs.synced == 'false'
+        run: |
+          set -euo pipefail
+          mkdir -p release-assets
+          cp ontology/NeXusOntology_full.owl "release-assets/NeXusOntology_full-${{ steps.parent_tag.outputs.tag }}.owl"
+          tar -czf "release-assets/NeXusOntology_docs-${{ steps.parent_tag.outputs.tag }}.tar.gz" -C _site .
+
+      - name: Create/update GitHub release with assets
+        if: steps.sync_check.outputs.synced == 'false'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.parent_tag.outputs.tag }}
+          target_commitish: ${{ env.TARGET_BRANCH }}
+          name: NeXusOntology ${{ steps.parent_tag.outputs.tag }}
+          generate_release_notes: true
+          body: |
+            Automated release after definitions bump.
+            Definitions release: ${{ steps.defrel.outputs.tag }}
+            Definitions commit: ${{ steps.shas.outputs.target_sha }}
+          files: |
+            release-assets/NeXusOntology_full-${{ steps.parent_tag.outputs.tag }}.owl
+            release-assets/NeXusOntology_docs-${{ steps.parent_tag.outputs.tag }}.tar.gz
