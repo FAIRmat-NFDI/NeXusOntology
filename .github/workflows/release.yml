@@ -3,16 +3,25 @@ name: NeXus ontology release
 on:
   push:
     tags:
-      - 'v[0-9]+.[0-9]+.[0-9]+'
+      - 'v[0-9]+\.[0-9]+\.[0-9]+'
   workflow_dispatch:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
-  release:
+  build:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
+
+      - uses: actions/configure-pages@v6
 
       - uses: actions/setup-python@v5
         with:
@@ -26,15 +35,31 @@ jobs:
       - name: Generate ontology
         run: python -m script.generate_ontology full
 
-      - name: Build docs
+      - name: Download Widoco
+        env:
+          widoco_url: https://github.com/dgarijo/Widoco/releases/download/v1.4.25/widoco-1.4.25-jar-with-dependencies_JDK-11.jar
+        run: wget "${widoco_url}" -O widoco.jar
+
+      - name: Build release docs and ontology bundle
+        env:
+          VERSION: ${{ github.ref_name }}
         run: |
-          wget https://github.com/dgarijo/Widoco/releases/download/v1.4.25/widoco-1.4.25-jar-with-dependencies_JDK-11.jar -O widoco.jar
-          mkdir -p site/releases/${GITHUB_REF_NAME}
+          mkdir -p "site/releases/${VERSION}"
           mkdir -p site/latest
-          cp ontology/NeXusOntology_full.owl site/releases/${GITHUB_REF_NAME}/NeXusOntology_full.owl
+
+          cp ontology/NeXusOntology_full.owl "site/releases/${VERSION}/NeXusOntology_full.owl"
           cp ontology/NeXusOntology_full.owl site/latest/NeXusOntology_full.owl
-          java -jar widoco.jar -ontFile ontology/NeXusOntology_full.owl -outFolder site/releases/${GITHUB_REF_NAME}/docs -getOntologyMetadata -includeAnnotationProperties -rewriteAll
-          cp -r site/releases/${GITHUB_REF_NAME}/docs site/latest/docs
+
+          java -jar widoco.jar \
+            -ontFile ontology/NeXusOntology_full.owl \
+            -outFolder "site/releases/${VERSION}/docs" \
+            -getOntologyMetadata \
+            -includeAnnotationProperties \
+            -rewriteAll
+
+          mv "site/releases/${VERSION}/docs/index-en.html" "site/releases/${VERSION}/docs/index.html"
+          cp -r "site/releases/${VERSION}/docs" site/latest/docs
+          cp "site/releases/${VERSION}/docs/index.html" site/latest/index.html
 
       - name: Upload release asset
         env:
@@ -45,4 +70,18 @@ jobs:
             --notes "NeXus ontology release ${GITHUB_REF_NAME}" \
             --verify-tag || true
 
-          gh release upload "${GITHUB_REF_NAME}" ontology/NeXusOntology_full.owl --clobber
+          gh release upload "${GITHUB_REF_NAME}" "ontology/NeXusOntology_full.owl" --clobber
+
+      - uses: actions/upload-pages-artifact@v5
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v5
