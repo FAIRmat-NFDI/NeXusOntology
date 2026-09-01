@@ -1,13 +1,17 @@
-name: NeXus ontology release
+name: NeXus ontology Pages
 
 on:
   push:
-    branches: ['*']
-    tags: ['v*.*']
+    branches:
+      - main
+      - r2025_11
+      - PaNET-inspired
+    tags:
+      - 'v*.*'
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -30,7 +34,7 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: Install python deps
+      - name: Install Python deps
         run: |
           python -m pip install --upgrade pip
           pip install -r definitions/requirements.txt
@@ -44,31 +48,32 @@ jobs:
           widoco_url: https://github.com/dgarijo/Widoco/releases/download/v1.4.25/widoco-1.4.25-jar-with-dependencies_JDK-11.jar
         run: wget "${widoco_url}" -O widoco.jar
 
-      - name: Build release docs and ontology bundle
+      - name: Build Pages site at artifact root
         env:
           VERSION: ${{ github.ref_name }}
         run: |
-          mkdir -p "site/releases/${VERSION}"
-          mkdir -p site/latest
+          mkdir -p _site/releases/"${VERSION}"
+          mkdir -p _site/latest
 
-          cp ontology/NeXusOntology_full.owl "site/releases/${VERSION}/NeXusOntology_full.owl"
-          cp ontology/NeXusOntology_full.owl site/latest/NeXusOntology_full.owl
+          cp ontology/NeXusOntology_full.owl _site/NeXusOntology_full.owl
+          cp ontology/NeXusOntology_full.owl _site/latest/NeXusOntology_full.owl
 
           java -jar widoco.jar \
             -ontFile ontology/NeXusOntology_full.owl \
-            -outFolder "site/releases/${VERSION}/docs" \
+            -outFolder _site \
             -getOntologyMetadata \
             -includeAnnotationProperties \
             -rewriteAll
 
-          mv "site/releases/${VERSION}/docs/index-en.html" "site/releases/${VERSION}/docs/index.html"
-          cp -r "site/releases/${VERSION}/docs" site/latest/docs
-          cp "site/releases/${VERSION}/docs/index.html" site/latest/index.html
+          mv _site/index-en.html _site/index.html
+
+          cp ontology/NeXusOntology_full.owl "_site/releases/${VERSION}/NeXusOntology_full.owl"
+          cp _site/index.html _site/latest/index.html
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
-          path: ./site
+          path: ./_site
 
   deploy:
     needs: build
@@ -80,6 +85,5 @@ jobs:
       name: GitHub Pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
+      - id: deployment
         uses: actions/deploy-pages@v5
