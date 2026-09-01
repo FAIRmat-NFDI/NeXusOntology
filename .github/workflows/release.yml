@@ -1,0 +1,48 @@
+name: NeXus ontology release
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+'
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install python deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install owlready2 pygit2
+
+      - name: Generate ontology
+        run: python -m script.generate_ontology full
+
+      - name: Build docs
+        run: |
+          wget https://github.com/dgarijo/Widoco/releases/download/v1.4.25/widoco-1.4.25-jar-with-dependencies_JDK-11.jar -O widoco.jar
+          mkdir -p site/releases/${GITHUB_REF_NAME}
+          mkdir -p site/latest
+          cp ontology/NeXusOntology_full.owl site/releases/${GITHUB_REF_NAME}/NeXusOntology_full.owl
+          cp ontology/NeXusOntology_full.owl site/latest/NeXusOntology_full.owl
+          java -jar widoco.jar -ontFile ontology/NeXusOntology_full.owl -outFolder site/releases/${GITHUB_REF_NAME}/docs -getOntologyMetadata -includeAnnotationProperties -rewriteAll
+          cp -r site/releases/${GITHUB_REF_NAME}/docs site/latest/docs
+
+      - name: Upload release asset
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "${GITHUB_REF_NAME}" \
+            --title "${GITHUB_REF_NAME}" \
+            --notes "NeXus ontology release ${GITHUB_REF_NAME}" \
+            --verify-tag || true
+
+          gh release upload "${GITHUB_REF_NAME}" ontology/NeXusOntology_full.owl --clobber
