@@ -1,6 +1,8 @@
 name: NeXusOntology release on definitions release
 
 on:
+  push:
+    branches: ['*']
   schedule:
     - cron: "17 3 1 * *"   # 03:17 UTC on day 1 of every month
   workflow_dispatch:
