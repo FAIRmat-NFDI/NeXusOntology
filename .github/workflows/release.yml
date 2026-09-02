@@ -103,12 +103,11 @@ jobs:
           import os, sys
           sys.path.insert(0, os.getcwd())
           from script.generate_ontology import main
-          for full in (False, True):
-              main(full=full, testdata=False,
-                   nexus_def_path=os.path.abspath("definitions"),
-                   def_commit=os.environ["DEFS_TAG"],
-                   store_commit_filename=False,
-                   output_dir=os.path.abspath("build"))
+          main(full=True, testdata=False,
+               nexus_def_path=os.path.abspath("definitions"),
+               def_commit=os.environ["DEFS_TAG"],
+               store_commit_filename=False,
+               output_dir=os.path.abspath("build"))
           PY
           ls -lh build
 
@@ -127,7 +126,6 @@ jobs:
             --definitions-sha "${{ steps.resolve.outputs.sha }}" \
             --prior-version "${{ inputs.prior_version }}" \
             --release-url "https://github.com/${{ github.repository }}/releases/tag/${{ steps.resolve.outputs.tag }}"
-          cp build/NeXusOntology.owl dist/
           ls -lh dist
 
       - name: Download Widoco
@@ -193,7 +191,6 @@ jobs:
           mkdir -p "_site/${VERSION}"
           cp -r docs/* "_site/${VERSION}/"
           cp dist/NeXusOntology_full.* "_site/${VERSION}/"
-          cp dist/NeXusOntology.owl    "_site/${VERSION}/"
 
           rm -rf _site/latest
           cp -r "_site/${VERSION}" _site/latest
