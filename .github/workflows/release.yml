@@ -1,0 +1,269 @@
+name: Release NeXusOntology
+
+# One GitHub release of the ontology per nexusformat/definitions release.
+#
+# Design notes (see IMPLEMENTATION_NOTES.md for the full reasoning):
+#   * Triggered by a repository_dispatch from the definitions release, or
+#     manually. Deliberately NOT on push: a workflow that creates tags and
+#     releases must never fire on every commit.
+#   * The definitions repo is checked out at the release tag into a scratch
+#     path. The workflow never commits or pushes, so it cannot re-trigger
+#     itself and cannot rewrite the branch it runs on.
+#   * Build and validate first; deploy Pages and cut the release only after
+#     the build has passed.
+#   * The Pages site accumulates one directory per version plus `latest/`.
+
+on:
+  repository_dispatch:
+    types: [definitions_release]
+  workflow_dispatch:
+    inputs:
+      definitions_tag:
+        description: 'Definitions tag to build (e.g. v2026.01)'
+        required: true
+      prior_version:
+        description: 'Previous ontology version, for owl:priorVersion (e.g. v2025.11)'
+        required: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: nexusontology-release
+  cancel-in-progress: false
+
+env:
+  WIDOCO_VERSION: '1.4.25'
+  PAGES_BASE: 'https://fairmat-nfdi.github.io/NeXusOntology'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    outputs:
+      version: ${{ steps.resolve.outputs.tag }}
+      defs_sha: ${{ steps.resolve.outputs.sha }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Resolve definitions tag and commit
+        id: resolve
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            tag="${{ inputs.definitions_tag }}"
+          else
+            tag="${{ github.event.client_payload.tag }}"
+          fi
+          [ -n "$tag" ] || { echo "::error::no definitions tag supplied"; exit 1; }
+
+          # Prefer the dereferenced tag object (^{}) so annotated tags resolve
+          # to the commit rather than to the tag object itself.
+          sha=$(git ls-remote https://github.com/nexusformat/definitions \
+                  "refs/tags/${tag}^{}" | cut -f1)
+          if [ -z "$sha" ]; then
+            sha=$(git ls-remote https://github.com/nexusformat/definitions \
+                    "refs/tags/${tag}" | cut -f1)
+          fi
+          [ -n "$sha" ] || { echo "::error::tag ${tag} not found in nexusformat/definitions"; exit 1; }
+
+          echo "tag=$tag" >> "$GITHUB_OUTPUT"
+          echo "sha=$sha" >> "$GITHUB_OUTPUT"
+          echo "Building NeXusOntology from definitions ${tag} (${sha})"
+
+      - name: Check out definitions at the release tag
+        uses: actions/checkout@v4
+        with:
+          repository: nexusformat/definitions
+          ref: ${{ steps.resolve.outputs.sha }}
+          path: definitions
+          fetch-depth: 1
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      # Only what the generator actually imports. definitions/requirements.txt
+      # additionally drags in sphinx, matplotlib, h5py, black and flake8, none
+      # of which are used by script/generate_ontology.py.
+      - name: Install build dependencies
+        run: pip install --upgrade pip owlready2 pygit2 lxml rdflib
+
+      # main() is called directly rather than via `python -m`. The module's
+      # __main__ block uses pygit2 to check out a commit inside the definitions
+      # working tree as a side effect, which is not wanted here: we have
+      # already checked out the exact tag above.
+      - name: Generate ontology
+        env:
+          DEFS_TAG: ${{ steps.resolve.outputs.tag }}
+        run: |
+          set -euo pipefail
+          mkdir -p build
+          python - <<'PY'
+          import os, sys
+          sys.path.insert(0, os.getcwd())
+          from script.generate_ontology import main
+          for full in (False, True):
+              main(full=full, testdata=False,
+                   nexus_def_path=os.path.abspath("definitions"),
+                   def_commit=os.environ["DEFS_TAG"],
+                   store_commit_filename=False,
+                   output_dir=os.path.abspath("build"))
+          PY
+          ls -lh build
+
+      # Adds owl:versionIRI / owl:priorVersion / provenance, retypes the
+      # rdfs:seeAlso string literals as IRIs, mirrors them onto rdfs:isDefinedBy
+      # so Widoco renders them, and writes ttl/nt/jsonld for content negotiation.
+      - name: Post-process (version metadata, seeAlso links, serializations)
+        run: |
+          set -euo pipefail
+          python script/postprocess_release.py \
+            --in build/NeXusOntology_full.owl \
+            --outdir dist \
+            --basename NeXusOntology_full \
+            --version "${{ steps.resolve.outputs.tag }}" \
+            --definitions-tag "${{ steps.resolve.outputs.tag }}" \
+            --definitions-sha "${{ steps.resolve.outputs.sha }}" \
+            --prior-version "${{ inputs.prior_version }}" \
+            --release-url "https://github.com/${{ github.repository }}/releases/tag/${{ steps.resolve.outputs.tag }}"
+          cp build/NeXusOntology.owl dist/
+          ls -lh dist
+
+      - name: Download Widoco
+        run: |
+          set -euo pipefail
+          curl -fsSL -o widoco.jar \
+            "https://github.com/dgarijo/Widoco/releases/download/v${WIDOCO_VERSION}/widoco-${WIDOCO_VERSION}-jar-with-dependencies_JDK-17.jar"
+          ls -lh widoco.jar
+
+      # -uniteSections is REQUIRED. NeXus entity IRIs are hash IRIs
+      # (…/definitions#NXentry), so every term must be reachable as a fragment
+      # of a single page. Splitting into sections/*.html breaks per-IRI
+      # resolution entirely.
+      #
+      # These are boolean flags and take no argument. Passing e.g.
+      # `-rewriteAll true` silently feeds Widoco a stray positional argument.
+      - name: Build documentation
+        timeout-minutes: 90
+        run: |
+          set -euo pipefail
+          mkdir -p docs
+          java -Xmx6g -jar widoco.jar \
+            -ontFile dist/NeXusOntology_full.owl \
+            -outFolder docs \
+            -getOntologyMetadata \
+            -includeAnnotationProperties \
+            -uniteSections \
+            -noPlaceHolderText \
+            -rewriteAll \
+            -webVowl
+          test -f docs/index-en.html
+
+      # Guards the two things this pipeline exists to deliver. Cheap, and it
+      # fails the build rather than publishing a release that silently lost
+      # per-IRI resolution or the manual links.
+      - name: Verify per-IRI anchors and manual links
+        run: |
+          set -euo pipefail
+          for term in NXentry NXdata NXinstrument; do
+            grep -q "id=\"${term}\"" docs/index-en.html \
+              || { echo "::error::missing documentation anchor for ${term}"; exit 1; }
+          done
+          grep -q 'manual.nexusformat.org' docs/index-en.html \
+            || { echo "::error::no manual.nexusformat.org links rendered in documentation"; exit 1; }
+          echo "anchors and manual links OK"
+
+      # actions/deploy-pages replaces the entire site. Without seeding from the
+      # currently published content, every release would silently delete its
+      # predecessors and the versioned w3id redirects would start 404ing.
+      - name: Assemble site (preserving previously released versions)
+        env:
+          VERSION: ${{ steps.resolve.outputs.tag }}
+        run: |
+          set -euo pipefail
+          if git ls-remote --exit-code --heads origin gh-pages >/dev/null 2>&1; then
+            git clone --depth 1 --branch gh-pages \
+              "https://github.com/${GITHUB_REPOSITORY}.git" _site
+            rm -rf _site/.git
+          else
+            mkdir -p _site
+          fi
+
+          mkdir -p "_site/${VERSION}"
+          cp -r docs/* "_site/${VERSION}/"
+          cp dist/NeXusOntology_full.* "_site/${VERSION}/"
+          cp dist/NeXusOntology.owl    "_site/${VERSION}/"
+
+          rm -rf _site/latest
+          cp -r "_site/${VERSION}" _site/latest
+
+          # Root of the site redirects to the latest documentation.
+          cat > _site/index.html <<'HTML'
+          <!DOCTYPE html>
+          <meta charset="utf-8">
+          <title>NeXusOntology</title>
+          <meta http-equiv="refresh" content="0; url=./latest/index-en.html">
+          <link rel="canonical" href="./latest/index-en.html">
+          <p>Redirecting to the <a href="./latest/index-en.html">latest NeXusOntology documentation</a>.</p>
+          HTML
+
+          ls _site
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: release-assets
+          path: dist/
+          retention-days: 7
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy-pages:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  release:
+    needs: [build, deploy-pages]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: release-assets
+          path: dist
+
+      - name: Create GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ needs.build.outputs.version }}
+          name: NeXusOntology ${{ needs.build.outputs.version }}
+          generate_release_notes: true
+          body: |
+            NeXusOntology generated from
+            [nexusformat/definitions ${{ needs.build.outputs.version }}](https://github.com/nexusformat/definitions/tree/${{ needs.build.outputs.defs_sha }}).
+
+            - Documentation: ${{ env.PAGES_BASE }}/${{ needs.build.outputs.version }}/index-en.html
+            - Namespace: `https://w3id.org/PaN/NeXus/definitions`
+            - Version IRI: `https://w3id.org/PaN/NeXus/definitions/${{ needs.build.outputs.version }}`
+
+            Persistent identifiers:
+
+            - This version: https://w3id.org/PaN/NeXus/definitions/${{ needs.build.outputs.version }}
+            - Latest: https://w3id.org/PaN/NeXus/definitions
+
+            Individual terms resolve to their own section of the documentation,
+            e.g. https://w3id.org/PaN/NeXus/definitions#NXentry
+          files: dist/*
