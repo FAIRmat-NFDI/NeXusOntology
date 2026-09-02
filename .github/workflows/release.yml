@@ -155,7 +155,6 @@ jobs:
             -uniteSections \
             -noPlaceHolderText \
             -rewriteAll \
-            -webVowl
           test -f docs/index-en.html
 
       # Guards the two things this pipeline exists to deliver. Cheap, and it
