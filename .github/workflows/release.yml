@@ -39,7 +39,7 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 45
     outputs:
       version: ${{ steps.resolve.outputs.tag }}
       defs_sha: ${{ steps.resolve.outputs.sha }}
@@ -52,8 +52,10 @@ jobs:
           set -euo pipefail
           if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
             tag="${{ inputs.definitions_tag }}"
+            prior="${{ inputs.prior_version }}"
           else
             tag="${{ github.event.client_payload.tag }}"
+            prior="${{ github.event.client_payload.prior_version }}"
           fi
           [ -n "$tag" ] || { echo "::error::no definitions tag supplied"; exit 1; }
 
@@ -69,6 +71,7 @@ jobs:
 
           echo "tag=$tag" >> "$GITHUB_OUTPUT"
           echo "sha=$sha" >> "$GITHUB_OUTPUT"
+          echo "prior=$prior" >> "$GITHUB_OUTPUT"
           echo "Building NeXusOntology from definitions ${tag} (${sha})"
 
       - name: Check out definitions at the release tag
@@ -124,7 +127,7 @@ jobs:
             --version "${{ steps.resolve.outputs.tag }}" \
             --definitions-tag "${{ steps.resolve.outputs.tag }}" \
             --definitions-sha "${{ steps.resolve.outputs.sha }}" \
-            --prior-version "${{ inputs.prior_version }}" \
+            --prior-version "${{ steps.resolve.outputs.prior }}" \
             --release-url "https://github.com/${{ github.repository }}/releases/tag/${{ steps.resolve.outputs.tag }}"
           ls -lh dist
 
@@ -143,7 +146,7 @@ jobs:
       # These are boolean flags and take no argument. Passing e.g.
       # `-rewriteAll true` silently feeds Widoco a stray positional argument.
       - name: Build documentation
-        timeout-minutes: 90
+        timeout-minutes: 30
         run: |
           set -euo pipefail
           mkdir -p docs
@@ -206,6 +209,30 @@ jobs:
 
           ls _site
 
+      # The read side above (git ls-remote / clone gh-pages) only works if a
+      # gh-pages branch actually exists. It never will on its own: the
+      # actions/deploy-pages method (used below) publishes straight to
+      # GitHub's Pages storage and never creates or touches any git branch —
+      # unlike the older branch-based Pages workflow. So without this step,
+      # the "if" above would never find anything, always fall through to
+      # starting fresh, and silently delete every previous version on every
+      # release. This step makes the workflow maintain gh-pages itself, purely
+      # as storage, so the next run's read-side actually has something real
+      # to find. One squashed commit per release, force-pushed, so this
+      # archive branch doesn't accumulate years of meaningless history.
+      - name: Persist site history to gh-pages (storage only, not the live site)
+        run: |
+          set -euo pipefail
+          cd _site
+          git init -q
+          git add -A
+          git -c user.name="github-actions[bot]" \
+              -c user.email="github-actions[bot]@users.noreply.github.com" \
+              commit -q -m "Publish ${{ steps.resolve.outputs.tag }}"
+          git push --force \
+            "https://x-access-token:${{ github.token }}@github.com/${GITHUB_REPOSITORY}.git" \
+            HEAD:gh-pages
+
       - uses: actions/upload-artifact@v4
         with:
           name: release-assets
@@ -245,6 +272,7 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: ${{ needs.build.outputs.version }}
+          target_commitish: ${{ github.sha }}
           name: NeXusOntology ${{ needs.build.outputs.version }}
           generate_release_notes: true
           body: |
