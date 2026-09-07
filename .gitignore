@@ -195,3 +195,9 @@ cython_debug/
 # Custom settings
 
 .ontology/
+
+# Local build artifacts (produced by the release workflow when run locally)
+# build/, dist/ and *.log are already covered by the Python rules above.
+widoco.jar
+/docs/
+/_site/
