@@ -66,6 +66,8 @@ def stamp_version(g: Graph, version: str, defs_tag: str, defs_sha: str,
     g.add((BASE, DCTERMS.hasVersion, Literal(version)))
     g.add((BASE, DCTERMS.source, URIRef(
         f"https://github.com/nexusformat/definitions/tree/{defs_sha}")))
+    g.set((BASE, DCTERMS.license,
+           URIRef("https://www.gnu.org/licenses/lgpl-3.0.html")))
     g.add((BASE, RDFS.comment, Literal(
         f"Generated from nexusformat/definitions {defs_tag} ({defs_sha[:7]}).")))
     if prior:
