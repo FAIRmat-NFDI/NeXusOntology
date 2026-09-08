@@ -275,7 +275,7 @@ jobs:
           generate_release_notes: true
           body: |
             NeXusOntology generated from
-            [nexusformat/definitions ${{ needs.build.outputs.version }}](https://github.com/nexusformat/definitions/tree/${{ needs.build.outputs.defs_sha }}).
+            [nexusformat/definitions ${{ needs.build.outputs.version }}](https://github.com/nexusformat/definitions/releases/tag/${{ needs.build.outputs.version }}).
 
             - Documentation: ${{ env.PAGES_BASE }}/${{ needs.build.outputs.version }}/index-en.html
             - Namespace: `https://w3id.org/PaN/NeXus/definitions`
