@@ -1,21 +1,13 @@
 name: Release NeXusOntology
 
-# One GitHub release of the ontology per nexusformat/definitions release.
-#
-# Design notes (see IMPLEMENTATION_NOTES.md for the full reasoning):
-#   * Triggered by a repository_dispatch from the definitions release, or
-#     manually. Deliberately NOT on push: a workflow that creates tags and
-#     releases must never fire on every commit.
-#   * The definitions repo is checked out at the release tag into a scratch
-#     path. The workflow never commits or pushes, so it cannot re-trigger
-#     itself and cannot rewrite the branch it runs on.
-#   * Build and validate first; deploy Pages and cut the release only after
-#     the build has passed.
-#   * The Pages site accumulates one directory per version plus `latest/`.
+# Builds and publishes one release per nexusformat/definitions version.
+# Manual trigger only (see workflow_dispatch below). Build/validate first;
+# Pages deploy and the GitHub release only happen after that passes. The
+# Pages site keeps one folder per version plus `latest/`.
 
 on:
-  repository_dispatch:
-    types: [definitions_release]
+  # repository_dispatch:
+  #   types: [definitions_release]
   workflow_dispatch:
     inputs:
       definitions_tag:
@@ -59,6 +51,19 @@ jobs:
           fi
           [ -n "$tag" ] || { echo "::error::no definitions tag supplied"; exit 1; }
 
+          # Default to whatever GitHub currently shows as latest, if not
+          # explicitly given. Skips drafts/pre-releases; 404s (first-ever
+          # release) just leave $prior empty.
+          if [ -z "$prior" ]; then
+            prior=$(curl -fsSL \
+                      -H "Authorization: Bearer ${{ github.token }}" \
+                      -H "Accept: application/vnd.github+json" \
+                      "https://api.github.com/repos/${{ github.repository }}/releases/latest" \
+                    | python3 -c "import sys, json; print(json.load(sys.stdin).get('tag_name', ''))" \
+                    2>/dev/null || true)
+            [ -n "$prior" ] && echo "Auto-detected prior version: $prior"
+          fi
+
           # Prefer the dereferenced tag object (^{}) so annotated tags resolve
           # to the commit rather than to the tag object itself.
           sha=$(git ls-remote https://github.com/nexusformat/definitions \
@@ -84,18 +89,14 @@ jobs:
 
       - uses: actions/setup-python@v5
         with:
-          python-version: '3.11'
+          python-version: '3.14'
 
-      # Only what the generator actually imports. definitions/requirements.txt
-      # additionally drags in sphinx, matplotlib, h5py, black and flake8, none
-      # of which are used by script/generate_ontology.py.
+      # Install Python dependencies of the ontology generator at script/generate_ontology.py.
       - name: Install build dependencies
         run: pip install --upgrade pip owlready2 pygit2 lxml rdflib
 
-      # main() is called directly rather than via `python -m`. The module's
-      # __main__ block uses pygit2 to check out a commit inside the definitions
-      # working tree as a side effect, which is not wanted here: we have
-      # already checked out the exact tag above.
+      # Calls main() directly rather than via __main__, which would otherwise
+      # re-checkout a commit inside definitions/ as a side effect.
       - name: Generate ontology
         env:
           DEFS_TAG: ${{ steps.resolve.outputs.tag }}
@@ -114,9 +115,7 @@ jobs:
           PY
           ls -lh build
 
-      # Adds owl:versionIRI / owl:priorVersion / provenance, retypes the
-      # rdfs:seeAlso string literals as IRIs, mirrors them onto rdfs:isDefinedBy
-      # so Widoco renders them, and writes ttl/nt/jsonld for content negotiation.
+      # Stamps version metadata, fixes seeAlso so Widoco renders it, writes ttl/nt/jsonld.
       - name: Post-process (version metadata, seeAlso links, serializations)
         run: |
           set -euo pipefail
@@ -138,13 +137,9 @@ jobs:
             "https://github.com/dgarijo/Widoco/releases/download/v${WIDOCO_VERSION}/widoco-${WIDOCO_VERSION}-jar-with-dependencies_JDK-17.jar"
           ls -lh widoco.jar
 
-      # -uniteSections is REQUIRED. NeXus entity IRIs are hash IRIs
-      # (…/definitions#NXentry), so every term must be reachable as a fragment
-      # of a single page. Splitting into sections/*.html breaks per-IRI
-      # resolution entirely.
-      #
-      # These are boolean flags and take no argument. Passing e.g.
-      # `-rewriteAll true` silently feeds Widoco a stray positional argument.
+      # -uniteSections required: NeXus IRIs are hash IRIs, every term must be
+      # a fragment of one page. These flags take no argument (e.g. `-rewriteAll
+      # true` feeds Widoco a stray positional arg).
       - name: Build documentation
         timeout-minutes: 30
         run: |
@@ -160,9 +155,6 @@ jobs:
             -rewriteAll
           test -f docs/index-en.html
 
-      # Guards the two things this pipeline exists to deliver. Cheap, and it
-      # fails the build rather than publishing a release that silently lost
-      # per-IRI resolution or the manual links.
       - name: Verify per-IRI anchors and manual links
         run: |
           set -euo pipefail
@@ -174,9 +166,9 @@ jobs:
             || { echo "::error::no manual.nexusformat.org links rendered in documentation"; exit 1; }
           echo "anchors and manual links OK"
 
-      # actions/deploy-pages replaces the entire site. Without seeding from the
-      # currently published content, every release would silently delete its
-      # predecessors and the versioned w3id redirects would start 404ing.
+      # deploy-pages replaces the whole site each run, so this seeds from
+      # whatever's already published — otherwise every release would delete
+      # its predecessors and old versioned redirects would 404.
       - name: Assemble site (preserving previously released versions)
         env:
           VERSION: ${{ steps.resolve.outputs.tag }}
@@ -197,6 +189,20 @@ jobs:
           rm -rf _site/latest
           cp -r "_site/${VERSION}" _site/latest
 
+          # Widoco's page is index-en.html, not index.html, so bare folder
+          # URLs (…/latest/) 404 without this. Covers old folders too.
+          for dir in _site/*/; do
+            if [ -f "${dir}index-en.html" ] && [ ! -f "${dir}index.html" ]; then
+              cat > "${dir}index.html" <<HTML
+          <!DOCTYPE html>
+          <meta charset="utf-8">
+          <meta http-equiv="refresh" content="0; url=./index-en.html">
+          <link rel="canonical" href="./index-en.html">
+          <p>Redirecting to <a href="./index-en.html">the documentation</a>.</p>
+          HTML
+            fi
+          done
+
           # Root of the site redirects to the latest documentation.
           cat > _site/index.html <<'HTML'
           <!DOCTYPE html>
@@ -209,17 +215,9 @@ jobs:
 
           ls _site
 
-      # The read side above (git ls-remote / clone gh-pages) only works if a
-      # gh-pages branch actually exists. It never will on its own: the
-      # actions/deploy-pages method (used below) publishes straight to
-      # GitHub's Pages storage and never creates or touches any git branch —
-      # unlike the older branch-based Pages workflow. So without this step,
-      # the "if" above would never find anything, always fall through to
-      # starting fresh, and silently delete every previous version on every
-      # release. This step makes the workflow maintain gh-pages itself, purely
-      # as storage, so the next run's read-side actually has something real
-      # to find. One squashed commit per release, force-pushed, so this
-      # archive branch doesn't accumulate years of meaningless history.
+      # actions/deploy-pages never creates a git branch, so there's nothing
+      # for the read-side above to find on its own. This step maintains
+      # gh-pages itself as storage (one squashed commit per release).
       - name: Persist site history to gh-pages (storage only, not the live site)
         run: |
           set -euo pipefail
