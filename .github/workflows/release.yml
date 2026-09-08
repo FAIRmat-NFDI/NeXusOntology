@@ -130,6 +130,14 @@ jobs:
             --release-url "https://github.com/${{ github.repository }}/releases/tag/${{ steps.resolve.outputs.tag }}"
           ls -lh dist
 
+      - name: Reason over ontology
+        run: |
+          set -euo pipefail
+          python script/reason_ontology.py \
+            --in dist/NeXusOntology_full.owl \
+            --out dist/NeXusOntology_full_reasoned.owl
+          ls -lh dist/NeXusOntology_full_reasoned.owl
+
       - name: Download Widoco
         run: |
           set -euo pipefail
@@ -185,6 +193,7 @@ jobs:
           mkdir -p "_site/${VERSION}"
           cp -r docs/* "_site/${VERSION}/"
           cp dist/NeXusOntology_full.* "_site/${VERSION}/"
+          cp dist/NeXusOntology_full_reasoned.owl "_site/${VERSION}/"
 
           rm -rf _site/latest
           cp -r "_site/${VERSION}" _site/latest
